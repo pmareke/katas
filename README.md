@@ -7,3 +7,4 @@ Repository with solutions to several katas from [Codurance](https://katalyst.cod
 
 ## Begineer
 - [X] [Leap Year.](https://katalyst.codurance.com/leap-year)
+- [ ] [Roman Numerals](https://katalyst.codurance.com/roman-numerals)

@@ -2,7 +2,7 @@
 
 Repository with solutions to several katas from [Codurance](https://katalyst.codurance.com/browse):
 
-- [ ] [FizzBuzz.](https://katalyst.codurance.com/fizzbuzz)
+- [X] [FizzBuzz.](https://katalyst.codurance.com/fizzbuzz)
 - [ ] [Leap Year.](https://katalyst.codurance.com/leap-year)
 - [ ] [String Calculator.](https://katalyst.codurance.com/string-calculator)
 - [ ] [Tennis.](https://github.com/emilybache/Tennis-Refactoring-Kata)

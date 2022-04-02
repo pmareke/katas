@@ -6,4 +6,4 @@ Repository with solutions to several katas from [Codurance](https://katalyst.cod
 - [X] [FizzBuzz.](https://katalyst.codurance.com/fizzbuzz)
 
 ## Begineer
-- [ ] [Leap Year.](https://katalyst.codurance.com/leap-year)
+- [X] [Leap Year.](https://katalyst.codurance.com/leap-year)

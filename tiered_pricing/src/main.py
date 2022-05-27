@@ -23,8 +23,9 @@ class Subscription:
             {"min": 11, "max": 25, "unit_price": 219},
             {"min": 26, "max": 50, "unit_price": 199},
         ]
+        MINIMUM_UNIT_PRICE = 149
 
         for r in ranges:
             if self.subscriptions in range(r["min"], r["max"] + 1):
                 return r["unit_price"]
-        return 149
+        return MINIMUM_UNIT_PRICE

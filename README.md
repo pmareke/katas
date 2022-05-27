@@ -11,3 +11,6 @@ Repository with solutions to several katas from [Codurance](https://katalyst.cod
 - [X] [String Calculator](https://katalyst.codurance.com/string-calculator)
 - [X] [Text Processing](https://katalyst.codurance.com/text-processing)
 - [X] [Simple Mars Rover](https://katalyst.codurance.com/simple-mars-rover)
+
+## Codely
+- [X] [Tiered pricing](https://github.com/CodelyTV/refactoring-code-smells/tree/master/exercises/tiered_pricing)

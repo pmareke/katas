@@ -17,7 +17,7 @@ class Subscription:
     # PRIVATE
 
     def unit_price(self) -> int:
-        ranges = [
+        unit_price_by_number_of_subscriptions = [
             {"min": 1, "max": 2, "unit_price": 299},
             {"min": 3, "max": 10, "unit_price": 239},
             {"min": 11, "max": 25, "unit_price": 219},
@@ -25,7 +25,7 @@ class Subscription:
         ]
         MINIMUM_UNIT_PRICE = 149
 
-        for r in ranges:
-            if self.subscriptions in range(r["min"], r["max"] + 1):
-                return r["unit_price"]
+        for entry in unit_price_by_number_of_subscriptions:
+            if self.subscriptions in range(entry["min"], entry["max"] + 1):
+                return entry["unit_price"]
         return MINIMUM_UNIT_PRICE

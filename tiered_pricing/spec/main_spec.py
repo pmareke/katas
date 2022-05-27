@@ -3,8 +3,7 @@ from expects import expect, equal, raise_error
 from src.main import Subscription, InvalidSubscriptionNumber
 
 with description("Tiered Pricing") as self:
-    with it("#total_price"):
-
+    with it("a valid numnber of subscriptions"):
         tt = [
             {"subscriptions": 1, "total": 299},
             {"subscriptions": 2, "total": 598},

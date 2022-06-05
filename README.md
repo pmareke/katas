@@ -12,5 +12,8 @@ Repository with solutions to several katas from [Codurance](https://katalyst.cod
 - [X] [Text Processing](https://katalyst.codurance.com/text-processing)
 - [X] [Simple Mars Rover](https://katalyst.codurance.com/simple-mars-rover)
 
+## Medium
+- [ ] [Potter](https://codingdojo.org/kata/Potter/)
+
 ## Codely
 - [X] [Tiered pricing](https://github.com/CodelyTV/refactoring-code-smells/tree/master/exercises/tiered_pricing)

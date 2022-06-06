@@ -16,4 +16,4 @@ from main import Potter
 )
 class TestPotter:
     def test_basics(self, price: int, items: List[int]) -> None:
-        assert price, Potter.price(items)
+        assert price == Potter.price(items)

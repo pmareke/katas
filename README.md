@@ -13,6 +13,7 @@ Repository with solutions to several katas from [Codurance](https://katalyst.cod
 - [X] [Simple Mars Rover](https://katalyst.codurance.com/simple-mars-rover)
 
 ## Medium
+- [ ] [Gilded Rose](https://github.com/NotMyself/GildedRose)
 - [ ] [Potter](https://codingdojo.org/kata/Potter/)
 
 ## Codely

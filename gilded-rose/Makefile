@@ -7,11 +7,11 @@ help:  ## Show this help.
 
 .PHONY: test
 test: ## run tests
-	pytest tests/
+	pytest -p no:cacheprovider tests/
 
 .PHONY: fixtures
 fixtures: ## run fixtures
-	python3 fixtures/texttest_fixture.py
+	python3 tests/fixtures/texttest_fixture.py
 
 .PHONY: check-typing
 check-typing: ## check types

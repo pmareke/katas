@@ -1,8 +1,7 @@
-import pytest
-
 from expects import expect, equal
-from app.gilded_rose import GildedRose
+
 from app.domain.item import Item
+from app.gilded_rose import GildedRose
 
 
 class TestGildedRose:

@@ -8,15 +8,21 @@ class TestGildedRose:
         verify_all_combinations(
             self._update_quality,
             [
-                ["foo"],
-                [0],
-                [0],
+                [
+                    "foo",
+                    "Aged Brie",
+                    "Backstage passes to a TAFKAL80ETC concert",
+                    "Sulfuras, Hand of Ragnaros",
+                ],
+                [0, 1, 49, 50],
+                [-1, 0, 6, 11],
             ],
         )
 
     @staticmethod
     def _update_quality(name: str, quality: int, sell_in: int) -> str:
-        items = [Item(name, sell_in, quality)]
-        gilded_rose = GildedRose(items)
+        gilded_rose = GildedRose([Item(name, sell_in, quality)])
+
         gilded_rose.update_quality()
+
         return f"{gilded_rose.items[0]}"

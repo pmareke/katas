@@ -1,5 +1,6 @@
 from approvaltests.combination_approvals import verify_all_combinations
-from app.domain.item import Item
+
+from app.domain.item_factory import ItemFactory
 from app.gilded_rose import GildedRose
 
 
@@ -21,7 +22,7 @@ class TestGildedRose:
 
     @staticmethod
     def _update_quality(name: str, quality: int, sell_in: int) -> str:
-        gilded_rose = GildedRose([Item(name, sell_in, quality)])
+        gilded_rose = GildedRose([ItemFactory.make(name, sell_in, quality)])
 
         gilded_rose.update_quality()
 

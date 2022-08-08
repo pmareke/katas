@@ -1,0 +1,17 @@
+from app.domain.aged_brie import AgedBrieItem
+from app.domain.backstage_item import BackstageItem
+from app.domain.base_item import BaseItem
+from app.domain.item import Item
+from app.domain.sulfuras_item import SulfurasItem
+
+
+class ItemFactory:
+    @staticmethod
+    def make(name: str, sell_in: int, quality: int) -> Item:
+        if name == "Aged Brie":
+            return AgedBrieItem(name, sell_in, quality)
+        if name == "Backstage passes to a TAFKAL80ETC concert":
+            return BackstageItem(name, sell_in, quality)
+        if name == "Sulfuras, Hand of Ragnaros":
+            return SulfurasItem(name, sell_in, quality)
+        return BaseItem(name, sell_in, quality)

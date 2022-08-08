@@ -1,11 +1,14 @@
-from dataclasses import dataclass
+from abc import ABC, abstractmethod
 
 
-@dataclass(repr=False, eq=False)
-class Item:
+class Item(ABC):
     name: str
     sell_in: int
     quality: int
+
+    @abstractmethod
+    def update(self) -> None:
+        raise NotImplementedError
 
     def __repr__(self) -> str:
         return f"{self.name}, {self.sell_in}, {self.quality}"

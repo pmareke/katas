@@ -1,13 +1,9 @@
-from dataclasses import dataclass
-
 from app.domain.item import Item
 
 
-@dataclass(repr=False, eq=False)
 class AgedBrieItem(Item):
-    name = "Aged Brie"
-    sell_in: int
-    quality: int
+    def __init__(self, sell_in: int, quality: int):
+        super().__init__("Aged Brie", sell_in, quality)
 
     def update(self) -> None:
         if self.quality < 50:

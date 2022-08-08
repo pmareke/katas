@@ -1,6 +1,7 @@
-from app.domain.aged_brie import AgedBrieItem
+from app.domain.aged_brie_item import AgedBrieItem
 from app.domain.backstage_item import BackstageItem
 from app.domain.item import Item
+from app.domain.regular_item import RegularItem
 from app.domain.sulfuras_item import SulfurasItem
 
 
@@ -13,4 +14,4 @@ class ItemFactory:
             return BackstageItem(sell_in, quality)
         if name == "Sulfuras, Hand of Ragnaros":
             return SulfurasItem(sell_in, quality)
-        return Item(name, sell_in, quality)
+        return RegularItem(name, sell_in, quality)

@@ -23,8 +23,7 @@ class TestGildedRose:
     @staticmethod
     def _update_quality(name: str, quality: int, sell_in: int) -> str:
         item = ItemFactory.create_item(name, sell_in, quality)
-        gilded_rose = GildedRose([item])
 
-        gilded_rose.update_quality()
+        GildedRose.update_quality([item])
 
         return f"{item}"

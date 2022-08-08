@@ -1,6 +1,6 @@
 # Katas
 
-Repository with solutions to several katas from [Codurance](https://katalyst.codurance.com/browse):
+Repository with solutions to several katas:
 
 ## Novice:
 - [X] [FizzBuzz.](https://katalyst.codurance.com/fizzbuzz)

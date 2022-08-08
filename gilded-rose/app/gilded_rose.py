@@ -4,7 +4,7 @@ from typing import List
 from app.domain.item import Item
 
 
-@dataclass
+@dataclass(repr=False, eq=False)
 class GildedRose:
     items: List[Item]
 

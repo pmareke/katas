@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 
-@dataclass(repr=False)
+@dataclass(repr=False, eq=False)
 class Item:
     name: str
     sell_in: int

@@ -5,7 +5,7 @@ from app.domain.item import Item
 
 @dataclass(repr=False, eq=False)
 class AgedBrieItem(Item):
-    name: str
+    name = "Aged Brie"
     sell_in: int
     quality: int
 

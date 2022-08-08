@@ -5,7 +5,7 @@ from app.domain.item import Item
 
 @dataclass(repr=False, eq=False)
 class SulfurasItem(Item):
-    name: str
+    name = "Sulfuras, Hand of Ragnaros"
     sell_in: int
     quality: int
 

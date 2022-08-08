@@ -5,7 +5,7 @@ from app.domain.item import Item
 
 @dataclass(repr=False, eq=False)
 class BackstageItem(Item):
-    name: str
+    name = "Backstage passes to a TAFKAL80ETC concert"
     sell_in: int
     quality: int
 

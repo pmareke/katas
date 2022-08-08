@@ -9,9 +9,9 @@ class ItemFactory:
     @staticmethod
     def make(name: str, sell_in: int, quality: int) -> Item:
         if name == "Aged Brie":
-            return AgedBrieItem(name, sell_in, quality)
+            return AgedBrieItem(sell_in, quality)
         if name == "Backstage passes to a TAFKAL80ETC concert":
-            return BackstageItem(name, sell_in, quality)
+            return BackstageItem(sell_in, quality)
         if name == "Sulfuras, Hand of Ragnaros":
-            return SulfurasItem(name, sell_in, quality)
+            return SulfurasItem(sell_in, quality)
         return BaseItem(name, sell_in, quality)

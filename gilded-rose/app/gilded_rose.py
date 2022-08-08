@@ -1,11 +1,13 @@
+from dataclasses import dataclass
 from typing import List
 
 from app.domain.item import Item
 
 
+@dataclass
 class GildedRose:
-    def __init__(self, items: List[Item]):
-        self.items = items
+    items: List[Item]
 
     def update_quality(self) -> None:
-        [item.update() for item in self.items]
+        for item in self.items:
+            item.update()

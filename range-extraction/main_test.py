@@ -23,4 +23,5 @@ from main import RangeExtraction
 )
 class TestRangeExtraction:
     def test_extracts_a_range(self, input: List[int], output: str) -> None:
-        expect(RangeExtraction.extract(input)).to(equal(output))
+        range_extraction = RangeExtraction(input)
+        expect(range_extraction.extract()).to(equal(output))

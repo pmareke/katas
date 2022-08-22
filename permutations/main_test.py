@@ -16,6 +16,7 @@ from main import Permutations
 )
 class TestPermutastions:
     def test_permutates_a_word(self, input: str, output: List[str]) -> None:
-        permutations = Permutations.process(input)
+        permutations = Permutations()
+        perms = permutations.process(input)
         for entry in output:
-            expect(permutations).to(contain(entry))
+            expect(perms).to(contain(entry))

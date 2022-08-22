@@ -2,19 +2,20 @@ from typing import List
 
 
 class Permutations:
-    @staticmethod
-    def process(input: str) -> List[str]:
-        if len(input) == 1:
-            return [input]
+    def process(self, word: str) -> List[str]:
+        if len(word) == 0:
+            return []
+        if len(word) == 1:
+            return [word]
 
-        permutations: List[str] = [input]
+        permutations: List[str] = []
+        for index in range(len(word)):
+            first = word[index]
 
-        for x in range(0, len(input)):
-            for y in range(0, len(input)):
-                if input[x] != input[y]:
-                    tmp = [*input]
-                    tmp[x] = input[y]
-                    tmp[y] = input[x]
-                    permutations.append("".join(tmp))
+            tail = word[:index] + word[index + 1 :]
+
+            for permutation in self.process(tail):
+                item = first + permutation
+                permutations.append("".join(item))
 
         return list(set(permutations))

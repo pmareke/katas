@@ -19,7 +19,7 @@ class RangeExtraction:
                 current_range = [self.input[index + 1]]
             else:  # Next number is consecutive
                 current_range.append(number + 1)
-        return self._generate_extraction()
+        return ",".join(self._ranges)
 
     def _add_range(self, range_list: List[int]) -> None:
         first = range_list[0]
@@ -27,12 +27,5 @@ class RangeExtraction:
         if len(range_list) == 1:
             self._ranges.append(str(first))
         else:
-            separator = self._separator(range_list)
+            separator = "-" if len(range_list) > 2 else ","
             self._ranges.append(f"{first}{separator}{last}")
-
-    @staticmethod
-    def _separator(range_list: List[int]) -> str:
-        return "-" if len(range_list) > 2 else ","
-
-    def _generate_extraction(self) -> str:
-        return ",".join(self._ranges)

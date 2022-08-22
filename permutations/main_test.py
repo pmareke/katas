@@ -1,6 +1,6 @@
 from typing import List
 
-from expects import equal, expect
+from expects import contain, expect
 import pytest
 
 from main import Permutations
@@ -16,4 +16,6 @@ from main import Permutations
 )
 class TestPermutastions:
     def test_permutates_a_word(self, input: str, output: List[str]) -> None:
-        expect(Permutations.process(input)).to(equal(output))
+        permutations = Permutations.process(input)
+        for entry in output:
+            expect(permutations).to(contain(entry))

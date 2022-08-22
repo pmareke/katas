@@ -1,9 +1,10 @@
+from dataclasses import dataclass
 from typing import List
 
 
+@dataclass
 class RangeExtraction:
-    def __init__(self, input: List[int]):
-        self.input = input
+    input: List[int]
 
     def extract(self) -> str:
         string_ranges: List[str] = []

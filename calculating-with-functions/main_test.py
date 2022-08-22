@@ -25,6 +25,7 @@ from main import (
         (four(plus(nine())), 13),
         (eight(minus(three())), 5),
         (six(divided_by(two())), 3),
+        (eight(divided_by(three())), 2),
     ],
 )
 class TestCalculatingWithFunctions:

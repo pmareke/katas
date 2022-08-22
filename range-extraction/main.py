@@ -6,7 +6,7 @@ from typing import List
 class RangeExtraction:
     input: List[int]
 
-    def extract(self) -> str:
+    def process(self) -> str:
         string_ranges: List[str] = []
         current_range: List[int] = []
         for index, number in enumerate(self.input):

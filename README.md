@@ -16,7 +16,7 @@ Repository with solutions to several katas:
 - [X] [Gilded Rose](https://github.com/NotMyself/GildedRose)
 - [ ] [Potter](https://codingdojo.org/kata/Potter/)
 - [X] [Range extraction](https://www.codewars.com/kata/51ba717bb08c1cd60f00002f)
-- [ ] [Sum of Pairs](https://www.codewars.com/kata/54d81488b981293527000c8f)
+- [X] [Sum of Pairs](https://www.codewars.com/kata/54d81488b981293527000c8f)
 
 ## Codely
 - [X] [Tiered pricing](https://github.com/CodelyTV/refactoring-code-smells/tree/master/exercises/tiered_pricing)

@@ -17,6 +17,7 @@ Repository with solutions to several katas:
 - [ ] [Potter](https://codingdojo.org/kata/Potter/)
 - [X] [Range extraction](https://www.codewars.com/kata/51ba717bb08c1cd60f00002f)
 - [X] [Sum of Pairs](https://www.codewars.com/kata/54d81488b981293527000c8f)
+- [ ] [Permutations](https://www.codewars.com/kata/5254ca2719453dcc0b00027d)
 
 ## Codely
 - [X] [Tiered pricing](https://github.com/CodelyTV/refactoring-code-smells/tree/master/exercises/tiered_pricing)

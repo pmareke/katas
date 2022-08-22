@@ -4,7 +4,7 @@ from typing import List
 class RangeExtraction:
     def __init__(self, input: List[int]):
         self.input = input
-        self.ranges: List[str] = []
+        self._ranges: List[str] = []
 
     def extract(self) -> str:
         current_range: List[int] = []
@@ -25,14 +25,14 @@ class RangeExtraction:
         first = range_list[0]
         last = range_list[-1]
         if len(range_list) == 1:
-            self.ranges.append(str(first))
+            self._ranges.append(str(first))
         else:
             separator = self._separator(range_list)
-            self.ranges.append(f"{first}{separator}{last}")
+            self._ranges.append(f"{first}{separator}{last}")
 
     @staticmethod
     def _separator(range_list: List[int]) -> str:
         return "-" if len(range_list) > 2 else ","
 
     def _generate_extraction(self) -> str:
-        return ",".join(self.ranges)
+        return ",".join(self._ranges)

@@ -1,0 +1,2 @@
+class CalculatingWithFunctions:
+    pass

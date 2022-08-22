@@ -24,8 +24,6 @@ class RangeExtraction:
     def _add_range(self, range_list: List[int]) -> None:
         first = range_list[0]
         last = range_list[-1]
-        if len(range_list) == 1:
-            self._ranges.append(str(first))
-        else:
-            separator = "-" if len(range_list) > 2 else ","
-            self._ranges.append(f"{first}{separator}{last}")
+        separator = "-" if len(range_list) > 2 else ","
+        out = f"{first}" if len(range_list) == 1 else f"{first}{separator}{last}"
+        self._ranges.append(out)

@@ -23,8 +23,8 @@ class RangeExtraction:
                 current_range.append(number + 1)
         return ",".join(string_ranges)
 
-    def _calculate_string_range(self, range_list: List[int]) -> str:
-        first = range_list[0]
-        last = range_list[-1]
-        separator = "-" if len(range_list) > 2 else ","
-        return f"{first}" if len(range_list) == 1 else f"{first}{separator}{last}"
+    def _calculate_string_range(self, current_range: List[int]) -> str:
+        first = current_range[0]
+        last = current_range[-1]
+        separator = "-" if len(current_range) > 2 else ","
+        return f"{first}" if len(current_range) == 1 else f"{first}{separator}{last}"

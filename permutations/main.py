@@ -11,7 +11,6 @@ class Permutations:
         permutations: List[str] = []
         for index in range(len(word)):
             first = word[index]
-
             tail = word[:index] + word[index + 1 :]
 
             for permutation in self.process(tail):

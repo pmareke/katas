@@ -27,5 +27,4 @@ class RangeExtraction:
         first = range_list[0]
         last = range_list[-1]
         separator = "-" if len(range_list) > 2 else ","
-        r = f"{first}" if len(range_list) == 1 else f"{first}{separator}{last}"
-        return r
+        return f"{first}" if len(range_list) == 1 else f"{first}{separator}{last}"

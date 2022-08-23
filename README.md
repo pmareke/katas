@@ -18,7 +18,7 @@ Repository with solutions to several katas:
 - [X] [Range extraction](https://www.codewars.com/kata/51ba717bb08c1cd60f00002f)
 - [X] [Sum of Pairs](https://www.codewars.com/kata/54d81488b981293527000c8f)
 - [X] [Valid Parentheses](https://www.codewars.com/kata/52774a314c2333f0a7000688)
-- [ ] [Snail](https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1)
+- [X] [Snail](https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1)
 
 ## Hard
 - [X] [Permutations](https://www.codewars.com/kata/5254ca2719453dcc0b00027d)

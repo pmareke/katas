@@ -4,4 +4,24 @@ from typing import List
 class Snail:
     @staticmethod
     def process(input: List[List[int]]) -> List[int]:
-        return []
+        snail: List[int] = [input[0][0]]
+        height = len(input)
+        right, down = True, True
+        x, y = 0, 0
+        while True:
+            # right -> down -> left -> up -> right -> ...
+            if x + 1 < height and right:
+                x += 1
+            elif y + 1 < height and down:
+                right = False
+                y += 1
+            elif x - 1 >= 0 and not right:
+                down = False
+                x -= 1
+            elif y - 1 >= 0 and not down:
+                right = True
+                y -= 1
+            if input[y][x] in snail:
+                break
+            snail.append(input[y][x])
+        return snail

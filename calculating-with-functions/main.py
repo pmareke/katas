@@ -1,7 +1,3 @@
-from functools import partial
-from typing import Callable
-
-
 numbers = {
     "one": 1,
     "two": 2,
@@ -14,23 +10,19 @@ numbers = {
     "nine": 9,
 }
 
+operations = {
+    "plus": "x + y",
+    "minus": "y - x",
+    "times": "x * y",
+    "divided_by": "int(y/x)",
+}
+
 for number, value in numbers.items():
     exec(
         f"def {number}(fn: Callable = lambda x: x) -> Callable: return partial(fn, {value})"
     )
 
-
-def plus(fn: Callable) -> Callable:
-    return partial(lambda x, y: x + y, fn())  # type: ignore
-
-
-def minus(fn: Callable) -> Callable:
-    return partial(lambda x, y: y - x, fn())  # type: ignore
-
-
-def times(fn: Callable) -> Callable:
-    return partial(lambda x, y: x * y, fn())  # type: ignore
-
-
-def divided_by(fn: Callable) -> Callable:
-    return partial(lambda x, y: int(y / x), fn())  # type: ignore
+for name, operation in operations.items():
+    exec(
+        f"def {name}(fn: Callable) -> Callable: return partial(lambda x, y: {operation}, fn())"
+    )

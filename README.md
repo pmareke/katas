@@ -20,6 +20,7 @@ Repository with solutions to several katas:
 - [X] [Permutations](https://www.codewars.com/kata/5254ca2719453dcc0b00027d)
 - [X] [Valid Parentheses](https://www.codewars.com/kata/52774a314c2333f0a7000688)
 - [X] [Calculating with Functions](https://www.codewars.com/kata/525f3eda17c7cd9f9e000b39)
+- [ ] [Snail](https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1)
 
 ## Codely
 - [X] [Tiered pricing](https://github.com/CodelyTV/refactoring-code-smells/tree/master/exercises/tiered_pricing)

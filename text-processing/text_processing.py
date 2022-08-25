@@ -1,10 +1,10 @@
-from typing import Dict
 import re
+from typing import Dict, Optional
 
 
 class TextProcessing:
     @staticmethod
-    def process(input: str, escape=None) -> str:
+    def process(input: str, escape: Optional[str] = None) -> str:
         result = ["Those are the top 10 words used:", ""]
         seen: Dict = dict()
 
@@ -26,7 +26,7 @@ class TextProcessing:
                 key = word.lower()
                 seen[key] = seen.get(key, 0) + 1
 
-        sort = dict(sorted(seen.items(), key=lambda item: item[1], reverse=True))
+        sort = dict(sorted(seen.items(), key=lambda item: item[1], reverse=True))  # type: ignore
         for index, key in enumerate(sort.keys()):
             if index < 10:
                 result.append(f"{index + 1}. {key}")

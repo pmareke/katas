@@ -1,3 +1,6 @@
+from functools import partial  # noqa: F401
+from typing import Callable  # noqa: F401
+
 numbers = {
     "one": 1,
     "two": 2,

@@ -3,7 +3,7 @@ from typing import List
 from expects import equal, expect
 import pytest
 
-from main import Snail
+from snail import Snail
 
 
 @pytest.mark.parametrize(

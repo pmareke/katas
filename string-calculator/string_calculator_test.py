@@ -18,7 +18,7 @@ class TestStringCalculator:
             ("//[foo][bar]\n1foo2bar3", 6),
         ],
     )
-    def test_sum_two_numbers(self, input, result):
+    def test_sum_two_numbers(self, input: str, result: int) -> None:
         assert StringCalculator().add(input) == result
 
     @pytest.mark.parametrize(
@@ -27,6 +27,6 @@ class TestStringCalculator:
             "1,-2,-3",
         ],
     )
-    def test_sum_negative_numbers_raises_an_exception(self, input):
+    def test_sum_negative_numbers_raises_an_exception(self, input: str) -> None:
         with pytest.raises(Exception):
             StringCalculator().add(input)

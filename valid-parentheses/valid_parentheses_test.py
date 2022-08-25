@@ -1,7 +1,7 @@
 from expects import be, expect
 import pytest
 
-from main import ValidParentheses
+from valid_parentheses import ValidParentheses
 
 
 @pytest.mark.parametrize(

@@ -3,7 +3,7 @@ from typing import List
 from expects import equal, expect
 import pytest
 
-from main import RangeExtraction
+from range_extraction import RangeExtraction
 
 
 @pytest.mark.parametrize(

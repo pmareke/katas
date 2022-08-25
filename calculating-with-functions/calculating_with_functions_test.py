@@ -1,19 +1,20 @@
-from expects import expect, equal
 from typing import Callable
+
+from expects import equal, expect
 import pytest
 
-from main import (
-    seven,
-    times,
+from calculating_with_functions import (
+    divided_by,
+    eight,
     five,
     four,
-    plus,
-    nine,
-    eight,
     minus,
-    three,
+    nine,
+    plus,
+    seven,
     six,
-    divided_by,
+    three,
+    times,
     two,
 )
 

@@ -3,7 +3,7 @@ from typing import List
 from expects import equal, expect
 import pytest
 
-from main import SumPairs
+from sum_of_pairs import SumPairs
 
 
 @pytest.mark.parametrize(

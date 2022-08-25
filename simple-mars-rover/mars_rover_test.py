@@ -10,6 +10,6 @@ class TestMarsRober:
             ("MMMMMMMMMM", "0:0:N"),
         ],
     )
-    def test_rover_should_move(self, coordinates, position):
+    def test_rover_should_move(self, coordinates: str, position: str) -> None:
         mars = MarsRover()
         assert mars.execute(coordinates) == position

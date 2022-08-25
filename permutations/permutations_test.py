@@ -3,7 +3,7 @@ from typing import List
 from expects import contain, expect
 import pytest
 
-from main import Permutations
+from permutations import Permutations
 
 
 @pytest.mark.parametrize(

@@ -1,8 +1,11 @@
-import pytest
 from typing import List
-from main import Potter
+
+import pytest
+
+from potter import Potter
 
 
+@pytest.mark.skip
 @pytest.mark.parametrize(
     "price,items",
     [

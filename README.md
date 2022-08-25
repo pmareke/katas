@@ -26,3 +26,16 @@ Repository with solutions to several katas:
 
 ## Codely
 - [X] [Tiered pricing](https://github.com/CodelyTV/refactoring-code-smells/tree/master/exercises/tiered_pricing)
+
+## How to run the tests:
+
+```sh
+make test
+```
+
+## Miscelanea
+
+In the precommit phase Black, Flake8 and Mypy are running, you can also run yourself with the following commands:
+- `make check-format`
+- `make check-typing`
+- `make check-style`

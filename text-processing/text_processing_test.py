@@ -1,5 +1,6 @@
+from expects import equal, expect
+
 from text_processing import TextProcessing
-import pytest
 
 
 class TestTextProcessing:
@@ -21,7 +22,7 @@ class TestTextProcessing:
 10. should
 
 The text has in total 21 words"""
-        assert TextProcessing().process(input) == expected
+        expect(TextProcessing().process(input)).to(equal(expected))
 
     def test_process_text_with_escapes(self):
         input = """Hello, this is an example for you to practice. You should grab
@@ -46,4 +47,4 @@ if (true) {
 10. should
 
 The text has in total 21 words"""
-        assert TextProcessing().process(input, "```") == expected
+        expect(TextProcessing().process(input, "```")).to(equal(expected))

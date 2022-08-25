@@ -1,4 +1,4 @@
-from expects import be_true, expect, equal
+from expects import expect, equal
 from typing import Callable
 import pytest
 

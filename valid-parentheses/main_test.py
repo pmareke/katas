@@ -1,5 +1,3 @@
-from typing import List
-
 from expects import be, expect
 import pytest
 

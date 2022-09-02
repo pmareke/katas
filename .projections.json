@@ -1,0 +1,6 @@
+{
+  "*.py": {
+    "alternate": "{}_test.py",
+    "type": "source"
+  }
+}

@@ -4,7 +4,6 @@ from bank.bank import Account
 
 
 class TestBank:
-    @pytest.mark.skip
     def test_adds_a_deposit(self) -> None:
         expected_output = [
             "date       || credit   || debit    || balance",

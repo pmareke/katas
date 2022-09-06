@@ -19,7 +19,7 @@ Repository with solutions to several katas:
 - [X] [Sum of Pairs](https://www.codewars.com/kata/54d81488b981293527000c8f)
 - [X] [Valid Parentheses](https://www.codewars.com/kata/52774a314c2333f0a7000688)
 - [X] [Snail](https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1)
-- [ ] [Nómina](https://github.com/vfloress/workshop-tcr-js)
+- [X] [Nómina (using TCR)](https://github.com/vfloress/workshop-tcr-js)
 
 ## Hard
 - [X] [Permutations](https://www.codewars.com/kata/5254ca2719453dcc0b00027d)

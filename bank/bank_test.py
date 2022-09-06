@@ -1,6 +1,6 @@
 import pytest
 from expects import equal, expect
-from bank import Account
+from bank.bank import Account
 
 
 class TestBank:

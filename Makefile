@@ -27,7 +27,7 @@ reformat:  ## Format python code
 
 .PHONY: test
 test: ## Run all available tests
-	pytest .
+	PYTHONPATH=. pytest .
 
 .PHONY: pre-commit
 pre-commit: check-format check-typing check-style test

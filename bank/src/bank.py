@@ -1,12 +1,12 @@
 from bank.src.domain.account_service import AccountService
 from bank.src.domain.printer import Printer
-from bank.src.domain.repository import Repository
+from bank.src.domain.transaction_repository import TransactionRepository
 
 
 class Account(AccountService):
     def __init__(
         self,
-        transaction_repository: Repository,
+        transaction_repository: TransactionRepository,
         statement_printer: Printer,
     ) -> None:
         self.transition_repository = transaction_repository

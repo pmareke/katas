@@ -1,9 +1,9 @@
 from expects import expect, equal
 
-from bank.src.infrastructure.clock import Clock
+from bank.src.infrastructure.datetime_clock import DatetimeClock
 
 
-class DummyClock(Clock):
+class DummyClock(DatetimeClock):
     def today(self) -> str:
         return "12/01/2012"
 

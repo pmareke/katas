@@ -1,12 +1,12 @@
 from typing import List
 
+from bank.src.domain.output import Output
 from bank.src.domain.transaction import Transaction, TransactionType
 from bank.src.domain.printer import Printer
-from bank.src.infrastructure.console import Console
 
 
 class StatementPrinter(Printer):
-    def __init__(self, console: Console) -> None:
+    def __init__(self, console: Output) -> None:
         self.console = console
 
     def print(self, transactions: List[Transaction]) -> None:

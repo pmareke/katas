@@ -1,11 +1,11 @@
 from typing import List
 
-from bank.src.domain.repository import Repository
+from bank.src.domain.clock import Clock
+from bank.src.domain.transaction_repository import TransactionRepository
 from bank.src.domain.transaction import Transaction, TransactionType
-from bank.src.infrastructure.clock import Clock
 
 
-class TransactionRepository(Repository):
+class InMemoryTransactionTransactionRepository(TransactionRepository):
     def __init__(self, clock: Clock) -> None:
         self.clock = clock
         self.transactions: List[Transaction] = []

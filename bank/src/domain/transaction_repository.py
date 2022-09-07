@@ -4,7 +4,7 @@ from typing import List
 from bank.src.domain.transaction import Transaction
 
 
-class Repository(ABC):
+class TransactionRepository(ABC):
     @abstractmethod
     def add_deposit(self, deposit: int) -> None:
         raise NotImplementedError

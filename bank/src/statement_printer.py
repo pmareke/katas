@@ -24,5 +24,4 @@ class StatementPrinter:
                     f"{transaction.day} || || {transaction.amount:.2f} || {total:.2f}"
                 )
 
-        for line in reversed(lines):
-            self.console.print_line(line)
+        [self.console.print_line(line) for line in reversed(lines)]

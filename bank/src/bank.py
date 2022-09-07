@@ -19,5 +19,4 @@ class Account(AccountService):
         self.transition_repository.add_withdraw(amount)
 
     def print_statement(self) -> None:
-        transactions = self.transition_repository.all_transactions()
-        self.statement_printer.print(transactions)
+        self.statement_printer.print(self.transition_repository.all_transactions())

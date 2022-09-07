@@ -2,10 +2,10 @@ from doublex import Mimic, Mock, Stub
 from doublex_expects import have_been_satisfied
 from expects import expect
 from bank.src.bank import Account
-from bank.src.console import Console
-from bank.src.transaction_repository import TransactionRepository
-from bank.src.statement_printer import StatementPrinter
-from bank.src.clock import Clock
+from bank.src.infrastructure.console import Console
+from bank.src.infrastructure.transaction_repository import TransactionRepository
+from bank.src.infrastructure.statement_printer import StatementPrinter
+from bank.src.infrastructure.clock import Clock
 
 
 class TestBank:

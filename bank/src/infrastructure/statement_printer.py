@@ -1,10 +1,11 @@
 from typing import List
 
-from bank.src.transaction import Transaction, TransactionType
-from bank.src.console import Console
+from bank.src.domain.transaction import Transaction, TransactionType
+from bank.src.domain.printer import Printer
+from bank.src.infrastructure.console import Console
 
 
-class StatementPrinter:
+class StatementPrinter(Printer):
     def __init__(self, console: Console) -> None:
         self.console = console
 

@@ -1,6 +1,6 @@
 from expects import expect, equal
 
-from bank.src.clock import Clock
+from bank.src.infrastructure.clock import Clock
 
 
 class DummyClock(Clock):

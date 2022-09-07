@@ -1,13 +1,13 @@
-from bank.src.account_service import AccountService
-from bank.src.transaction_repository import TransactionRepository
-from bank.src.statement_printer import StatementPrinter
+from bank.src.domain.account_service import AccountService
+from bank.src.domain.printer import Printer
+from bank.src.domain.repository import Repository
 
 
 class Account(AccountService):
     def __init__(
         self,
-        transaction_repository: TransactionRepository,
-        statement_printer: StatementPrinter,
+        transaction_repository: Repository,
+        statement_printer: Printer,
     ) -> None:
         self.transition_repository = transaction_repository
         self.statement_printer = statement_printer

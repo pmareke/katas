@@ -1,8 +1,8 @@
 from doublex import Mimic, Stub
 from expects import be, expect, equal
-from bank.src.transaction import Transaction, TransactionType
-from bank.src.transaction_repository import TransactionRepository
-from bank.src.clock import Clock
+from bank.src.domain.transaction import Transaction, TransactionType
+from bank.src.infrastructure.transaction_repository import TransactionRepository
+from bank.src.infrastructure.clock import Clock
 
 
 class TestTransactionRepository:

@@ -4,9 +4,9 @@ from expects import expect
 from typing import List
 
 from bank.src.bank import Account
-from bank.src.transaction_repository import TransactionRepository
-from bank.src.statement_printer import StatementPrinter
-from bank.src.transaction import Transaction, TransactionType
+from bank.src.infrastructure.transaction_repository import TransactionRepository
+from bank.src.infrastructure.statement_printer import StatementPrinter
+from bank.src.domain.transaction import Transaction, TransactionType
 
 
 class TestBank:

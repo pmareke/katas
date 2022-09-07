@@ -2,9 +2,9 @@ from doublex import Mimic, Spy
 from doublex_expects import have_been_called_with
 from expects import expect
 
-from bank.src.console import Console
-from bank.src.statement_printer import StatementPrinter
-from bank.src.transaction import Transaction, TransactionType
+from bank.src.infrastructure.console import Console
+from bank.src.infrastructure.statement_printer import StatementPrinter
+from bank.src.domain.transaction import Transaction, TransactionType
 
 
 class TestStatementPrinter:

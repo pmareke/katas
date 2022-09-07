@@ -1,0 +1,345 @@
+[[package]]
+name = "allpairspy"
+version = "2.5.0"
+description = "Pairwise test combinations generator"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+six = ">=1.10.0,<2.0.0"
+
+[package.extras]
+build = ["twine", "wheel"]
+release = ["releasecmd (>=0.0.18,<0.1.0)"]
+test = ["pytest"]
+
+[[package]]
+name = "approvaltests"
+version = "5.6.1"
+description = "Assertion/verification library to aid testing"
+category = "main"
+optional = false
+python-versions = ">=3.6.1"
+
+[package.dependencies]
+allpairspy = ">=2.1.0"
+beautifulsoup4 = ">=4.4.0"
+empty-files = ">=0.0.3"
+mrjob = ">=0.7.4"
+pyperclip = ">=1.5.29"
+pytest = ">=4.0.0"
+
+[[package]]
+name = "attrs"
+version = "22.1.0"
+description = "Classes Without Boilerplate"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.extras]
+dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "zope.interface", "furo", "sphinx", "sphinx-notfound-page", "pre-commit", "cloudpickle"]
+docs = ["furo", "sphinx", "zope.interface", "sphinx-notfound-page"]
+tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "zope.interface", "cloudpickle"]
+tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "cloudpickle"]
+
+[[package]]
+name = "beautifulsoup4"
+version = "4.11.1"
+description = "Screen-scraping library"
+category = "main"
+optional = false
+python-versions = ">=3.6.0"
+
+[package.dependencies]
+soupsieve = ">1.2"
+
+[package.extras]
+html5lib = ["html5lib"]
+lxml = ["lxml"]
+
+[[package]]
+name = "certifi"
+version = "2022.6.15"
+description = "Python package for providing Mozilla's CA Bundle."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "charset-normalizer"
+version = "2.1.1"
+description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
+category = "main"
+optional = false
+python-versions = ">=3.6.0"
+
+[package.extras]
+unicode_backport = ["unicodedata2"]
+
+[[package]]
+name = "colorama"
+version = "0.4.5"
+description = "Cross-platform colored terminal text."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
+name = "doublex"
+version = "1.9.3"
+description = "Python test doubles"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+PyHamcrest = "*"
+six = "*"
+
+[[package]]
+name = "doublex-expects"
+version = "0.7.1"
+description = "Expects matchers for Doublex test doubles assertions"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+doublex = "*"
+expects = ">=0.8.0rc1"
+
+[[package]]
+name = "empty-files"
+version = "0.0.3"
+description = "Serves empty files of many types"
+category = "main"
+optional = false
+python-versions = ">=3.6.1"
+
+[package.dependencies]
+requests = "*"
+
+[[package]]
+name = "expects"
+version = "0.9.0"
+description = "Expressive and extensible TDD/BDD assertion library for Python"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "idna"
+version = "3.3"
+description = "Internationalized Domain Names in Applications (IDNA)"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "iniconfig"
+version = "1.1.1"
+description = "iniconfig: brain-dead simple config-ini parsing"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "mrjob"
+version = "0.7.4"
+description = "Python MapReduce framework"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+PyYAML = ">=3.10"
+
+[package.extras]
+aws = ["boto3 (>=1.10.0)", "botocore (>=1.13.26)"]
+google = ["google-cloud-dataproc (>=0.3.0,<=1.1.0)", "google-cloud-logging (>=1.9.0)", "google-cloud-storage (>=1.13.1)"]
+rapidjson = ["python-rapidjson"]
+simplejson = ["simplejson"]
+ujson = ["ujson"]
+
+[[package]]
+name = "packaging"
+version = "21.3"
+description = "Core utilities for Python packages"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
+
+[[package]]
+name = "pluggy"
+version = "1.0.0"
+description = "plugin and hook calling mechanisms for python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+testing = ["pytest-benchmark", "pytest"]
+dev = ["tox", "pre-commit"]
+
+[[package]]
+name = "py"
+version = "1.11.0"
+description = "library with cross-python path, ini-parsing, io, code, log facilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
+name = "pyhamcrest"
+version = "2.0.4"
+description = "Hamcrest framework for matcher objects"
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+dev = ["black", "flake8", "pyhamcrest", "pytest-mypy", "towncrier", "tox", "tox-asdf", "twine"]
+docs = ["alabaster (>=0.7,<1.0)", "sphinx (>=4.0,<5.0)"]
+tests = ["coverage", "dataclasses", "mypy (!=0.940)", "pytest-mypy-plugins", "pytest-sugar", "pytest-xdist", "pytest (>=5.0)", "types-dataclasses", "types-mock"]
+tests-numpy = ["numpy", "pyhamcrest"]
+
+[[package]]
+name = "pyparsing"
+version = "3.0.9"
+description = "pyparsing module - Classes and methods to define and execute parsing grammars"
+category = "main"
+optional = false
+python-versions = ">=3.6.8"
+
+[package.extras]
+diagrams = ["railroad-diagrams", "jinja2"]
+
+[[package]]
+name = "pyperclip"
+version = "1.8.2"
+description = "A cross-platform clipboard module for Python. (Only handles plain text for now.)"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pytest"
+version = "7.1.3"
+description = "pytest: simple powerful testing with Python"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+attrs = ">=19.2.0"
+colorama = {version = "*", markers = "sys_platform == \"win32\""}
+iniconfig = "*"
+packaging = "*"
+pluggy = ">=0.12,<2.0"
+py = ">=1.8.2"
+tomli = ">=1.0.0"
+
+[package.extras]
+testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "xmlschema"]
+
+[[package]]
+name = "pyyaml"
+version = "6.0"
+description = "YAML parser and emitter for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "requests"
+version = "2.28.1"
+description = "Python HTTP for Humans."
+category = "main"
+optional = false
+python-versions = ">=3.7, <4"
+
+[package.dependencies]
+certifi = ">=2017.4.17"
+charset-normalizer = ">=2,<3"
+idna = ">=2.5,<4"
+urllib3 = ">=1.21.1,<1.27"
+
+[package.extras]
+socks = ["PySocks (>=1.5.6,!=1.5.7)"]
+use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
+
+[[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "soupsieve"
+version = "2.3.2.post1"
+description = "A modern CSS selector implementation for Beautiful Soup."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "tomli"
+version = "2.0.1"
+description = "A lil' TOML parser"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "urllib3"
+version = "1.26.12"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4"
+
+[package.extras]
+brotli = ["brotlicffi (>=0.8.0)", "brotli (>=1.0.9)", "brotlipy (>=0.6.0)"]
+secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "urllib3-secure-extra", "ipaddress"]
+socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.8"
+content-hash = "bf54754ec9e2432a371cc1ffad24d29bc7f4e73bf313c4d1ef8c4c55c728ee33"
+
+[metadata.files]
+allpairspy = []
+approvaltests = []
+attrs = []
+beautifulsoup4 = []
+certifi = []
+charset-normalizer = []
+colorama = []
+doublex = []
+doublex-expects = []
+empty-files = []
+expects = []
+idna = []
+iniconfig = []
+mrjob = []
+packaging = []
+pluggy = []
+py = []
+pyhamcrest = []
+pyparsing = []
+pyperclip = []
+pytest = []
+pyyaml = []
+requests = []
+six = []
+soupsieve = []
+tomli = []
+urllib3 = []

@@ -11,19 +11,19 @@ local-setup: ## Set up the local environment (e.g. install git hooks)
 
 .PHONY: check-typing
 check-typing:  ## Run a static analyzer over the code to find issues
-	mypy .
+	poetry run mypy .
 
 .PHONY: check-format
 check-format:
-	black --check .
+	poetry run black --check .
 
 .PHONY: check-style
 check-style:
-	flake8 .
+	poetry run flake8 .
 
 .PHONY: reformat
 reformat:  ## Format python code
-	black .
+	poetry run black .
 
 .PHONY: test
 test: ## Run all available tests

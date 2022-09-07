@@ -1,13 +1,14 @@
 from doublex import Mimic, Mock, Stub
 from doublex_expects import have_been_satisfied
 from expects import expect
+
 from bank.src.bank import Account
-from bank.src.infrastructure.console import Console
+from bank.src.infrastructure.console_output import Console
+from bank.src.infrastructure.datetime_clock import DatetimeClock
 from bank.src.infrastructure.in_memory_transaction_repository import (
     InMemoryTransactionTransactionRepository,
 )
 from bank.src.infrastructure.statement_printer import StatementPrinter
-from bank.src.infrastructure.datetime_clock import DatetimeClock
 
 
 class TestBank:

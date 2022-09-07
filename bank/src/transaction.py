@@ -1,10 +1,10 @@
 from dataclasses import dataclass
-from enum import Enum
+from enum import auto, Enum
 
 
 class TransactionType(Enum):
-    DEPOSIT = "deposit"
-    WITHDRAW = "withdraw"
+    DEPOSIT = auto()
+    WITHDRAW = auto()
 
 
 @dataclass

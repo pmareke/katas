@@ -26,7 +26,6 @@ class TestBank:
         account.deposit(1000)
         account.withdraw(200)
         account.deposit(2000)
-
         account.print_statement()
 
         expect(console).to(have_been_satisfied)

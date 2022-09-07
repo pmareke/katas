@@ -1,14 +1,15 @@
+from typing import List
+
 from doublex import Mimic, Spy
 from doublex_expects import have_been_called_with
 from expects import expect
-from typing import List
 
 from bank.src.bank import Account
+from bank.src.domain.transaction import Transaction, TransactionType
 from bank.src.infrastructure.in_memory_transaction_repository import (
     InMemoryTransactionTransactionRepository,
 )
 from bank.src.infrastructure.statement_printer import StatementPrinter
-from bank.src.domain.transaction import Transaction, TransactionType
 
 
 class TestBank:
@@ -37,7 +38,10 @@ class TestBank:
             Spy, InMemoryTransactionTransactionRepository
         ) as transaction_repository:
             transaction_repository.all_transactions().returns(
-                [Transaction(TransactionType.DEPOSIT, "any-date", 0)]
+                [
+                    Transaction(TransactionType.DEPOSIT, "any-date", 1000),
+                    Transaction(TransactionType.WITHDRAW, "any-date", 200),
+                ]
             )
         transactions: List[Transaction] = transaction_repository.all_transactions()
         statement_printer = Mimic(Spy, StatementPrinter)

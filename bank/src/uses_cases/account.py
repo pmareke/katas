@@ -1,6 +1,6 @@
 from bank.src.domain.account_service import AccountService
+from bank.src.domain.printer import Printer
 from bank.src.domain.transaction_repository import TransactionRepository
-from bank.src.infrastructure.interfaces.printer import Printer
 
 
 class Account(AccountService):

@@ -1,8 +1,8 @@
 from typing import List, Tuple
 
+from bank.src.domain.printer import Printer
 from bank.src.domain.transaction import Transaction, TransactionType
 from bank.src.infrastructure.interfaces.output import Output
-from bank.src.infrastructure.interfaces.printer import Printer
 
 
 class StatementPrinter(Printer):

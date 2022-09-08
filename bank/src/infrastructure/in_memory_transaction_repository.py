@@ -5,7 +5,7 @@ from bank.src.domain.transaction_repository import TransactionRepository
 from bank.src.infrastructure.interfaces.clock import Clock
 
 
-class InMemoryTransactionTransactionRepository(TransactionRepository):
+class InMemoryTransactionRepository(TransactionRepository):
     def __init__(self, clock: Clock) -> None:
         self.clock = clock
         self.transactions: List[Transaction] = []

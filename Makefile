@@ -29,5 +29,9 @@ reformat:  ## Format python code
 test: ## Run all available tests
 	PYTHONPATH=. poetry run pytest .
 
+.PHONY: bank
+bank: ## Run bank kata
+	PYTHONPATH=. poetry run python bank/main.py
+
 .PHONY: pre-commit
 pre-commit: check-format check-typing check-style test

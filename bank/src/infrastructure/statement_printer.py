@@ -19,21 +19,21 @@ class StatementPrinter(Printer):
             self.console.print_line(line)
 
     def _statement_lines(self, transactions: List[Transaction]) -> List[str]:
-        total = 0
+        balance = 0
         statement_lines: List[str] = []
         for transaction in transactions:
-            line, total = self.statement_line(transaction, total)
+            line, balance = self.statement_line(transaction, balance)
             statement_lines.append(line)
         return statement_lines
 
-    def statement_line(self, transaction: Transaction, total: int) -> Tuple:
+    def statement_line(self, transaction: Transaction, balance: int) -> Tuple:
         line = None
 
         if transaction.type == TransactionType.DEPOSIT:
-            total += transaction.amount
-            line = f"{transaction.day} || {transaction.amount:.2f} || || {total:.2f}"
+            balance += transaction.amount
+            line = f"{transaction.day} || {transaction.amount:.2f} || || {balance:.2f}"
         elif transaction.type == TransactionType.WITHDRAW:
-            total -= transaction.amount
-            line = f"{transaction.day} || || {transaction.amount:.2f} || {total:.2f}"
+            balance -= transaction.amount
+            line = f"{transaction.day} || || {transaction.amount:.2f} || {balance:.2f}"
 
-        return (line, total)
+        return (line, balance)

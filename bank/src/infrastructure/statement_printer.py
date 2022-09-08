@@ -11,15 +11,22 @@ class StatementPrinter(Printer):
 
     def print(self, transactions: List[Transaction]) -> None:
         self.console.print_line("date || credit || debit || balance")
+        self._print_lines(transactions)
+
+    def _print_lines(self, transactions: List[Transaction]) -> None:
+        statement_lines = self._statement_lines(transactions)
+        for line in reversed(statement_lines):
+            self.console.print_line(line)
+
+    def _statement_lines(self, transactions: List[Transaction]) -> List[str]:
         total = 0
-        lines: List[str] = []
+        statement_lines: List[str] = []
         for transaction in transactions:
-            line, total = self.transaction_line(transaction, total)
-            lines.append(line)
+            line, total = self.statement_line(transaction, total)
+            statement_lines.append(line)
+        return statement_lines
 
-        [self.console.print_line(line) for line in reversed(lines)]
-
-    def transaction_line(self, transaction: Transaction, total: int) -> Tuple:
+    def statement_line(self, transaction: Transaction, total: int) -> Tuple:
         line = None
 
         if transaction.type == TransactionType.DEPOSIT:

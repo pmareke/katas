@@ -1,8 +1,8 @@
 from typing import List
 
-from bank.src.domain.clock import Clock
-from bank.src.domain.transaction_repository import TransactionRepository
 from bank.src.domain.transaction import Transaction, TransactionType
+from bank.src.domain.transaction_repository import TransactionRepository
+from bank.src.infrastructure.interfaces.clock import Clock
 
 
 class InMemoryTransactionTransactionRepository(TransactionRepository):

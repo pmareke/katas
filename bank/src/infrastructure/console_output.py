@@ -1,4 +1,4 @@
-from bank.src.domain.output import Output
+from bank.src.infrastructure.interfaces.output import Output
 
 
 class Console(Output):

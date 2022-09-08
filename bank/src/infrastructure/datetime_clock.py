@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from bank.src.domain.clock import Clock
+from bank.src.infrastructure.interfaces.clock import Clock
 
 
 class DatetimeClock(Clock):

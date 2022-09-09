@@ -1,3 +1,4 @@
+from expects import expect, equal
 from typing import List
 
 import pytest
@@ -5,7 +6,6 @@ import pytest
 from potter import Potter
 
 
-@pytest.mark.skip
 @pytest.mark.parametrize(
     "price,items",
     [
@@ -15,13 +15,13 @@ from potter import Potter
         (8, [1]),
         (8, [1]),
         (8 * 3, [1, 1, 1]),
-        (8 * 2 * 0.95, [0, 1]),
-        (8 * 3 * 0.9, [0, 2, 4]),
-        (8 * 4 * 0.8, [0, 1, 2, 4]),
-        (8 * 5 * 0.75, [0, 1, 2, 3, 4]),
+        # (8 * 2 * 0.95, [0, 1]),
+        # (8 * 3 * 0.9, [0, 2, 4]),
+        # (8 * 4 * 0.8, [0, 1, 2, 4]),
+        # (8 * 5 * 0.75, [0, 1, 2, 3, 4]),
     ],
 )
 class TestPotter:
     def test_basics(self, price: int, items: List[int]) -> None:
         potter = Potter(items)
-        assert price == potter.price()
+        expect(price).to(equal(potter.calculate_total_price()))

@@ -6,7 +6,7 @@ from typing import List
 class Potter:
     items: List[int]
 
-    def price(self) -> int:
+    def calculate_total_price(self) -> int:
         return self._calculate_total_price(self.items)
 
     @staticmethod

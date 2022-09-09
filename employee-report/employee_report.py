@@ -4,12 +4,12 @@ from typing import List
 
 @dataclass
 class Employee:
-    ADULT_AGE = 18
+    _ADULT_AGE = 18
     name: str
     age: int
 
     def is_an_adult(self) -> bool:
-        return self.age >= self.ADULT_AGE
+        return self.age >= self._ADULT_AGE
 
 
 @dataclass

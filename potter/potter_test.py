@@ -7,14 +7,14 @@ from potter import Potter
 
 
 @pytest.mark.parametrize(
-    "price,items",
+    "expected_price,items",
     [
         (0, []),
         (8, [1]),
-        (8, [1]),
-        (8, [1]),
-        (8, [1]),
-        (8 * 3, [1, 1, 1]),
+        (8, [0, 1]),
+        (8, [0, 0, 1]),
+        (8, [0, 0, 0, 1]),
+        (8, [0, 0, 0, 0, 1]),
         # (8 * 2 * 0.95, [0, 1]),
         # (8 * 3 * 0.9, [0, 2, 4]),
         # (8 * 4 * 0.8, [0, 1, 2, 4]),
@@ -22,6 +22,9 @@ from potter import Potter
     ],
 )
 class TestPotter:
-    def test_basics(self, price: int, items: List[int]) -> None:
+    def test_basics(self, expected_price: int, items: List[int]) -> None:
         potter = Potter(items)
-        expect(price).to(equal(potter.calculate_total_price()))
+
+        total_price = potter.calculate_total_price()
+
+        expect(expected_price).to(equal(total_price))

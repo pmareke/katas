@@ -11,6 +11,7 @@ Repository with solutions to several katas:
 - [X] [String Calculator](https://katalyst.codurance.com/string-calculator)
 - [X] [Text Processing](https://katalyst.codurance.com/text-processing)
 - [X] [Simple Mars Rover](https://katalyst.codurance.com/simple-mars-rover)
+- [ ] [Employee Report](https://codingdojo.org/kata/Employee-Report/)
 
 ## Medium
 - [X] [Gilded Rose](https://github.com/NotMyself/GildedRose)
@@ -21,6 +22,7 @@ Repository with solutions to several katas:
 - [X] [Snail](https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1)
 - [X] [Nómina (using TCR)](https://github.com/vfloress/workshop-tcr-js)
 - [X] [Bank](https://www.codurance.com/katalyst/bank)
+- [ ] [Elephant Carpaccio](https://codingdojo.org/kata/elephant-carpaccio/)
 
 ## Hard
 - [X] [Permutations](https://www.codewars.com/kata/5254ca2719453dcc0b00027d)

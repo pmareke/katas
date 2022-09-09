@@ -1,9 +1,10 @@
+from dataclasses import dataclass
 from typing import List
 
 
+@dataclass
 class Potter:
-    def __init__(self, items: List[int]) -> None:
-        self.items = items
+    items: List[int]
 
     def price(self) -> int:
         return self._calculate_total_price(self.items)

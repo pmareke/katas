@@ -12,11 +12,11 @@ class Employee:
 class EmployeeReport:
     employees: List[Employee]
 
-    def valid_employees(self) -> List[Employee]:
+    def employees_older_than_18(self) -> List[Employee]:
         return list(filter(lambda employee: employee.age >= 18, self.employees))
 
     def employees_sorted_by_name(self, descending: bool = False) -> List[Employee]:
-        return self._sort_by_name(self.valid_employees(), descending)
+        return self._sort_by_name(self.employees_older_than_18(), descending)
 
     def capitalize_names(self) -> List[Employee]:
         return list(

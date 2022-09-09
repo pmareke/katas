@@ -19,7 +19,7 @@ class TestEmployeeReport:
     ) -> None:
         employee_report = EmployeeReport(employees)
 
-        valid_employees = employee_report.valid_employees()
+        valid_employees = employee_report.employees_older_than_18()
 
         expect(len(valid_employees)).to(equal(2))
         expect(valid_employees).to(equal([employees[1], employees[3]]))

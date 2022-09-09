@@ -22,7 +22,9 @@ from potter import Potter
     ],
 )
 class TestPotter:
-    def test_basics(self, expected_price: int, items: List[int]) -> None:
+    def test_calculates_the_total_price(
+        self, expected_price: int, items: List[int]
+    ) -> None:
         potter = Potter(items)
 
         total_price = potter.calculate_total_price()

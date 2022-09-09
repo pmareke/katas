@@ -33,5 +33,9 @@ test: ## Run all available tests
 bank: ## Run bank kata
 	PYTHONPATH=. poetry run python bank/main.py
 
+.PHONY: bdd
+bdd: ## Run all bdd tests
+	poetry run behave --no-summary -x fizzbuzz_bdd/features
+
 .PHONY: pre-commit
-pre-commit: check-format check-typing check-style test
+pre-commit: check-format check-typing check-style test bdd

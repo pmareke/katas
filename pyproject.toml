@@ -7,9 +7,10 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-black = "^22.8.0"
 
 [tool.poetry.dev-dependencies]
+behave = "^1.2.6"
+black = "^22.8.0"
 mypy = "^0.971"
 flake8 = "^5.0.4"
 doublex = "^1.9.3"

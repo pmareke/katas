@@ -14,10 +14,10 @@ All employees are already stored somewhere and have the following properties:
 
 ```
 employees: List[Employee]= [
-  { name: 'Max', age: 17 },
-  { name: 'Sepp', age: 18 },
-  { name: 'Nina', age: 15 },
-  { name: 'Mike', age: 51 },
+ Employee(name="max", age=17),
+ Employee(name="Sepp", age=18),
+ Employee(name="Nina", age=15),
+ Employee(name="mike", age=51),     
 ]
 ```
 

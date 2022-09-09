@@ -7,13 +7,18 @@ class Employee:
     name: str
     age: int
 
+    def is_older_than_18(self) -> bool:
+        return self.age >= 18
+
 
 @dataclass
 class EmployeeReport:
     employees: List[Employee]
 
     def employees_older_than_18(self) -> List[Employee]:
-        return list(filter(lambda employee: employee.age >= 18, self.employees))
+        return list(
+            filter(lambda employee: employee.is_older_than_18(), self.employees)
+        )
 
     def employees_sorted_by_name(self, descending: bool = False) -> List[Employee]:
         return self._sort_by_name(self.employees_older_than_18(), descending)

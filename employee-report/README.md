@@ -27,7 +27,7 @@ Start with the first user-story and write at least one test for every requiremen
 
 Try not to look on future requirements upfront and follow the TDD-Cycle strictly.
 
- - As shop owner I want to view a list of all employees who are 18 years or older so that I know who is allowed to work on Sundays.
- - As shop owner I want the list of employees to be sorted by their name, so I can find employees easier.
- - As shop owner I want the list of employees to be capitalized, so I can read it better.
- - As shop owner I want the employees to be sorted by their names descending instead of ascending.
+ - As shop owner I want to view a **list of all employees who are 18 years or older** so that I know who is allowed to work on Sundays.
+ - As shop owner I want the **list of employees to be sorted by their name**, so I can find employees easier.
+ - As shop owner I want the **list of employees to be capitalized**, so I can read it better.
+ - As shop owner I want the **employees to be sorted by their names descending instead of ascending**.

@@ -9,4 +9,4 @@ class FizzBuzz:
         if num % 5 == 0:
             result += "Buzz"
 
-        return f"{num}" if result == "" else result
+        return f"{num}" if not result else result

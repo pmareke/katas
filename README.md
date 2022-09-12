@@ -3,8 +3,7 @@
 Repository with solutions to several katas:
 
 ## Novice:
-- [X] [FizzBuzz.](https://katalyst.codurance.com/fizzbuzz)
-- [X] [FizzBuzz with BDD](https://katalyst.codurance.com/fizzbuzz)
+- [X] [FizzBuzz](https://katalyst.codurance.com/fizzbuzz)
 
 ## Begineer
 - [X] [Leap Year.](https://katalyst.codurance.com/leap-year)

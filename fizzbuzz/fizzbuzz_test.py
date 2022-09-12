@@ -1,6 +1,6 @@
 from pytest_bdd import scenario, given, then, parsers
 from expects import equal, expect
-from fizzbuzz.main import FizzBuzz
+from fizzbuzz import FizzBuzz
 
 
 @scenario("features/fizzbuzz.feature", "FizzBuzz")

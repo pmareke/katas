@@ -9,11 +9,11 @@ def test_fizzbuzz() -> None:
 
 
 @given(
-    parsers.parse("calculating the FizzBuzz representation of {number}"),
+    parsers.parse("calculating the FizzBuzz representation of {number:d}"),
     target_fixture="fizzbuzz",
 )
-def calculates(number: str) -> str:
-    return FizzBuzz.calculates(num=int(number))
+def calculates(number: int) -> str:
+    return FizzBuzz.calculates(num=number)
 
 
 @then(parsers.parse("the representation should be {result}"))

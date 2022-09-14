@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class CustomClock:
-    def time(self) -> int:
+    def time(self) -> datetime:
         pass

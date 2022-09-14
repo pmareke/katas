@@ -22,7 +22,6 @@ class TestOhce:
         expect(console_output.print).to(
             have_been_called_with(f"!Buenas noches {TestData.ANY_USER_NAME}¡")
         )
-        expect(console_output.print).to(have_been_called_with(TestData.reversed_word()))
 
     @pytest.mark.parametrize("date", ["18/09/19 08:55:19"])
     def test_greets_good_morning(self, date: str) -> None:
@@ -36,7 +35,6 @@ class TestOhce:
         expect(console_output.print).to(
             have_been_called_with(f"!Buenos días {TestData.ANY_USER_NAME}¡")
         )
-        expect(console_output.print).to(have_been_called_with(TestData.reversed_word()))
 
     @pytest.mark.parametrize("date", ["18/09/19 18:55:19"])
     def test_greets_good_afternoon(self, date: str) -> None:
@@ -50,7 +48,6 @@ class TestOhce:
         expect(console_output.print).to(
             have_been_called_with(f"!Buenas tardes {TestData.ANY_USER_NAME}¡")
         )
-        expect(console_output.print).to(have_been_called_with(TestData.reversed_word()))
 
     @pytest.mark.parametrize("word", ["oto", "radar", "refer", "kayak"])
     def test_greets_good_word_when_is_palindrome(self, word: str) -> None:
@@ -61,6 +58,9 @@ class TestOhce:
 
         ohce.run(word)
 
+        expect(console_output.print).to(
+            have_been_called_with(TestData.reversed_word(word))
+        )
         expect(console_output.print).to(have_been_called_with("!Bonita palabra¡"))
 
     @pytest.mark.parametrize("word", ["coche", "raton", "jabon"])

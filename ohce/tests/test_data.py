@@ -7,7 +7,7 @@ from ohce.src.console_input import ConsoleInput
 
 class TestData:
     ANY_USER_NAME = "any-user-name"
-    ANY_WORD = "any"
+    ANY_WORD = "any-word"
 
     @staticmethod
     def reversed_word(word: str = ANY_WORD) -> str:

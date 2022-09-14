@@ -4,6 +4,13 @@ from ohce.src.console_input import ConsoleInput
 
 
 class Ohce:
+    _GOOD_NIGHT_GREETING = "Buenas noches"
+    _GOOD_MORNING_GREETING = "Buenos días"
+    _GOOD_AFTERNOON_GREETING = "Buenas tardes"
+    _PALINDROME_GREETING = "Bonita palabra"
+    _BYE_GREETING = "Adios"
+    _STOP_COMMAND = "Stop!"
+
     def __init__(
         self,
         console_input: ConsoleInput,
@@ -13,27 +20,25 @@ class Ohce:
         self.console_input = console_input
         self.console_output = console_output
         self.clock = clock
+        self.time = self.clock.time()
 
     def run(self, user_name: str) -> None:
-        self._greet_user(user_name)
+        greet = self._generate_greet_for_user(user_name)
+        self.console_output.print(f"!{greet} {user_name}¡")
 
-        while (command := self.console_input.input()) != "Stop!":
+        while (command := self.console_input.input()) != self._STOP_COMMAND:
             self.console_output.print(self._reverse_word(command))
             if self._is_palindrome(user_name):
-                self.console_output.print("!Bonita palabra¡")
+                self.console_output.print(f"!{self._PALINDROME_GREETING}¡")
 
-        self.console_output.print(f"Adios {user_name}")
+        self.console_output.print(f"{self._BYE_GREETING} {user_name}")
 
-    def _greet_user(self, user_name: str) -> None:
+    def _generate_greet_for_user(self, user_name: str) -> str:
         if self._is_night():
-            response = f"!Buenas noches {user_name}¡"
-            self.console_output.print(response)
-        elif self._is_morning():
-            response = f"!Buenos días {user_name}¡"
-            self.console_output.print(response)
-        elif self._is_afternoon():
-            response = f"!Buenas tardes {user_name}¡"
-            self.console_output.print(response)
+            return self._GOOD_NIGHT_GREETING
+        if self._is_morning():
+            return self._GOOD_MORNING_GREETING
+        return self._GOOD_AFTERNOON_GREETING
 
     def _is_palindrome(self, command: str) -> bool:
         return command == "".join(reversed(command))
@@ -42,13 +47,7 @@ class Ohce:
         return "".join(reversed(word))
 
     def _is_night(self) -> bool:
-        time = self.clock.time()
-        return bool(time.hour >= 20 or time.hour < 6)
+        return bool(self.time.hour >= 20 or self.time.hour < 6)
 
     def _is_morning(self) -> bool:
-        time = self.clock.time()
-        return bool(time.hour >= 6 and time.hour < 12)
-
-    def _is_afternoon(self) -> bool:
-        time = self.clock.time()
-        return bool(time.hour >= 12 and time.hour < 20)
+        return bool(self.time.hour >= 6 and self.time.hour < 12)

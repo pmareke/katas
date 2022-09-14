@@ -7,21 +7,21 @@ class Ohce:
         self.console = console
         self.clock = clock
 
-    def run(self, user_name: str) -> None:
-        if user_name == "Stop!":
-            message = f"Adios {user_name}"
-        elif self._is_palindrome(user_name):
-            message = "¡Bonita palabra!"
+    def run(self, command: str) -> None:
+        if command == "Stop!":
+            response = f"Adios {command}"
+        elif self._is_palindrome(command):
+            response = "¡Bonita palabra!"
         elif self._is_night():
-            message = f"!Buenas noches {user_name}¡"
+            response = f"!Buenas noches {command}¡"
         elif self._is_morning():
-            message = f"!Buenos días {user_name}¡"
+            response = f"!Buenos días {command}¡"
         elif self._is_afternoon():
-            message = f"!Buenas tardes {user_name}¡"
-        self.console.print(message)
+            response = f"!Buenas tardes {command}¡"
+        self.console.print(response)
 
-    def _is_palindrome(self, user_name: str) -> bool:
-        return user_name == "".join(reversed(user_name))
+    def _is_palindrome(self, command: str) -> bool:
+        return command == "".join(reversed(command))
 
     def _is_night(self) -> bool:
         time = self.clock.time()

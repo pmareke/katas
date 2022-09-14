@@ -1,3 +1,3 @@
 class ConsoleOutput:
-    def print(self, user_name: str) -> None:
-        pass
+    def print(self, command: str) -> None:
+        print(command)

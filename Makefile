@@ -33,5 +33,9 @@ test: ## Run all available tests
 bank: ## Run bank kata
 	PYTHONPATH=. poetry run python bank/main.py
 
+.PHONY: ohce
+ohce: ## Run ohce kata
+	PYTHONPATH=. poetry run python ohce/main.py Pedro
+
 .PHONY: pre-commit
 pre-commit: check-format check-typing check-style test

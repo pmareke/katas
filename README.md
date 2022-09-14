@@ -12,6 +12,7 @@ Repository with solutions to several katas:
 - [X] [Text Processing](https://katalyst.codurance.com/text-processing)
 - [X] [Simple Mars Rover](https://katalyst.codurance.com/simple-mars-rover)
 - [X] [Employee Report](https://codingdojo.org/kata/Employee-Report/)
+- [ ] [Ohce](https://codesai.com/posts/2016/05/ohce-kata)
 
 ## Medium
 - [X] [Gilded Rose](https://github.com/NotMyself/GildedRose)

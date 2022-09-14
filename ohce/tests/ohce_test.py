@@ -1,3 +1,5 @@
+import pytest
+
 from doublex import Mimic, Spy
 from doublex_expects import have_been_called_with
 from expects import expect, contain
@@ -9,39 +11,43 @@ from ohce.tests.test_data import TestData
 
 
 class TestOhce:
-    def test_greets_good_night(self) -> None:
+    @pytest.mark.parametrize("date", ["18/09/19 01:55:19"])
+    def test_greets_good_night(self, date: str) -> None:
         console_output = Mimic(Spy, ConsoleOutput)
-        custom_clock = TestData.a_custom_clock("18/09/19 01:55:19")
+        custom_clock = TestData.a_custom_clock(date)
         ohce = Ohce(console_output, custom_clock)
 
         ohce.run(TestData.ANY_USER_NAME)
 
         expect(console_output.print).to(have_been_called_with(contain("Buenas noches")))
 
-    def test_greets_good_morning(self) -> None:
+    @pytest.mark.parametrize("date", ["18/09/19 08:55:19"])
+    def test_greets_good_morning(self, date: str) -> None:
         console_output = Mimic(Spy, ConsoleOutput)
-        custom_clock = TestData.a_custom_clock("18/09/19 08:55:19")
+        custom_clock = TestData.a_custom_clock(date)
         ohce = Ohce(console_output, custom_clock)
 
         ohce.run(TestData.ANY_USER_NAME)
 
         expect(console_output.print).to(have_been_called_with(contain("Buenos días")))
 
-    def test_greets_good_afternoon(self) -> None:
+    @pytest.mark.parametrize("date", ["18/09/19 18:55:19"])
+    def test_greets_good_afternoon(self, date: str) -> None:
         console_output = Mimic(Spy, ConsoleOutput)
-        custom_clock = TestData.a_custom_clock("18/09/19 18:55:19")
+        custom_clock = TestData.a_custom_clock(date)
         ohce = Ohce(console_output, custom_clock)
 
         ohce.run(TestData.ANY_USER_NAME)
 
         expect(console_output.print).to(have_been_called_with(contain("Buenas tardes")))
 
-    def test_greets_good_word(self) -> None:
+    @pytest.mark.parametrize("word", ["oto", "radar", "refer", "kayak"])
+    def test_greets_good_word(self, word: str) -> None:
         console_output = Mimic(Spy, ConsoleOutput)
         custom_clock = Mimic(Spy, CustomClock)
         ohce = Ohce(console_output, custom_clock)
 
-        ohce.run("oto")
+        ohce.run(word)
 
         expect(console_output.print).to(
             have_been_called_with(contain("Bonita palabra"))

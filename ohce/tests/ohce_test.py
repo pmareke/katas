@@ -13,7 +13,7 @@ class TestOhce:
         custom_clock = TestData.a_custom_clock("18/09/19 01:55:19")
         ohce = Ohce(console_output, custom_clock)
 
-        ohce.run("any-user-name")
+        ohce.run(TestData.ANY_USER_NAME)
 
         expect(console_output.print).to(have_been_called_with(contain("Buenas noches")))
 
@@ -22,7 +22,7 @@ class TestOhce:
         custom_clock = TestData.a_custom_clock("18/09/19 08:55:19")
         ohce = Ohce(console_output, custom_clock)
 
-        ohce.run("any-user-name")
+        ohce.run(TestData.ANY_USER_NAME)
 
         expect(console_output.print).to(have_been_called_with(contain("Buenos días")))
 
@@ -31,6 +31,6 @@ class TestOhce:
         custom_clock = TestData.a_custom_clock("18/09/19 18:55:19")
         ohce = Ohce(console_output, custom_clock)
 
-        ohce.run("any-user-name")
+        ohce.run(TestData.ANY_USER_NAME)
 
         expect(console_output.print).to(have_been_called_with(contain("Buenas tardes")))

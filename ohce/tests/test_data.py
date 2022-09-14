@@ -5,6 +5,8 @@ from ohce.src.custom_clock import CustomClock
 
 
 class TestData:
+    ANY_USER_NAME = "any-user-name"
+
     @staticmethod
     def a_custom_clock(date_time_str: str) -> CustomClock:
         custom_clock = Mimic(Stub, CustomClock)

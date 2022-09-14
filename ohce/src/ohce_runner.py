@@ -10,6 +10,9 @@ class Ohce:
     _PALINDROME_GREETING = "Bonita palabra"
     _BYE_GREETING = "Adios"
     _STOP_COMMAND = "Stop!"
+    _START_MORNING_HOUR = 6
+    _START_AFTERNOON_HOUR = 12
+    _START_NIGHT_HOUR = 20
 
     def __init__(
         self,
@@ -33,6 +36,8 @@ class Ohce:
 
         self.console_output.print(f"{self._BYE_GREETING} {user_name}")
 
+    # PRIVATE METHODS
+
     def _generate_greet_for_user(self, user_name: str) -> str:
         if self._is_night():
             return self._GOOD_NIGHT_GREETING
@@ -40,14 +45,20 @@ class Ohce:
             return self._GOOD_MORNING_GREETING
         return self._GOOD_AFTERNOON_GREETING
 
-    def _is_palindrome(self, command: str) -> bool:
-        return command == "".join(reversed(command))
+    def _is_palindrome(self, word: str) -> bool:
+        return word == self._reverse_word(word)
 
     def _reverse_word(self, word: str) -> str:
         return "".join(reversed(word))
 
     def _is_night(self) -> bool:
-        return bool(self.time.hour >= 20 or self.time.hour < 6)
+        return bool(
+            self.time.hour >= self._START_NIGHT_HOUR
+            or self.time.hour < self._START_MORNING_HOUR
+        )
 
     def _is_morning(self) -> bool:
-        return bool(self.time.hour >= 6 and self.time.hour < 12)
+        return bool(
+            self.time.hour >= self._START_MORNING_HOUR
+            and self.time.hour < self._START_AFTERNOON_HOUR
+        )

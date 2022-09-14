@@ -10,7 +10,14 @@ from ohce.tests.test_data import TestData
 
 
 class TestOhce:
-    @pytest.mark.parametrize("date", ["18/09/19 01:55:19"])
+    @pytest.mark.parametrize(
+        "date",
+        [
+            "18/09/19 20:00:00",
+            "18/09/19 00:10:19",
+            "18/09/19 05:00:19",
+        ],
+    )
     def test_greets_good_night(self, date: str) -> None:
         console_input = TestData.a_console_input(TestData.ANY_WORD)
         console_output = Mimic(Spy, ConsoleOutput)
@@ -23,7 +30,14 @@ class TestOhce:
             have_been_called_with(f"!Buenas noches {TestData.ANY_USER_NAME}¡")
         )
 
-    @pytest.mark.parametrize("date", ["18/09/19 08:55:19"])
+    @pytest.mark.parametrize(
+        "date",
+        [
+            "18/09/19 06:00:00",
+            "18/09/19 08:55:19",
+            "18/09/19 11:59:19",
+        ],
+    )
     def test_greets_good_morning(self, date: str) -> None:
         console_input = TestData.a_console_input(TestData.ANY_WORD)
         console_output = Mimic(Spy, ConsoleOutput)
@@ -36,7 +50,14 @@ class TestOhce:
             have_been_called_with(f"!Buenos días {TestData.ANY_USER_NAME}¡")
         )
 
-    @pytest.mark.parametrize("date", ["18/09/19 18:55:19"])
+    @pytest.mark.parametrize(
+        "date",
+        [
+            "18/09/19 12:00:00",
+            "18/09/19 15:25:19",
+            "18/09/19 19:55:19",
+        ],
+    )
     def test_greets_good_afternoon(self, date: str) -> None:
         console_input = TestData.a_console_input(TestData.ANY_WORD)
         console_output = Mimic(Spy, ConsoleOutput)

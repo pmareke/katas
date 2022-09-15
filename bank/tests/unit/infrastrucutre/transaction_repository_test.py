@@ -2,6 +2,7 @@ from doublex import Mimic, Stub
 from expects import be, expect, equal
 
 from bank.src.domain.transaction import Transaction, TransactionType
+from bank.src.domain.amount import Amount
 from bank.src.infrastructure.datetime_clock import DatetimeClock
 from bank.src.infrastructure.in_memory_transaction_repository import (
     InMemoryTransactionRepository,
@@ -11,7 +12,7 @@ from bank.src.infrastructure.in_memory_transaction_repository import (
 class TestTransactionRepository:
     def test_adds_a_deposit_transaction(self) -> None:
         day = "12/01/2012"
-        deposit = 1000
+        deposit = Amount(1000)
         with Mimic(Stub, DatetimeClock) as clock:
             clock.today().returns(day)
         transaction_repository = InMemoryTransactionRepository(clock)
@@ -26,7 +27,7 @@ class TestTransactionRepository:
 
     def test_adds_a_withdraw_transaction(self) -> None:
         day = "12/01/2012"
-        withdraw = 1000
+        withdraw = Amount(1000)
         with Mimic(Stub, DatetimeClock) as clock:
             clock.today().returns(day)
         transaction_repository = InMemoryTransactionRepository(clock)

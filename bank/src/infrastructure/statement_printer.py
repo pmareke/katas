@@ -1,5 +1,6 @@
 from typing import List, Tuple
 
+from bank.src.domain.balance import Balance
 from bank.src.domain.printer import Printer
 from bank.src.domain.transaction import Transaction, TransactionType
 from bank.src.infrastructure.interfaces.output import Output
@@ -19,21 +20,21 @@ class StatementPrinter(Printer):
             self.console.print_line(line)
 
     def _statement_lines(self, transactions: List[Transaction]) -> List[str]:
-        balance = 0
+        balance = Balance(0)
         statement_lines: List[str] = []
         for transaction in transactions:
             line, balance = self.statement_line(transaction, balance)
             statement_lines.append(line)
         return statement_lines
 
-    def statement_line(self, transaction: Transaction, balance: int) -> Tuple:
+    def statement_line(self, transaction: Transaction, balance: Balance) -> Tuple:
         line = None
 
         if transaction.type == TransactionType.DEPOSIT:
-            balance += transaction.amount
-            line = f"{transaction.day} || {transaction.amount:.2f} || || {balance:.2f}"
+            balance.increase(transaction.amount)
+            line = f"{transaction.day} || {transaction.amount.value:.2f} || || {balance.value:.2f}"
         elif transaction.type == TransactionType.WITHDRAW:
-            balance -= transaction.amount
-            line = f"{transaction.day} || || {transaction.amount:.2f} || {balance:.2f}"
+            balance.decrease(transaction.amount)
+            line = f"{transaction.day} || || {transaction.amount.value:.2f} || {balance.value:.2f}"
 
         return (line, balance)

@@ -5,8 +5,8 @@ Implement a bank account that can deposit, withdraw and print a statement to the
 Follow the `Tell, don't ask` principle. All methods should be void.
 
 ```
-deposit(int) -> None
-withdraw(int) -> None
+deposit(Amount) -> None
+withdraw(Amount) -> None
 print_statement() -> None
 ```
 

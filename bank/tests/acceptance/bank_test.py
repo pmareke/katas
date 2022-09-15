@@ -3,6 +3,7 @@ from doublex_expects import have_been_satisfied
 from expects import expect
 
 from bank.main import Account
+from bank.src.domain.amount import Amount
 from bank.src.infrastructure.console_output import Console
 from bank.src.infrastructure.datetime_clock import DatetimeClock
 from bank.src.infrastructure.in_memory_transaction_repository import (
@@ -24,9 +25,9 @@ class TestBank:
         statement_printer = StatementPrinter(console)
         account = Account(transaction_repository, statement_printer)
 
-        account.deposit(1000)
-        account.withdraw(200)
-        account.deposit(2000)
+        account.deposit(Amount(1000))
+        account.withdraw(Amount(200))
+        account.deposit(Amount(2000))
         account.print_statement()
 
         expect(console).to(have_been_satisfied)

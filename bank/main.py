@@ -5,6 +5,7 @@ from bank.src.infrastructure.in_memory_transaction_repository import (
 )
 from bank.src.infrastructure.statement_printer import StatementPrinter
 from bank.src.uses_cases.account import Account
+from bank.src.domain.amount import Amount
 
 
 def main() -> None:
@@ -14,9 +15,9 @@ def main() -> None:
     statement_printer = StatementPrinter(console)
     account = Account(transaction_repository, statement_printer)
 
-    account.deposit(1000)
-    account.withdraw(100)
-    account.deposit(2000)
+    account.deposit(Amount(1000))
+    account.withdraw(Amount(100))
+    account.deposit(Amount(2000))
 
     account.print_statement()
 

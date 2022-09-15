@@ -5,15 +5,16 @@ from typing import List
 
 
 from bank.src.domain.transaction import Transaction, TransactionType
+from bank.src.domain.amount import Amount
 from bank.src.infrastructure.console_output import Console
 from bank.src.infrastructure.statement_printer import StatementPrinter
 
 
-def deposit(day: str, amount: int) -> Transaction:
+def deposit(day: str, amount: Amount) -> Transaction:
     return Transaction(TransactionType.DEPOSIT, day, amount)
 
 
-def withdraw(day: str, amount: int) -> Transaction:
+def withdraw(day: str, amount: Amount) -> Transaction:
     return Transaction(TransactionType.WITHDRAW, day, amount)
 
 
@@ -33,7 +34,7 @@ class TestStatementPrinter:
             console.print_line("date || credit || debit || balance")
             console.print_line("12/01/2012 || 1000.00 || || 1000.00")
         statement_printer = StatementPrinter(console)
-        transactions = [deposit("12/01/2012", 1000)]
+        transactions = [deposit("12/01/2012", Amount(1000))]
 
         statement_printer.print(transactions)
 
@@ -44,7 +45,7 @@ class TestStatementPrinter:
             console.print_line("date || credit || debit || balance")
             console.print_line("12/01/2012 || || 1000.00 || -1000.00")
         statement_printer = StatementPrinter(console)
-        transactions = [withdraw("12/01/2012", 1000)]
+        transactions = [withdraw("12/01/2012", Amount(1000))]
 
         statement_printer.print(transactions)
 
@@ -58,9 +59,9 @@ class TestStatementPrinter:
             console.print_line("12/01/2012 || 1000.00 || || 1000.00")
         statement_printer = StatementPrinter(console)
         transactions = [
-            deposit("12/01/2012", 1000),
-            withdraw("13/01/2012", 100),
-            deposit("14/01/2012", 500),
+            deposit("12/01/2012", Amount(1000)),
+            withdraw("13/01/2012", Amount(100)),
+            deposit("14/01/2012", Amount(500)),
         ]
 
         statement_printer.print(transactions)

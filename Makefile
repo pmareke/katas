@@ -27,7 +27,7 @@ reformat:  ## Format python code
 
 .PHONY: test
 test: ## Run all available tests
-	PYTHONPATH=. poetry run pytest .
+	PYTHONPATH=. poetry run pytest --picked
 
 .PHONY: bank
 bank: ## Run bank kata

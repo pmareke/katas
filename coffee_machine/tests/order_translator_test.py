@@ -1,12 +1,13 @@
 from expects import expect, equal
 from coffee_machine.src.order_translator import OrderTranslator
 from coffee_machine.src.domain.order import Order
+from coffee_machine.src.domain.drink import Coffee, Chocolate, Tea
 
 
 class TestOrderTranslator:
     def test_receives_an_order(self) -> None:
         order_translator = OrderTranslator()
-        order = Order(type="T", sugar=1)
+        order = Order(Tea(), sugar=1)
 
         command = order_translator.translate(order)
 
@@ -14,7 +15,7 @@ class TestOrderTranslator:
 
     def test_receives_an_order_without_sugar(self) -> None:
         order_translator = OrderTranslator()
-        order = Order(type="H", sugar=0)
+        order = Order(Chocolate(), sugar=0)
 
         command = order_translator.translate(order)
 
@@ -22,7 +23,7 @@ class TestOrderTranslator:
 
     def test_receives_an_order_with_two_sugars(self) -> None:
         order_translator = OrderTranslator()
-        order = Order(type="C", sugar=2)
+        order = Order(Coffee(), sugar=2)
 
         command = order_translator.translate(order)
 

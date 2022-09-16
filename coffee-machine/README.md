@@ -9,8 +9,8 @@ coffee machine that takes orders.
 
 But to make this mini project more interesting here are simple rules you must follow:
 ```
-    All production code is written to make a failing test pass
-    Do the simplest thing that could work for the current iteration
+All production code is written to make a failing test pass
+Do the simplest thing that could work for the current iteration
 ```
 
 ## Project

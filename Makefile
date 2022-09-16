@@ -9,6 +9,14 @@ help:  ## Show this help.
 local-setup: ## Set up the local environment (e.g. install git hooks)
 	scripts/local-setup.sh
 
+.PHONY: install
+install: ## Install all dependencies
+	poetry install
+
+.PHONY: update
+update: ## Update dependencies
+	poetry update
+
 .PHONY: check-typing
 check-typing:  ## Run a static analyzer over the code to find issues
 	poetry run mypy .
@@ -28,6 +36,10 @@ reformat:  ## Format python code
 .PHONY: test
 test: ## Run all available tests
 	PYTHONPATH=. poetry run pytest --testmon
+
+.PHONY: watch
+watch: ## Run all available tests
+	PYTHONPATH=. poetry run ptw -p -- --testmon
 
 .PHONY: bank
 bank: ## Run bank kata

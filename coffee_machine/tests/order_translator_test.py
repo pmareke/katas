@@ -1,7 +1,7 @@
 from expects import expect, equal
 from coffee_machine.src.order_translator import OrderTranslator
 from coffee_machine.src.domain.order import Order
-from coffee_machine.src.domain.drink import Coffee, Chocolate, Tea
+from coffee_machine.src.domain.drink import Hot, Coffee, Chocolate, Tea, OrangeJuice
 
 
 class TestOrderTranslator:
@@ -28,3 +28,19 @@ class TestOrderTranslator:
         command = order_translator.translate(order)
 
         expect(command).to(equal("C:2:0"))
+
+    def test_receives_an_order_with_orange_juice(self) -> None:
+        order_translator = OrderTranslator()
+        order = Order(OrangeJuice(), sugar=0)
+
+        command = order_translator.translate(order)
+
+        expect(command).to(equal("O::"))
+
+    def test_receives_an_order_with_hot_chocolate(self) -> None:
+        order_translator = OrderTranslator()
+        order = Order(Hot(Chocolate()), sugar=1)
+
+        command = order_translator.translate(order)
+
+        expect(command).to(equal("Hh:1:0"))

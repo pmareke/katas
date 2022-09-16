@@ -1,24 +1,29 @@
-import pytest
-
 from expects import expect, equal
 from coffee_machine.src.order_translator import OrderTranslator
 from coffee_machine.src.domain.order import Order
 
 
-class TestDrinkMaker:
-    @pytest.mark.parametrize(
-        "order,expect_command",
-        [
-            (Order(type="T", sugar=1), "T:1:0"),
-            (Order(type="H", sugar=0), "H::"),
-            (Order(type="C", sugar=2), "C:2:0"),
-        ],
-    )
-    def test_receives_the_correct_instruction_for_a_given_drink(
-        self, order: Order, expect_command: str
-    ) -> None:
+class TestOrderTranslator:
+    def test_receives_an_order(self) -> None:
         order_translator = OrderTranslator()
+        order = Order(type="T", sugar=1)
 
         command = order_translator.translate(order)
 
-        expect(command).to(equal(expect_command))
+        expect(command).to(equal("T:1:0"))
+
+    def test_receives_an_order_without_sugar(self) -> None:
+        order_translator = OrderTranslator()
+        order = Order(type="H", sugar=0)
+
+        command = order_translator.translate(order)
+
+        expect(command).to(equal("H::"))
+
+    def test_receives_an_order_with_two_sugars(self) -> None:
+        order_translator = OrderTranslator()
+        order = Order(type="C", sugar=2)
+
+        command = order_translator.translate(order)
+
+        expect(command).to(equal("C:2:0"))

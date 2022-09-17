@@ -16,6 +16,10 @@ from coffee_machine.src.domain.printer import Printer
 from coffee_machine.src.domain.maker import Maker
 
 
+class InvalidMoneyException(Exception):
+    pass
+
+
 class CoffeeMachine:
     def __init__(
         self,
@@ -34,6 +38,8 @@ class CoffeeMachine:
         self.items_sell_by_type: Dict[Drink, int] = {}
 
     def add_money(self, money: float) -> None:
+        if money <= 0:
+            raise InvalidMoneyException("Invalid amount of money")
         self.money = money
 
     def make_drink(self, order: Order) -> None:

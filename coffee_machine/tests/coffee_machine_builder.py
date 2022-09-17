@@ -11,20 +11,18 @@ from coffee_machine.src.domain.checker import Checker
 
 class CoffeeMachineBuilder:
     def __init__(self) -> None:
-        self.order_translator = OrderTranslator()
-        self.drink_maker = Spy(Maker)
+        self.translator = OrderTranslator()
+        self.maker = Spy(Maker)
         self.printer = Spy(Printer)
         self.notifier = Spy(Notifier)
         self.checker = Spy(Checker)
 
-    def withOrderTranslator(
-        self, order_translator: Translator
-    ) -> "CoffeeMachineBuilder":
-        self.order_translator = order_translator
+    def withTranslator(self, translator: Translator) -> "CoffeeMachineBuilder":
+        self.translator = translator
         return self
 
-    def withDrinkMaker(self, drink_maker: Maker) -> "CoffeeMachineBuilder":
-        self.drink_maker = drink_maker
+    def withMaker(self, maker: Maker) -> "CoffeeMachineBuilder":
+        self.maker = maker
         return self
 
     def withPrinter(self, printer: Printer) -> "CoffeeMachineBuilder":
@@ -41,8 +39,8 @@ class CoffeeMachineBuilder:
 
     def build(self) -> CoffeeMachine:
         return CoffeeMachine(
-            self.order_translator,
-            self.drink_maker,
+            self.translator,
+            self.maker,
             self.printer,
             self.notifier,
             self.checker,

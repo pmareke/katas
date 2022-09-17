@@ -17,23 +17,23 @@ class CoffeeMachineBuilder:
         self.notifier = Spy(Notifier)
         self.checker = Spy(Checker)
 
-    def withTranslator(self, translator: Translator) -> "CoffeeMachineBuilder":
+    def with_translator(self, translator: Translator) -> "CoffeeMachineBuilder":
         self.translator = translator
         return self
 
-    def withMaker(self, maker: Maker) -> "CoffeeMachineBuilder":
+    def with_maker(self, maker: Maker) -> "CoffeeMachineBuilder":
         self.maker = maker
         return self
 
-    def withPrinter(self, printer: Printer) -> "CoffeeMachineBuilder":
+    def with_printer(self, printer: Printer) -> "CoffeeMachineBuilder":
         self.printer = printer
         return self
 
-    def withNotifier(self, notifier: Notifier) -> "CoffeeMachineBuilder":
+    def with_notifier(self, notifier: Notifier) -> "CoffeeMachineBuilder":
         self.notifier = notifier
         return self
 
-    def withChecker(self, checker: Checker) -> "CoffeeMachineBuilder":
+    def with_checker(self, checker: Checker) -> "CoffeeMachineBuilder":
         self.checker = checker
         return self
 

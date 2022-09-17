@@ -1,9 +1,8 @@
-from expects import expect, equal
 from typing import List
-
 import pytest
 
-from potter import Potter
+from expects import expect, equal
+from potter.potter import Potter
 
 
 @pytest.mark.parametrize(

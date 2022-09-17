@@ -1,15 +1,15 @@
 import re
-from typing import Dict, Optional
+from typing import Dict
 
 
 class TextProcessing:
     @staticmethod
-    def process(input: str, escape: Optional[str] = None) -> str:
+    def process(input_text: str) -> str:
         result = ["Those are the top 10 words used:", ""]
-        seen: Dict = dict()
+        seen: Dict = {}
 
         number_of_words = 0
-        lines = input.split("\n")
+        lines = input_text.split("\n")
         indices = []
         for index, line in enumerate(lines):
             if "```" in line:

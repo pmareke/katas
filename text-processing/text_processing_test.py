@@ -5,7 +5,7 @@ from text_processing import TextProcessing
 
 class TestTextProcessing:
     def test_process_text(self) -> None:
-        input = """Hello, this is an example for you to practice. You should grab
+        input_text = """Hello, this is an example for you to practice. You should grab
         this text and make it as your test case.
         """
         expected = """Those are the top 10 words used:
@@ -22,10 +22,10 @@ class TestTextProcessing:
 10. should
 
 The text has in total 21 words"""
-        expect(TextProcessing().process(input)).to(equal(expected))
+        expect(TextProcessing().process(input_text)).to(equal(expected))
 
     def test_process_text_with_escapes(self) -> None:
-        input = """Hello, this is an example for you to practice. You should grab
+        input_text = """Hello, this is an example for you to practice. You should grab
 this text and make it as your test case:
 
 ```javascript
@@ -47,4 +47,4 @@ if (true) {
 10. should
 
 The text has in total 21 words"""
-        expect(TextProcessing().process(input, "```")).to(equal(expected))
+        expect(TextProcessing().process(input_text)).to(equal(expected))

@@ -11,5 +11,5 @@ class Potter:
 
     @staticmethod
     def _calculate_total_price(items: List[int]) -> int:
-        UNIT_PRICE = 8
-        return sum([UNIT_PRICE * qty for qty in items])
+        unit_price = 8
+        return sum((unit_price * qty for qty in items))

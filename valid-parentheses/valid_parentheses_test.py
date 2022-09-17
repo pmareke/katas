@@ -5,7 +5,7 @@ from valid_parentheses import ValidParentheses
 
 
 @pytest.mark.parametrize(
-    "input,is_valid",
+    "input_message,is_valid",
     [
         ("()", True),
         (")(()))", False),
@@ -14,5 +14,5 @@ from valid_parentheses import ValidParentheses
     ],
 )
 class TestValidParentheses:
-    def test_validates_the_parenthese(self, input: str, is_valid: bool) -> None:
-        expect(ValidParentheses.is_valid(input)).to(be(is_valid))
+    def test_validates_the_parenthese(self, input_message: str, is_valid: bool) -> None:
+        expect(ValidParentheses.is_valid(input_message)).to(be(is_valid))

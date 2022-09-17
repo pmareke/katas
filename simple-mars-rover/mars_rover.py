@@ -2,8 +2,8 @@ from typing import Callable
 
 
 class MarsRover:
-    X = 0
-    Y = 0
+    x_coordinate = 0
+    y_coordinate = 0
     direction = "N"
 
     def execute(self, instructions: str) -> str:
@@ -13,20 +13,20 @@ class MarsRover:
             "R": self._rotate,
         }
         for instruction in instructions:
-            fn: Callable = commands[instruction]
-            fn(instruction)
+            callback: Callable = commands[instruction]
+            callback(instruction)
 
-        return f"{self.X}:{self.Y}:{self.direction}"
+        return f"{self.x_coordinate}:{self.y_coordinate}:{self.direction}"
 
-    def _move(self, instruction: str) -> None:
+    def _move(self, _instruction: str) -> None:
         if self.direction == "N":
-            self.Y = self._increase_position(self.Y)
+            self.y_coordinate = self._increase_position(self.y_coordinate)
         elif self.direction == "S":
-            self.Y = self._decrease_position(self.Y)
+            self.y_coordinate = self._decrease_position(self.y_coordinate)
         elif self.direction == "E":
-            self.X = self._increase_position(self.X)
+            self.x_coordinate = self._increase_position(self.x_coordinate)
         else:
-            self.X = self._decrease_position(self.X)
+            self.x_coordinate = self._decrease_position(self.x_coordinate)
 
     def _increase_position(self, current_position: int) -> int:
         return (current_position + 1) % 10

@@ -9,8 +9,8 @@ class Permutations:
             return [word]
 
         permutations: List[str] = []
-        for index in range(len(word)):
-            first = word[index]
+        for index, letter in enumerate(word):
+            first = letter
             tail = word[:index] + word[index + 1 :]
 
             for permutation in self.process(tail):

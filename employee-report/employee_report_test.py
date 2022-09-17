@@ -1,6 +1,7 @@
+from typing import List
+
 import pytest
 from expects import equal, expect
-from typing import List
 from employee_report import Employee, EmployeeReport
 
 

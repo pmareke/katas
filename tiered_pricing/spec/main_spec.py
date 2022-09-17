@@ -1,6 +1,10 @@
 from mamba import description, it
 from expects import expect, equal, raise_error
-from src.main import Subscription, GraduatedSubscription, InvalidSubscriptionNumber
+from tiered_pricing.src.main import (
+    Subscription,
+    GraduatedSubscription,
+    InvalidSubscriptionNumber,
+)
 
 with description("Tiered Pricing") as self:
     with it("a valid number of subscriptions"):

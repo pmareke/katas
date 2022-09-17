@@ -28,6 +28,7 @@ check-format:
 .PHONY: check-style
 check-style:
 	poetry run flake8 .
+	poetry run pylint ./*
 
 .PHONY: reformat
 reformat:  ## Format python code
@@ -36,6 +37,7 @@ reformat:  ## Format python code
 .PHONY: test
 test: ## Run all available tests
 	PYTHONPATH=. poetry run pytest --testmon
+	PYTHONPATH=. poetry run mamba .
 
 .PHONY: watch
 watch: ## Run all available tests

@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Employee:
-    id: int
+    employee_id: int
     name: str
     salary: int
 

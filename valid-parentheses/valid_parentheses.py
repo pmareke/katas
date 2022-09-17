@@ -3,10 +3,10 @@ from typing import List
 
 class ValidParentheses:
     @staticmethod
-    def is_valid(input: str) -> bool:
+    def is_valid(input_message: str) -> bool:
         stack: List[str] = []
 
-        for parenthesis in input:
+        for parenthesis in input_message:
             if parenthesis == "(":
                 stack.append(parenthesis)
             elif len(stack) == 0:
@@ -14,4 +14,4 @@ class ValidParentheses:
             else:
                 stack.pop()
 
-        return True if len(stack) == 0 else False
+        return bool(len(stack) == 0)

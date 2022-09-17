@@ -7,7 +7,7 @@ from sum_of_pairs import SumPairs
 
 
 @pytest.mark.parametrize(
-    "input,target,result",
+    "input_list,target,result",
     [
         ([11, 3, 7, 5], 10, [3, 7]),
         ([4, 3, 2, 3, 4], 6, [4, 2]),
@@ -17,6 +17,6 @@ from sum_of_pairs import SumPairs
 )
 class TestSumPairs:
     def test_calculates_sum_of_pairs(
-        self, input: List[int], target: int, result: List[int]
+        self, input_list: List[int], target: int, result: List[int]
     ) -> None:
-        expect(SumPairs.process(input, target)).to(equal(result))
+        expect(SumPairs.process(input_list, target)).to(equal(result))

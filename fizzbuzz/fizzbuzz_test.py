@@ -1,6 +1,6 @@
 from pytest_bdd import scenario, given, then, parsers
 from expects import equal, expect
-from fizzbuzz import FizzBuzz
+from fizzbuzz.fizzbuzz import FizzBuzz
 
 
 @scenario("features/fizzbuzz.feature", "FizzBuzz")
@@ -13,7 +13,7 @@ def test_fizzbuzz() -> None:
     target_fixture="fizzbuzz",
 )
 def calculates(number: int) -> str:
-    return FizzBuzz.calculates(num=number)
+    return str(FizzBuzz.calculates(num=number))
 
 
 @then(parsers.parse("the representation should be {result}"))

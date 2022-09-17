@@ -26,6 +26,7 @@ class EmployeeReport:
 
     def capitalize_names(self) -> List[Employee]:
         return list(
+            # pylint: disable=W0108
             map(
                 lambda employee: self._create_capitalize_employee(employee),
                 self.employees_sorted_by_name(),

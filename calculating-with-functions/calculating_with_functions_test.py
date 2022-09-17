@@ -20,7 +20,7 @@ from calculating_with_functions import (
 
 
 @pytest.mark.parametrize(
-    "input,result",
+    "input_functions,result",
     [
         (seven(times(five())), 35),
         (four(plus(nine())), 13),
@@ -30,5 +30,5 @@ from calculating_with_functions import (
     ],
 )
 class TestCalculatingWithFunctions:
-    def test_calculates_functions(self, input: Callable, result: int) -> None:
-        expect(input()).to(equal(result))
+    def test_calculates_functions(self, input_functions: Callable, result: int) -> None:
+        expect(input_functions()).to(equal(result))

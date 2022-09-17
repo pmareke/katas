@@ -1,3 +1,4 @@
+# pylint: disable=W0611
 from functools import partial  # noqa: F401
 from typing import Callable  # noqa: F401
 

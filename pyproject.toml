@@ -8,6 +8,8 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.10"
 pytest-watch = "^4.2.0"
+pylint = "^2.15.2"
+mamba = "^0.11.2"
 
 [tool.poetry.dev-dependencies]
 black = "^22.8.0"

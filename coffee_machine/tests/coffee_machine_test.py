@@ -17,7 +17,7 @@ class TestCoffeMachine:
     def test_makes_the_drinks(self) -> None:
         tea_order = TestData.a_tea_order()
         maker = Spy(Maker)
-        coffee_machine = CoffeeMachineBuilder().withMaker(maker).build()
+        coffee_machine = CoffeeMachineBuilder().with_maker(maker).build()
 
         coffee_machine.add_money(money=0.4)
         coffee_machine.make_drink(tea_order)
@@ -27,7 +27,7 @@ class TestCoffeMachine:
     @pytest.mark.parametrize("money", [-1.0, 0.0])
     def test_raises_and_error_with_invalid_money(self, money: float) -> None:
         maker = Spy(Maker)
-        coffee_machine = CoffeeMachineBuilder().withMaker(maker).build()
+        coffee_machine = CoffeeMachineBuilder().with_maker(maker).build()
 
         expect(lambda: coffee_machine.add_money(money=money)).to(
             raise_error(InvalidMoneyException)
@@ -36,7 +36,7 @@ class TestCoffeMachine:
     def test_sends_a_message_with_missing_amount(self) -> None:
         coffee_order = TestData.a_coffee_order()
         maker = Spy(Maker)
-        coffee_machine = CoffeeMachineBuilder().withMaker(maker).build()
+        coffee_machine = CoffeeMachineBuilder().with_maker(maker).build()
 
         coffee_machine.add_money(money=0.5)
         coffee_machine.make_drink(coffee_order)
@@ -50,7 +50,7 @@ class TestCoffeMachine:
     def test_prints_a_report(self) -> None:
         orange_juice_order = TestData.an_orange_juice_order()
         printer = Spy(Printer)
-        coffee_machine = CoffeeMachineBuilder().withPrinter(printer).build()
+        coffee_machine = CoffeeMachineBuilder().with_printer(printer).build()
 
         coffee_machine.add_money(money=10)
         coffee_machine.make_drink(orange_juice_order)
@@ -70,9 +70,9 @@ class TestCoffeMachine:
             beverage_quantity_checker.is_empty(milk).returns(False)
         coffee_machine_builder = (
             CoffeeMachineBuilder()
-            .withNotifier(notifier)
-            .withPrinter(printer)
-            .withChecker(beverage_quantity_checker)
+            .with_notifier(notifier)
+            .with_printer(printer)
+            .with_checker(beverage_quantity_checker)
         )
         coffee_machine = coffee_machine_builder.build()
 

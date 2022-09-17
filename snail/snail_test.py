@@ -3,11 +3,11 @@ from typing import List
 from expects import equal, expect
 import pytest
 
-from snail import Snail
+from snail.snail import Snail
 
 
 @pytest.mark.parametrize(
-    "input,output",
+    "input_list,output",
     [
         (
             [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
@@ -20,5 +20,7 @@ from snail import Snail
     ],
 )
 class TestSnail:
-    def test_snails_an_array(self, input: List[List[int]], output: List[int]) -> None:
-        expect(Snail.process(input)).to(equal(output))
+    def test_snails_an_array(
+        self, input_list: List[List[int]], output: List[int]
+    ) -> None:
+        expect(Snail.process(input_list)).to(equal(output))

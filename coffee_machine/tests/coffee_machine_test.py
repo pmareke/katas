@@ -68,14 +68,13 @@ class TestCoffeMachine:
             beverage_quantity_checker.is_empty(water).returns(True)
             milk = TestData.a_milk()
             beverage_quantity_checker.is_empty(milk).returns(False)
-
-        coffee_machine = (
+        coffee_machine_builder = (
             CoffeeMachineBuilder()
             .withNotifier(notifier)
             .withPrinter(printer)
             .withChecker(beverage_quantity_checker)
-            .build()
         )
+        coffee_machine = coffee_machine_builder.build()
 
         coffee_machine.add_money(money=0.4)
         coffee_machine.make_drink(tea_order)

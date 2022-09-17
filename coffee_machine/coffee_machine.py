@@ -11,9 +11,9 @@ from coffee_machine.src.domain.drink import (
 )
 from coffee_machine.src.domain.notifier import Notifier
 from coffee_machine.src.domain.checker import Checker
-from coffee_machine.src.order_translator import OrderTranslator
-from coffee_machine.src.printer import Printer
-from coffee_machine.src.drink_maker import DrinkMaker
+from coffee_machine.src.infrastructure.order_translator import OrderTranslator
+from coffee_machine.src.infrastructure.printer import Printer
+from coffee_machine.src.infrastructure.drink_maker import DrinkMaker
 
 
 class CoffeeMachine:

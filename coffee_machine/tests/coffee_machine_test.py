@@ -1,54 +1,34 @@
-from doublex import Mimic, Spy, Stub, ANY_ARG
+from doublex import Mimic, Spy, Stub
 from doublex_expects import have_been_called_with
 from expects import expect
 
-from coffee_machine.src.order_translator import OrderTranslator
-from coffee_machine.src.drink_maker import DrinkMaker
-from coffee_machine.src.printer import Printer
-from coffee_machine.src.email_notifier import EmailNotifier
-from coffee_machine.src.beverage_quantity_checker import BeverageQuantityChecker
-from coffee_machine.src.domain.order import Order
-from coffee_machine.src.domain.drink import (
-    Coffee,
-    Tea,
-    Chocolate,
-    Hot,
-    OrangeJuice,
-    Water,
+from coffee_machine.src.infrastructure.drink_maker import DrinkMaker
+from coffee_machine.src.infrastructure.printer import Printer
+from coffee_machine.src.infrastructure.beverage_quantity_checker import (
+    BeverageQuantityChecker,
 )
-from coffee_machine.coffee_machine import CoffeeMachine
+from coffee_machine.tests.coffee_machine_builder import CoffeeMachineBuilder
+from coffee_machine.tests.test_data import TestData
 
 
 class TestCoffeMachine:
     def test_makes_the_drinks(self) -> None:
-        order_translator = OrderTranslator()
+        tea_order = TestData.a_tea_order()
         drink_maker = Mimic(Spy, DrinkMaker)
-        printer = Mimic(Stub, Printer)
-        notifier = Mimic(Stub, EmailNotifier)
-        checker = Mimic(Stub, BeverageQuantityChecker)
-        coffee_machine = CoffeeMachine(
-            order_translator, drink_maker, printer, notifier, checker
-        )
+        coffee_machine = CoffeeMachineBuilder().withDrinkMaker(drink_maker).build()
 
         coffee_machine.add_money(money=0.4)
-        order = Order(Tea(), sugar=1)
-        coffee_machine.make_drink(order)
+        coffee_machine.make_drink(tea_order)
 
         expect(drink_maker.make).to(have_been_called_with("T:1:0"))
 
     def test_sends_a_message_with_missing_amount(self) -> None:
-        order_translator = OrderTranslator()
+        coffee_order = TestData.a_coffee_order()
         drink_maker = Mimic(Spy, DrinkMaker)
-        printer = Mimic(Stub, Printer)
-        notifier = Mimic(Stub, EmailNotifier)
-        checker = Mimic(Stub, BeverageQuantityChecker)
-        coffee_machine = CoffeeMachine(
-            order_translator, drink_maker, printer, notifier, checker
-        )
+        coffee_machine = CoffeeMachineBuilder().withDrinkMaker(drink_maker).build()
 
         coffee_machine.add_money(money=0.5)
-        order = Order(Coffee(), sugar=1)
-        coffee_machine.make_drink(order)
+        coffee_machine.make_drink(coffee_order)
 
         expect(drink_maker.make).to(
             have_been_called_with(
@@ -57,57 +37,43 @@ class TestCoffeMachine:
         )
 
     def test_prints_a_report(self) -> None:
-        order_translator = OrderTranslator()
-        drink_maker = DrinkMaker()
+        orange_juice_order = TestData.an_orange_juice_order()
         printer = Mimic(Spy, Printer)
-        notifier = Mimic(Stub, EmailNotifier)
-        checker = Mimic(Stub, BeverageQuantityChecker)
-        coffee_machine = CoffeeMachine(
-            order_translator, drink_maker, printer, notifier, checker
-        )
-        tea = Order(Tea(), sugar=1)
-        chocolate = Order(Chocolate(), sugar=0)
-        orange_juice = Order(OrangeJuice(), sugar=0)
-        coffee = Order(Coffee(), sugar=1)
-        hot_coffee = Order(Hot(Coffee()), sugar=1)
+        coffee_machine = CoffeeMachineBuilder().withPrinter(printer).build()
 
         coffee_machine.add_money(money=10)
-        coffee_machine.make_drink(tea)
-        coffee_machine.make_drink(chocolate)
-        coffee_machine.make_drink(orange_juice)
-        coffee_machine.make_drink(coffee)
-        coffee_machine.make_drink(hot_coffee)
+        coffee_machine.make_drink(orange_juice_order)
         coffee_machine.create_report()
 
-        expect(printer.print).to(have_been_called_with("1 Tea"))
-        expect(printer.print).to(have_been_called_with("1 Chocolate"))
         expect(printer.print).to(have_been_called_with("1 Orange Juice"))
-        expect(printer.print).to(have_been_called_with("2 Coffee"))
-        expect(printer.print).to(have_been_called_with("Earned money: 2.7"))
+        expect(printer.print).to(have_been_called_with("Earned money: 0.6"))
 
     def test_sends_an_email_when_there_is_a_shotage(self) -> None:
-        water = Water()
-        order_translator = OrderTranslator()
-        drink_maker = DrinkMaker()
+        tea_order = TestData.a_tea_order()
         printer = Mimic(Spy, Printer)
-        email_notifier = Mimic(Spy, EmailNotifier)
         with Mimic(Stub, BeverageQuantityChecker) as beverage_quantity_checker:
-            beverage_quantity_checker.is_empty(ANY_ARG).returns(True)
+            water = TestData.a_water()
+            beverage_quantity_checker.is_empty(water).returns(True)
+            milk = TestData.a_milk()
+            beverage_quantity_checker.is_empty(milk).returns(False)
 
-        coffee_machine = CoffeeMachine(
-            order_translator,
-            drink_maker,
-            printer,
-            email_notifier,
-            beverage_quantity_checker,
+        coffee_machine = (
+            CoffeeMachineBuilder()
+            .withPrinter(printer)
+            .withChecker(beverage_quantity_checker)
+            .build()
         )
 
         coffee_machine.add_money(money=0.4)
-        order = Order(Tea(), sugar=1)
-        coffee_machine.make_drink(order)
+        coffee_machine.make_drink(tea_order)
 
         expect(printer.print).to(
             have_been_called_with(
                 f"There is a shortage with {water}, an email has been sent to refill the coffee machine."
+            )
+        )
+        expect(printer.print).not_to(
+            have_been_called_with(
+                f"There is a shortage with {milk}, an email has been sent to refill the coffee machine."
             )
         )

@@ -43,6 +43,22 @@ class OrangeJuice(Drink):
         return "Orange Juice"
 
 
+class Water(Drink):
+    def __init__(self) -> None:
+        super().__init__(name="W", price=0)
+
+    def __str__(self) -> str:
+        return "Water"
+
+
+class Milk(Drink):
+    def __init__(self) -> None:
+        super().__init__(name="M", price=0)
+
+    def __str__(self) -> str:
+        return "Milk"
+
+
 class Hot(Drink):
     def __init__(self, drink: Drink):
         super().__init__(name=f"{drink.name}h", price=drink.price)

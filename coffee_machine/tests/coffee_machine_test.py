@@ -48,7 +48,7 @@ class TestCoffeMachine:
         expect(printer.print).to(have_been_called_with("1 Orange Juice"))
         expect(printer.print).to(have_been_called_with("Earned money: 0.6"))
 
-    def test_sends_an_email_when_there_is_a_shotage(self) -> None:
+    def test_sends_an_email_when_there_is_a_shortage(self) -> None:
         tea_order = TestData.a_tea_order()
         printer = Mimic(Spy, Printer)
         with Mimic(Stub, BeverageQuantityChecker) as beverage_quantity_checker:

@@ -1,7 +1,7 @@
 import pytest
 
 from doublex import Spy, Stub
-from doublex_expects import have_been_called_with, have_been_called
+from doublex_expects import have_been_called_with
 from expects import expect, raise_error
 
 from coffee_machine.src.domain.checker import Checker
@@ -80,12 +80,13 @@ class TestCoffeMachine:
         coffee_machine.add_money(money=0.4)
         coffee_machine.make_drink(tea_order)
 
-        expect(notifier.notify_missing_drink).to(have_been_called)
+        expect(notifier.notify_missing_drink).to(have_been_called_with(water))
         expect(printer.print).to(
             have_been_called_with(
                 f"There is a shortage with {water}, an email has been sent to refill the coffee machine."
             )
         )
+        expect(notifier.notify_missing_drink).not_to(have_been_called_with(milk))
         expect(printer.print).not_to(
             have_been_called_with(
                 f"There is a shortage with {milk}, an email has been sent to refill the coffee machine."

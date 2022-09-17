@@ -11,16 +11,16 @@ from coffee_machine.src.domain.drink import (
 )
 from coffee_machine.src.domain.notifier import Notifier
 from coffee_machine.src.domain.checker import Checker
-from coffee_machine.src.infrastructure.order_translator import OrderTranslator
-from coffee_machine.src.infrastructure.printer import Printer
-from coffee_machine.src.infrastructure.drink_maker import DrinkMaker
+from coffee_machine.src.domain.translator import Translator
+from coffee_machine.src.domain.printer import Printer
+from coffee_machine.src.domain.maker import Maker
 
 
 class CoffeeMachine:
     def __init__(
         self,
-        order_translator: OrderTranslator,
-        drink_maker: DrinkMaker,
+        order_translator: Translator,
+        drink_maker: Maker,
         printer: Printer,
         notifier: Notifier,
         checker: Checker,

@@ -1,13 +1,10 @@
-from doublex import Mimic, Spy
+from doublex import Spy
 
 from coffee_machine.coffee_machine import CoffeeMachine
 from coffee_machine.src.infrastructure.order_translator import OrderTranslator
-from coffee_machine.src.infrastructure.drink_maker import DrinkMaker
-from coffee_machine.src.infrastructure.printer import Printer
-from coffee_machine.src.infrastructure.email_notifier import EmailNotifier
-from coffee_machine.src.infrastructure.beverage_quantity_checker import (
-    BeverageQuantityChecker,
-)
+from coffee_machine.src.domain.translator import Translator
+from coffee_machine.src.domain.maker import Maker
+from coffee_machine.src.domain.printer import Printer
 from coffee_machine.src.domain.notifier import Notifier
 from coffee_machine.src.domain.checker import Checker
 
@@ -15,18 +12,18 @@ from coffee_machine.src.domain.checker import Checker
 class CoffeeMachineBuilder:
     def __init__(self) -> None:
         self.order_translator = OrderTranslator()
-        self.drink_maker = Mimic(Spy, DrinkMaker)
-        self.printer = Mimic(Spy, Printer)
-        self.notifier = Mimic(Spy, EmailNotifier)
-        self.checker = Mimic(Spy, BeverageQuantityChecker)
+        self.drink_maker = Spy(Maker)
+        self.printer = Spy(Printer)
+        self.notifier = Spy(Notifier)
+        self.checker = Spy(Checker)
 
     def withOrderTranslator(
-        self, order_translator: OrderTranslator
+        self, order_translator: Translator
     ) -> "CoffeeMachineBuilder":
         self.order_translator = order_translator
         return self
 
-    def withDrinkMaker(self, drink_maker: DrinkMaker) -> "CoffeeMachineBuilder":
+    def withDrinkMaker(self, drink_maker: Maker) -> "CoffeeMachineBuilder":
         self.drink_maker = drink_maker
         return self
 

@@ -16,7 +16,7 @@ class Coffee(Drink):
         super().__init__(name="C", price=0.6)
 
     def __str__(self) -> str:
-        return "Coffee"
+        return self.__class__.__name__
 
 
 class Chocolate(Drink):
@@ -24,7 +24,7 @@ class Chocolate(Drink):
         super().__init__(name="H", price=0.5)
 
     def __str__(self) -> str:
-        return "Chocolate"
+        return self.__class__.__name__
 
 
 class Tea(Drink):
@@ -32,7 +32,7 @@ class Tea(Drink):
         super().__init__(name="T", price=0.4)
 
     def __str__(self) -> str:
-        return "Tea"
+        return self.__class__.__name__
 
 
 class OrangeJuice(Drink):
@@ -40,7 +40,7 @@ class OrangeJuice(Drink):
         super().__init__(name="O", price=0.6)
 
     def __str__(self) -> str:
-        return "Orange Juice"
+        return self.__class__.__name__
 
 
 class Water(Drink):
@@ -48,7 +48,7 @@ class Water(Drink):
         super().__init__(name="W", price=0)
 
     def __str__(self) -> str:
-        return "Water"
+        return self.__class__.__name__
 
 
 class Milk(Drink):
@@ -56,7 +56,7 @@ class Milk(Drink):
         super().__init__(name="M", price=0)
 
     def __str__(self) -> str:
-        return "Milk"
+        return self.__class__.__name__
 
 
 class Hot(Drink):

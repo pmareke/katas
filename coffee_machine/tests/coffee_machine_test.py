@@ -16,18 +16,18 @@ from coffee_machine.coffee_machine import InvalidMoneyException
 class TestCoffeMachine:
     def test_makes_the_drinks(self) -> None:
         tea_order = TestData.a_tea_order()
-        drink_maker = Spy(Maker)
-        coffee_machine = CoffeeMachineBuilder().withMaker(drink_maker).build()
+        maker = Spy(Maker)
+        coffee_machine = CoffeeMachineBuilder().withMaker(maker).build()
 
         coffee_machine.add_money(money=0.4)
         coffee_machine.make_drink(tea_order)
 
-        expect(drink_maker.make).to(have_been_called_with("T:1:0"))
+        expect(maker.make).to(have_been_called_with("T:1:0"))
 
     @pytest.mark.parametrize("money", [-1.0, 0.0])
     def test_raises_and_error_with_invalid_money(self, money: float) -> None:
-        drink_maker = Spy(Maker)
-        coffee_machine = CoffeeMachineBuilder().withMaker(drink_maker).build()
+        maker = Spy(Maker)
+        coffee_machine = CoffeeMachineBuilder().withMaker(maker).build()
 
         expect(lambda: coffee_machine.add_money(money=money)).to(
             raise_error(InvalidMoneyException)
@@ -35,13 +35,13 @@ class TestCoffeMachine:
 
     def test_sends_a_message_with_missing_amount(self) -> None:
         coffee_order = TestData.a_coffee_order()
-        drink_maker = Spy(Maker)
-        coffee_machine = CoffeeMachineBuilder().withMaker(drink_maker).build()
+        maker = Spy(Maker)
+        coffee_machine = CoffeeMachineBuilder().withMaker(maker).build()
 
         coffee_machine.add_money(money=0.5)
         coffee_machine.make_drink(coffee_order)
 
-        expect(drink_maker.make).to(
+        expect(maker.make).to(
             have_been_called_with(
                 "M:Sorry there is not enough money in the cofee machine, you need 0.1 more."
             )

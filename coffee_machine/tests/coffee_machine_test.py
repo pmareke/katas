@@ -50,7 +50,6 @@ class TestCoffeMachine:
 
     def test_sends_an_email_when_there_is_a_shortage(self) -> None:
         tea_order = TestData.a_tea_order()
-        printer = Spy(Printer)
         notifier = Spy(Notifier)
         with Stub(Checker) as checker:
             water = TestData.a_water()
@@ -58,11 +57,7 @@ class TestCoffeMachine:
             milk = TestData.a_milk()
             checker.is_empty(milk).returns(False)
         coffee_machine = (
-            CoffeeMachineBuilder()
-            .with_notifier(notifier)
-            .with_printer(printer)
-            .with_checker(checker)
-            .build()
+            CoffeeMachineBuilder().with_notifier(notifier).with_checker(checker).build()
         )
 
         coffee_machine.add_money(money=Money(0.4))

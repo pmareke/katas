@@ -60,13 +60,12 @@ class CoffeeMachineCommandHandler:
                 self.notifier.notify_missing_drink(drink)
 
     def _translate_order(self, order: Order) -> str:
-        if self.money.value >= order.drink.price:
-            return str(self.order_translator.translate(order))
+        if self.money.value < order.drink.price:
+            missing_money = Money(abs(self.money.value - order.drink.price))
+            error_message = f"M:Sorry there is not enough money in the coffee machine, you need {missing_money} more."
+            raise InsufficientMoneyException(error_message)
 
-        missing_money = Money(abs(self.money.value - order.drink.price))
-        raise InsufficientMoneyException(
-            f"M:Sorry there is not enough money in the coffee machine, you need {missing_money} more."
-        )
+        return str(self.order_translator.translate(order))
 
     def _update_sent_drinks(self, order: Order) -> None:
         drink_initial = order.drink.initial

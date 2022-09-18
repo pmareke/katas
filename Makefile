@@ -51,5 +51,9 @@ bank: ## Run bank kata
 ohce: ## Run ohce kata
 	PYTHONPATH=. poetry run python ohce/main.py Pedro
 
+.PHONY: coffee-machine
+coffee-machine: ## Run coffee machine
+	PYTHONPATH=. poetry run python coffee_machine/main.py
+
 .PHONY: pre-commit
 pre-commit: check-format check-typing check-style test

@@ -23,7 +23,7 @@ Repository with solutions to several katas:
 - [X] [Snail](https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1)
 - [X] [Nómina (using TCR)](https://github.com/vfloress/workshop-tcr-js)
 - [X] [Bank](https://www.codurance.com/katalyst/bank)
-- [ ] [Coffee Machine](https://simcap.github.io/coffeemachine/)
+- [X] [Coffee Machine](https://simcap.github.io/coffeemachine/)
 - [ ] [Elephant Carpaccio](https://codingdojo.org/kata/elephant-carpaccio/)
 
 ## Hard

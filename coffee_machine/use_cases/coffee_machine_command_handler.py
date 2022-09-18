@@ -21,7 +21,7 @@ class InsufficientMoneyException(Exception):
     pass
 
 
-class CoffeeMachine:
+class CoffeeMachineCommandHandler:
     shortage_drinks = [Water(), Milk()]
 
     def __init__(

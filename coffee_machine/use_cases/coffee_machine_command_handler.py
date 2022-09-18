@@ -15,10 +15,29 @@ from coffee_machine.src.domain.printer import Printer
 from coffee_machine.src.domain.checker import Checker
 from coffee_machine.src.domain.maker import Maker
 from coffee_machine.src.domain.money import Money
+from coffee_machine.src.infrastructure.order_translator import OrderTranslator
+from coffee_machine.src.infrastructure.drink_maker import DrinkMaker
+from coffee_machine.src.infrastructure.custom_printer import CustomPrinter
+from coffee_machine.src.infrastructure.email_notifier import EmailNotifier
+from coffee_machine.src.infrastructure.beverage_quantity_checker import (
+    BeverageQuantityChecker,
+)
 
 
 class InsufficientMoneyException(Exception):
     pass
+
+
+class CoffeeMachineCommandHandlerFactory:
+    @staticmethod
+    def make() -> "CoffeeMachineCommandHandler":
+        return CoffeeMachineCommandHandler(
+            OrderTranslator(),
+            DrinkMaker(),
+            CustomPrinter(),
+            EmailNotifier(),
+            BeverageQuantityChecker(),
+        )
 
 
 class CoffeeMachineCommandHandler:

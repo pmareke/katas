@@ -1,6 +1,6 @@
 from doublex import Spy
 
-from coffee_machine.use_cases.coffee_machine_command_handler import (
+from coffee_machine.src.use_cases.coffee_machine_command_handler import (
     CoffeeMachineCommandHandler,
 )
 from coffee_machine.src.infrastructure.order_translator import OrderTranslator

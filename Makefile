@@ -41,7 +41,7 @@ test: ## Run all available tests
 
 .PHONY: watch
 watch: ## Run all available tests
-	PYTHONPATH=. poetry run ptw -p -- --testmon
+	PYTHONPATH=. poetry run ptw --onpass "notify-send "Test" "Passed!!!"" --onfail "notify-send "Test" "Failed!!!"" -p -- --testmon
 
 .PHONY: bank
 bank: ## Run bank kata

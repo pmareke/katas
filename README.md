@@ -13,6 +13,7 @@ Repository with solutions to several katas:
 - [X] [Simple Mars Rover](https://katalyst.codurance.com/simple-mars-rover)
 - [X] [Employee Report](https://codingdojo.org/kata/Employee-Report/)
 - [X] [Ohce](https://garajeando.blogspot.com/2016/05/the-ohce-kata-short-and-simple-exercise.html)
+- [X] [Guest the random number](https://www.codurance.com/katalyst/random-number-kata)
 
 ## Medium
 - [X] [Gilded Rose](https://github.com/NotMyself/GildedRose)

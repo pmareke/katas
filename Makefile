@@ -23,7 +23,7 @@ check-typing:  ## Run a static analyzer over the code to find issues
 
 .PHONY: check-format
 check-format:
-	poetry run yapf --recursive **/*.py
+	poetry run yapf --recursive --in-place **/*.py
 
 .PHONY: check-style
 check-style:

@@ -5,6 +5,7 @@ from app.gilded_rose import GildedRose
 
 
 class TestGildedRose:
+
     def test_update_quality(self) -> None:
         verify_all_combinations(
             self._update_quality,

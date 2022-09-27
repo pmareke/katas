@@ -52,13 +52,9 @@ class Ohce:
         return "".join(reversed(word))
 
     def _is_night(self) -> bool:
-        return bool(
-            self.time.hour >= self._START_NIGHT_HOUR
-            or self.time.hour < self._START_MORNING_HOUR
-        )
+        return bool(self.time.hour >= self._START_NIGHT_HOUR
+                    or self.time.hour < self._START_MORNING_HOUR)
 
     def _is_morning(self) -> bool:
-        return bool(
-            self.time.hour >= self._START_MORNING_HOUR
-            and self.time.hour < self._START_AFTERNOON_HOUR
-        )
+        return bool(self.time.hour >= self._START_MORNING_HOUR
+                    and self.time.hour < self._START_AFTERNOON_HOUR)

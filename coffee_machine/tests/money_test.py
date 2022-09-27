@@ -4,6 +4,7 @@ from coffee_machine.src.domain.money import Money, InvalidMoneyException
 
 
 class TestMoney:
+
     def test_creates_money(self) -> None:
         money = Money(2.0)
 

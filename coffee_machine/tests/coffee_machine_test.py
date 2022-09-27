@@ -8,16 +8,17 @@ from coffee_machine.src.domain.notifier import Notifier
 from coffee_machine.src.domain.maker import Maker
 from coffee_machine.src.domain.money import Money
 from coffee_machine.tests.coffee_machine_builder import (
-    CoffeeMachineCommandHandlerBuilder,
-)
+    CoffeeMachineCommandHandlerBuilder, )
 from coffee_machine.tests.test_data import TestData
 
 
 class TestCoffeMachine:
+
     def test_makes_the_drinks(self) -> None:
         tea_order = TestData.a_tea_order()
         maker = Spy(Maker)
-        command_handler = CoffeeMachineCommandHandlerBuilder().with_maker(maker).build()
+        command_handler = CoffeeMachineCommandHandlerBuilder().with_maker(
+            maker).build()
 
         command_handler.add_money(money=Money(0.4))
         command_handler.make_drink(tea_order)
@@ -27,7 +28,8 @@ class TestCoffeMachine:
     def test_sends_a_message_with_missing_amount(self) -> None:
         coffee_order = TestData.a_coffee_order()
         maker = Spy(Maker)
-        command_handler = CoffeeMachineCommandHandlerBuilder().with_maker(maker).build()
+        command_handler = CoffeeMachineCommandHandlerBuilder().with_maker(
+            maker).build()
 
         command_handler.add_money(money=Money(0.5))
         command_handler.make_drink(coffee_order)
@@ -35,15 +37,13 @@ class TestCoffeMachine:
         expect(maker.make).to(
             have_been_called_with(
                 "M:Sorry there is not enough money in the coffee machine, you need 0.1 more."
-            )
-        )
+            ))
 
     def test_prints_a_report(self) -> None:
         orange_juice_order = TestData.an_orange_juice_order()
         printer = Spy(Printer)
         command_handler = (
-            CoffeeMachineCommandHandlerBuilder().with_printer(printer).build()
-        )
+            CoffeeMachineCommandHandlerBuilder().with_printer(printer).build())
 
         command_handler.add_money(money=Money(10))
         command_handler.make_drink(orange_juice_order)
@@ -60,18 +60,15 @@ class TestCoffeMachine:
             checker.is_empty(water).returns(True)
             milk = TestData.a_milk()
             checker.is_empty(milk).returns(False)
-        command_handler = (
-            CoffeeMachineCommandHandlerBuilder()
-            .with_notifier(notifier)
-            .with_checker(checker)
-            .build()
-        )
+        command_handler = (CoffeeMachineCommandHandlerBuilder().with_notifier(
+            notifier).with_checker(checker).build())
 
         command_handler.add_money(money=Money(0.4))
         command_handler.make_drink(tea_order)
 
         expect(notifier.notify_missing_drink).to(have_been_called_with(water))
-        expect(notifier.notify_missing_drink).not_to(have_been_called_with(milk))
+        expect(notifier.notify_missing_drink).not_to(
+            have_been_called_with(milk))
 
     def test_prints_a_message_when_there_is_a_shortage(self) -> None:
         tea_order = TestData.a_tea_order()
@@ -81,12 +78,8 @@ class TestCoffeMachine:
             checker.is_empty(water).returns(True)
             milk = TestData.a_milk()
             checker.is_empty(milk).returns(False)
-        command_handler = (
-            CoffeeMachineCommandHandlerBuilder()
-            .with_printer(printer)
-            .with_checker(checker)
-            .build()
-        )
+        command_handler = (CoffeeMachineCommandHandlerBuilder().with_printer(
+            printer).with_checker(checker).build())
 
         command_handler.add_money(money=Money(0.4))
         command_handler.make_drink(tea_order)
@@ -94,10 +87,8 @@ class TestCoffeMachine:
         expect(printer.print).to(
             have_been_called_with(
                 f"There is a shortage with {water}, an email has been sent to refill the coffee machine."
-            )
-        )
+            ))
         expect(printer.print).not_to(
             have_been_called_with(
                 f"There is a shortage with {milk}, an email has been sent to refill the coffee machine."
-            )
-        )
+            ))

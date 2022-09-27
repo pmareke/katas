@@ -29,8 +29,7 @@ class TextProcessing:
 
         # type: ignore
         sort = dict(
-            sorted(seen.items(), key=lambda item: str(item[1]),
-                   reverse=True))
+            sorted(seen.items(), key=lambda item: str(item[1]), reverse=True))
         for index, key in enumerate(sort.keys()):
             if index < 10:
                 result.append(f"{index + 1}. {key}")

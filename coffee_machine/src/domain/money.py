@@ -3,6 +3,7 @@ class InvalidMoneyException(Exception):
 
 
 class Money:
+
     def __init__(self, amount: float) -> None:
         self._validate_amount(amount)
         self.amount = amount

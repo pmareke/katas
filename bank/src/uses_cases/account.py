@@ -5,6 +5,7 @@ from bank.src.domain.transaction_repository import TransactionRepository
 
 
 class Account(AccountService):
+
     def __init__(
         self,
         transaction_repository: TransactionRepository,
@@ -20,4 +21,5 @@ class Account(AccountService):
         self.transition_repository.add_withdraw(amount)
 
     def print_statement(self) -> None:
-        self.statement_printer.print(self.transition_repository.all_transactions())
+        self.statement_printer.print(
+            self.transition_repository.all_transactions())

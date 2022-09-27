@@ -4,6 +4,7 @@ from coffee_machine.tests.test_data import TestData
 
 
 class TestOrderTranslator:
+
     def test_receives_an_order(self) -> None:
         order_translator = OrderTranslator()
         order = TestData.a_tea_order()
@@ -30,7 +31,8 @@ class TestOrderTranslator:
 
     def test_receives_an_order_with_orange_juice(self) -> None:
         order_translator = OrderTranslator()
-        orange_juice_order_without_sugar = TestData.an_orange_juice_order(sugar=0)
+        orange_juice_order_without_sugar = TestData.an_orange_juice_order(
+            sugar=0)
 
         command = order_translator.translate(orange_juice_order_without_sugar)
 

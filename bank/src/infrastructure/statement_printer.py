@@ -7,6 +7,7 @@ from bank.src.infrastructure.interfaces.output import Output
 
 
 class StatementPrinter(Printer):
+
     def __init__(self, console: Output) -> None:
         self.console = console
 
@@ -27,7 +28,8 @@ class StatementPrinter(Printer):
             statement_lines.append(line)
         return statement_lines
 
-    def statement_line(self, transaction: Transaction, balance: Balance) -> Tuple:
+    def statement_line(self, transaction: Transaction,
+                       balance: Balance) -> Tuple:
         line = None
 
         if transaction.type == TransactionType.DEPOSIT:

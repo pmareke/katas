@@ -6,6 +6,7 @@ from app.domain.sulfuras_item import SulfurasItem
 
 
 class ItemFactory:
+
     @staticmethod
     def create_item(name: str, sell_in: int, quality: int) -> Item:
         if name == "Aged Brie":

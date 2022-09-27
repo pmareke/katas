@@ -3,7 +3,6 @@ from doublex_expects import have_been_satisfied
 from expects import expect
 from typing import List
 
-
 from bank.src.domain.transaction import Transaction, TransactionType
 from bank.src.domain.amount import Amount
 from bank.src.infrastructure.console_output import Console
@@ -19,6 +18,7 @@ def withdraw(day: str, amount: Amount) -> Transaction:
 
 
 class TestStatementPrinter:
+
     def test_prints_the_header(self) -> None:
         with Mimic(Mock, Console) as console:
             console.print_line("date || credit || debit || balance")

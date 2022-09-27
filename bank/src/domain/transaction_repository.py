@@ -6,6 +6,7 @@ from bank.src.domain.transaction import Transaction
 
 
 class TransactionRepository(ABC):
+
     @abstractmethod
     def add_deposit(self, deposit: Amount) -> None:
         raise NotImplementedError

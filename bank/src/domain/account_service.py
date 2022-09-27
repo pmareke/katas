@@ -3,6 +3,7 @@ from bank.src.domain.amount import Amount
 
 
 class AccountService(ABC):
+
     @abstractmethod
     def deposit(self, amount: Amount) -> None:
         raise NotImplementedError

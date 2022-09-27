@@ -10,6 +10,7 @@ from ohce.tests.test_data import TestData
 
 
 class TestOhce:
+
     @pytest.mark.parametrize(
         "date",
         [
@@ -27,8 +28,7 @@ class TestOhce:
         ohce.run(TestData.ANY_USER_NAME)
 
         expect(console_output.print).to(
-            have_been_called_with(f"!Buenas noches {TestData.ANY_USER_NAME}¡")
-        )
+            have_been_called_with(f"!Buenas noches {TestData.ANY_USER_NAME}¡"))
 
     @pytest.mark.parametrize(
         "date",
@@ -47,8 +47,7 @@ class TestOhce:
         ohce.run(TestData.ANY_USER_NAME)
 
         expect(console_output.print).to(
-            have_been_called_with(f"!Buenos días {TestData.ANY_USER_NAME}¡")
-        )
+            have_been_called_with(f"!Buenos días {TestData.ANY_USER_NAME}¡"))
 
     @pytest.mark.parametrize(
         "date",
@@ -67,8 +66,7 @@ class TestOhce:
         ohce.run(TestData.ANY_USER_NAME)
 
         expect(console_output.print).to(
-            have_been_called_with(f"!Buenas tardes {TestData.ANY_USER_NAME}¡")
-        )
+            have_been_called_with(f"!Buenas tardes {TestData.ANY_USER_NAME}¡"))
 
     @pytest.mark.parametrize("word", ["oto", "radar", "refer", "kayak"])
     def test_greets_good_word_when_is_palindrome(self, word: str) -> None:
@@ -80,9 +78,9 @@ class TestOhce:
         ohce.run(word)
 
         expect(console_output.print).to(
-            have_been_called_with(TestData.reversed_word(word))
-        )
-        expect(console_output.print).to(have_been_called_with("!Bonita palabra¡"))
+            have_been_called_with(TestData.reversed_word(word)))
+        expect(console_output.print).to(
+            have_been_called_with("!Bonita palabra¡"))
 
     @pytest.mark.parametrize("word", ["coche", "raton", "jabon"])
     def test_reverses_a_word(self, word: str) -> None:
@@ -94,9 +92,9 @@ class TestOhce:
         ohce.run(word)
 
         expect(console_output.print).to(
-            have_been_called_with(TestData.reversed_word(word))
-        )
-        expect(console_output.print).not_to(have_been_called_with("¡Bonita palabra!"))
+            have_been_called_with(TestData.reversed_word(word)))
+        expect(console_output.print).not_to(
+            have_been_called_with("¡Bonita palabra!"))
 
     def test_says_goodbye(self) -> None:
         console_input = TestData.a_console_input("")
@@ -107,5 +105,4 @@ class TestOhce:
         ohce.run(TestData.ANY_USER_NAME)
 
         expect(console_output.print).to(
-            have_been_called_with(f"Adios {TestData.ANY_USER_NAME}")
-        )
+            have_been_called_with(f"Adios {TestData.ANY_USER_NAME}"))

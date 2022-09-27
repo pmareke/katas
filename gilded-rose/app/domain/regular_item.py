@@ -2,6 +2,7 @@ from app.domain.item import Item
 
 
 class RegularItem(Item):
+
     def update(self) -> None:
         if self.quality > 0:
             self.quality = self.quality - 1

@@ -12,6 +12,7 @@ from coffee_machine.src.domain.drink import (
 
 
 class TestData:
+
     @staticmethod
     def a_tea_order(sugar: int = 1) -> Order:
         return Order(Tea(), sugar)

@@ -2,8 +2,10 @@ from app.domain.item import Item
 
 
 class BackstageItem(Item):
+
     def __init__(self, sell_in: int, quality: int):
-        super().__init__("Backstage passes to a TAFKAL80ETC concert", sell_in, quality)
+        super().__init__("Backstage passes to a TAFKAL80ETC concert", sell_in,
+                         quality)
 
     def update(self) -> None:
         if self.quality < 50:

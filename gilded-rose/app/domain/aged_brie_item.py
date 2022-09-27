@@ -2,6 +2,7 @@ from app.domain.item import Item
 
 
 class AgedBrieItem(Item):
+
     def __init__(self, sell_in: int, quality: int):
         super().__init__("Aged Brie", sell_in, quality)
 

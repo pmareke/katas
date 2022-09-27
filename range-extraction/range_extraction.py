@@ -11,7 +11,7 @@ class RangeExtraction:
         current_range: List[int] = []
         for index, number in enumerate(self.input):
             if len(current_range
-                   ) == 0:  # First element or after starting a new range
+                  ) == 0:  # First element or after starting a new range
                 current_range = [number]
             if index == len(self.input) - 1:  # Last element
                 string_range = self._calculate_string_range(current_range)

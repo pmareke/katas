@@ -65,6 +65,5 @@ class TestGuessRandomNumber:
         result = guess_random_number.guess_number(1)
 
         error_message = (
-            "Sorry, you lose the game after 3 attemps. The number was {number}"
-        )
+            "Sorry, you lose the game after 3 attemps. The number was {number}")
         expect(result).to(equal(error_message.format(number=any_number)))

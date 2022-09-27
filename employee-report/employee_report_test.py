@@ -20,8 +20,7 @@ class TestEmployeeReport:
             self, employees: List[Employee]) -> None:
         employee_report = EmployeeReport(employees)
 
-        valid_employees = employee_report.employees_allowed_to_work_on_sundays(
-        )
+        valid_employees = employee_report.employees_allowed_to_work_on_sundays()
 
         expect(len(valid_employees)).to(equal(2))
         expect(valid_employees).to(equal([employees[1], employees[3]]))

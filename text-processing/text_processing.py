@@ -3,6 +3,7 @@ from typing import Dict
 
 
 class TextProcessing:
+
     @staticmethod
     def process(input_text: str) -> str:
         result = ["Those are the top 10 words used:", ""]
@@ -16,7 +17,7 @@ class TextProcessing:
                 indices.append(index)
 
         if len(indices) > 0:
-            lines = lines[0 : indices[0]] + lines[indices[1] + 1 :]
+            lines = lines[0:indices[0]] + lines[indices[1] + 1:]
 
         for line in lines:
             pattern = re.compile(r"\w+")
@@ -26,7 +27,10 @@ class TextProcessing:
                 key = word.lower()
                 seen[key] = seen.get(key, 0) + 1
 
-        sort = dict(sorted(seen.items(), key=lambda item: item[1], reverse=True))  # type: ignore
+        # type: ignore
+        sort = dict(
+            sorted(seen.items(), key=lambda item: str(item[1]),
+                   reverse=True))
         for index, key in enumerate(sort.keys()):
             if index < 10:
                 result.append(f"{index + 1}. {key}")

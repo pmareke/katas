@@ -5,6 +5,7 @@ from guess_random_number.generator import RandomNumberGenerator
 
 
 class TestGuessRandomNumber:
+
     def test_wins_in_the_first_guess(self) -> None:
         any_number = 0
         with Mimic(Stub, RandomNumberGenerator) as generator:
@@ -13,7 +14,8 @@ class TestGuessRandomNumber:
 
         result = guess_random_number.guess_number(any_number)
 
-        expect(result).to(equal(f"You win!!! {any_number} was the random number."))
+        expect(result).to(
+            equal(f"You win!!! {any_number} was the random number."))
 
     def test_not_wins_in_the_first_guess(self) -> None:
         any_number = 0
@@ -29,7 +31,8 @@ class TestGuessRandomNumber:
         expect(result).to(equal(error_message.format(number=2)))
 
         result = guess_random_number.guess_number(any_number)
-        expect(result).to(equal(f"You win!!! {any_number} was the random number."))
+        expect(result).to(
+            equal(f"You win!!! {any_number} was the random number."))
 
     def test_loses_the_guess(self) -> None:
         any_number = 0
@@ -48,8 +51,7 @@ class TestGuessRandomNumber:
         expect(result).to(
             equal(
                 f"Sorry, you lose the game after 3 attemps. The number was {any_number}"
-            )
-        )
+            ))
 
     def test_only_plays_three_times(self) -> None:
         any_number = 0

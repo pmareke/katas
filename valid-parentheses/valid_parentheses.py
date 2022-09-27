@@ -2,6 +2,7 @@ from typing import List
 
 
 class ValidParentheses:
+
     @staticmethod
     def is_valid(input_message: str) -> bool:
         stack: List[str] = []

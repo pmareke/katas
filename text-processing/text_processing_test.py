@@ -4,6 +4,7 @@ from text_processing import TextProcessing
 
 
 class TestTextProcessing:
+
     def test_process_text(self) -> None:
         input_text = """Hello, this is an example for you to practice. You should grab
         this text and make it as your test case.

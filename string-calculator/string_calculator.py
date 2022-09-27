@@ -2,6 +2,7 @@ import re
 
 
 class StringCalculator:
+
     @staticmethod
     def add(input_string: str) -> int:
         if input_string == "":

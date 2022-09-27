@@ -2,6 +2,7 @@ from guess_random_number.generator import RandomNumberGenerator
 
 
 class GuessRandomNumber:
+
     def __init__(self, generator: RandomNumberGenerator) -> None:
         self.random_number = generator.generate()
         self.attemps = 0

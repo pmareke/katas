@@ -2,6 +2,7 @@ from typing import List
 
 
 class Snail:
+
     @staticmethod
     def process(input_list: List[List[int]]) -> List[int]:
         snail: List[int] = [input_list[0][0]]

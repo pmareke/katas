@@ -2,6 +2,7 @@ from typing import List
 
 
 class Permutations:
+
     def process(self, word: str) -> List[str]:
         if len(word) == 0:
             return []
@@ -11,7 +12,7 @@ class Permutations:
         permutations: List[str] = []
         for index, letter in enumerate(word):
             first = letter
-            tail = word[:index] + word[index + 1 :]
+            tail = word[:index] + word[index + 1:]
 
             for permutation in self.process(tail):
                 item = first + permutation

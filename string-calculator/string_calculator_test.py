@@ -3,6 +3,7 @@ import pytest
 
 
 class TestStringCalculator:
+
     @pytest.mark.parametrize(
         "input_string,result",
         [
@@ -27,6 +28,7 @@ class TestStringCalculator:
             "1,-2,-3",
         ],
     )
-    def test_sum_negative_numbers_raises_an_exception(self, input_string: str) -> None:
+    def test_sum_negative_numbers_raises_an_exception(
+            self, input_string: str) -> None:
         with pytest.raises(Exception):
             StringCalculator().add(input_string)

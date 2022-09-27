@@ -1,4 +1,5 @@
 class FizzBuzz:
+
     @staticmethod
     def calculates(num: int) -> str:
         result = ""

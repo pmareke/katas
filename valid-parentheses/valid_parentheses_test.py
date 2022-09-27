@@ -14,5 +14,7 @@ from valid_parentheses import ValidParentheses
     ],
 )
 class TestValidParentheses:
-    def test_validates_the_parenthese(self, input_message: str, is_valid: bool) -> None:
+
+    def test_validates_the_parenthese(self, input_message: str,
+                                      is_valid: bool) -> None:
         expect(ValidParentheses.is_valid(input_message)).to(be(is_valid))

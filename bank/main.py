@@ -1,8 +1,7 @@
 from bank.src.infrastructure.console_output import Console
 from bank.src.infrastructure.datetime_clock import DatetimeClock
 from bank.src.infrastructure.in_memory_transaction_repository import (
-    InMemoryTransactionRepository,
-)
+    InMemoryTransactionRepository, )
 from bank.src.infrastructure.statement_printer import StatementPrinter
 from bank.src.uses_cases.account import Account
 from bank.src.domain.amount import Amount

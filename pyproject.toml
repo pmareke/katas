@@ -10,9 +10,10 @@ python = "^3.10"
 pytest-watch = "^4.2.0"
 pylint = "^2.15.2"
 mamba = "^0.11.2"
+toml = "^0.10.2"
 
 [tool.poetry.dev-dependencies]
-black = "^22.8.0"
+yapf = "^0.32.0"
 mypy = "^0.971"
 flake8 = "^5.0.4"
 doublex = { git = "https://github.com/davidvilla/python-doublex", rev = "0ccbe65c8574169d8b723c1ef29bcbe3f2e98c20" }

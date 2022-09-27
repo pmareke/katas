@@ -15,7 +15,9 @@ from permutations.permutations import Permutations
     ],
 )
 class TestPermutastions:
-    def test_permutates_a_word(self, input_string: str, output: List[str]) -> None:
+
+    def test_permutates_a_word(self, input_string: str,
+                               output: List[str]) -> None:
         permutations = Permutations()
         perms = permutations.process(input_string)
         for entry in output:

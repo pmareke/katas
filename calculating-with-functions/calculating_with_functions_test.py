@@ -30,5 +30,7 @@ from calculating_with_functions import (
     ],
 )
 class TestCalculatingWithFunctions:
-    def test_calculates_functions(self, input_functions: Callable, result: int) -> None:
+
+    def test_calculates_functions(self, input_functions: Callable,
+                                  result: int) -> None:
         expect(input_functions()).to(equal(result))

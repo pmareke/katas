@@ -2,6 +2,7 @@ from typing import Dict, List, Optional
 
 
 class SumPairs:
+
     @staticmethod
     def process(input_list: List[int], target: int) -> Optional[List[int]]:
         pairs: Dict[int, List[int]] = {}

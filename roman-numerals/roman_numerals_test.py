@@ -5,6 +5,7 @@ from roman_numerals import RomanNumerals
 
 
 class TestRomanNumerals:
+
     @pytest.mark.parametrize(
         "amount,roman",
         [
@@ -23,5 +24,6 @@ class TestRomanNumerals:
             (2019, "MMXIX"),
         ],
     )
-    def test_transform_from_arabic_to_roman(self, amount: int, roman: str) -> None:
+    def test_transform_from_arabic_to_roman(self, amount: int,
+                                            roman: str) -> None:
         expect(RomanNumerals().calculate(amount)).to(equal(roman))

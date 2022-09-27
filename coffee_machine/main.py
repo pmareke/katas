@@ -2,8 +2,7 @@ from coffee_machine.src.domain.money import Money
 from coffee_machine.src.domain.order import Order
 from coffee_machine.src.domain.drink import Tea
 from coffee_machine.src.use_cases.coffee_machine_command_handler import (
-    CoffeeMachineCommandHandlerFactory,
-)
+    CoffeeMachineCommandHandlerFactory, )
 
 
 def main() -> None:

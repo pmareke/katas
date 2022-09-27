@@ -3,6 +3,7 @@ import pytest
 
 
 class TestMarsRober:
+
     @pytest.mark.parametrize(
         "coordinates,position",
         [

@@ -193,6 +193,17 @@ python-versions = ">=3.6.1"
 requests = "*"
 
 [[package]]
+name = "execnet"
+version = "1.9.0"
+description = "execnet: rapid multi-Python deployment"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.extras]
+testing = ["pre-commit"]
+
+[[package]]
 name = "expects"
 version = "0.9.0"
 description = "Expressive and extensible TDD/BDD assertion library for Python"
@@ -525,6 +536,18 @@ pytest = ">=5.0"
 testing = ["tox", "mypy (==0.910)"]
 
 [[package]]
+name = "pytest-forked"
+version = "1.4.0"
+description = "run tests in isolated forked subprocesses"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+py = "*"
+pytest = ">=3.10"
+
+[[package]]
 name = "pytest-testmon"
 version = "1.3.3"
 description = "selects tests affected by changed files and methods"
@@ -549,6 +572,24 @@ colorama = ">=0.3.3"
 docopt = ">=0.4.0"
 pytest = ">=2.6.4"
 watchdog = ">=0.6.0"
+
+[[package]]
+name = "pytest-xdist"
+version = "2.5.0"
+description = "pytest xdist plugin for distributed testing and loop-on-failing modes"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+execnet = ">=1.1"
+pytest = ">=6.2.0"
+pytest-forked = "*"
+
+[package.extras]
+psutil = ["psutil (>=3.0)"]
+setproctitle = ["setproctitle"]
+testing = ["filelock"]
 
 [[package]]
 name = "pyyaml"
@@ -667,7 +708,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "6cc35f041252f4f4b3dd40b271a91802852071508efeecd6c9743bc65c77dc75"
+content-hash = "8b71bd67ab6919910dc80b6893af1e43a04ec336c44f8dff036cb4515124aae4"
 
 [metadata.files]
 allpairspy = []
@@ -686,6 +727,7 @@ docopt = []
 doublex = []
 doublex-expects = []
 empty-files = []
+execnet = []
 expects = []
 flake8 = []
 glob2 = []
@@ -714,8 +756,10 @@ pyparsing = []
 pyperclip = []
 pytest = []
 pytest-bdd = []
+pytest-forked = []
 pytest-testmon = []
 pytest-watch = []
+pytest-xdist = []
 pyyaml = []
 requests = []
 six = []

@@ -11,6 +11,7 @@ pytest-watch = "^4.2.0"
 pylint = "^2.15.2"
 mamba = "^0.11.2"
 toml = "^0.10.2"
+pytest-xdist = "^2.5.0"
 
 [tool.poetry.dev-dependencies]
 yapf = "^0.32.0"

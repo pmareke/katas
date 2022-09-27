@@ -7,13 +7,13 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-Flake8-pyproject = "^1.1.0"
 
 [tool.poetry.dev-dependencies]
 yapf = "^0.32.0"
 toml = "^0.10.2"
 mypy = "^0.971"
 flake8 = "^5.0.4"
+Flake8-pyproject = "^1.1.0"
 doublex = { git = "https://github.com/davidvilla/python-doublex", rev = "0ccbe65c8574169d8b723c1ef29bcbe3f2e98c20" }
 doublex-expects = "^0.7.1"
 expects = "^0.9.0"
@@ -28,6 +28,7 @@ approvaltests = "^5.6.1"
 
 [tool.flake8]
 ignore= ["E501", "E124","E203", "W291", "W503", "W504"]
+
 [tool.yapf]
 based_on_style = "google"
 

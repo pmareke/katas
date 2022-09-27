@@ -34,7 +34,7 @@ pytest = ">=4.0.0"
 name = "args"
 version = "0.1.0"
 description = "Command Arguments for Humans."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -42,7 +42,7 @@ python-versions = "*"
 name = "astroid"
 version = "2.12.9"
 description = "An abstract syntax tree for Python with inference support."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7.2"
 
@@ -57,7 +57,7 @@ wrapt = [
 name = "attrs"
 version = "22.1.0"
 description = "Classes Without Boilerplate"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -105,7 +105,7 @@ unicode_backport = ["unicodedata2"]
 name = "clint"
 version = "0.5.1"
 description = "Python Command Line Interface Tools"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -116,7 +116,7 @@ args = "*"
 name = "colorama"
 version = "0.4.5"
 description = "Cross-platform colored terminal text."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -124,7 +124,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "coverage"
 version = "6.4.4"
 description = "Code coverage measurement for Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -135,7 +135,7 @@ toml = ["tomli"]
 name = "dill"
 version = "0.3.5.1"
 description = "serialize all of python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, !=3.6.*"
 
@@ -146,7 +146,7 @@ graph = ["objgraph (>=1.7.2)"]
 name = "docopt"
 version = "0.6.2"
 description = "Pythonic argument parser, that will make you smile"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -196,7 +196,7 @@ requests = "*"
 name = "execnet"
 version = "1.9.0"
 description = "execnet: rapid multi-Python deployment"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -215,7 +215,7 @@ python-versions = "*"
 name = "flake8"
 version = "5.0.4"
 description = "the modular source code checker: pep8 pyflakes and co"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6.1"
 
@@ -223,6 +223,21 @@ python-versions = ">=3.6.1"
 mccabe = ">=0.7.0,<0.8.0"
 pycodestyle = ">=2.9.0,<2.10.0"
 pyflakes = ">=2.5.0,<2.6.0"
+
+[[package]]
+name = "flake8-pyproject"
+version = "1.1.0.post0"
+description = "Flake8 plug-in loading the configuration from pyproject.toml"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+Flake8 = ">=5,<6"
+TOMLi = {version = "*", markers = "python_version < \"3.11\""}
+
+[package.extras]
+test = ["pytest", "pytest-cov"]
 
 [[package]]
 name = "glob2"
@@ -244,7 +259,7 @@ python-versions = ">=3.5"
 name = "iniconfig"
 version = "1.1.1"
 description = "iniconfig: brain-dead simple config-ini parsing"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -252,7 +267,7 @@ python-versions = "*"
 name = "isort"
 version = "5.10.1"
 description = "A Python utility / library to sort Python imports."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6.1,<4.0"
 
@@ -266,7 +281,7 @@ plugins = ["setuptools"]
 name = "lazy-object-proxy"
 version = "1.7.1"
 description = "A fast and thorough lazy object proxy."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -290,7 +305,7 @@ testing = ["pytest"]
 name = "mamba"
 version = "0.11.2"
 description = "The definitive testing tool for Python. Born under the banner of Behavior Driven Development."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -362,7 +377,7 @@ python-versions = "*"
 name = "packaging"
 version = "21.3"
 description = "Core utilities for Python packages"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -397,7 +412,7 @@ develop = ["pytest (>=5.0)", "pytest (<5.0)", "tox (>=2.8)", "pytest-cov", "pyte
 name = "platformdirs"
 version = "2.5.2"
 description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -409,7 +424,7 @@ test = ["appdirs (==1.4.4)", "pytest-cov (>=2.7)", "pytest-mock (>=3.6)", "pytes
 name = "pluggy"
 version = "1.0.0"
 description = "plugin and hook calling mechanisms for python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -421,7 +436,7 @@ dev = ["tox", "pre-commit"]
 name = "py"
 version = "1.11.0"
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -429,7 +444,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "pycodestyle"
 version = "2.9.1"
 description = "Python style guide checker"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -437,7 +452,7 @@ python-versions = ">=3.6"
 name = "pyflakes"
 version = "2.5.0"
 description = "passive checker of Python programs"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -459,7 +474,7 @@ tests-numpy = ["numpy", "pyhamcrest"]
 name = "pylint"
 version = "2.15.2"
 description = "python code static checker"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7.2"
 
@@ -481,7 +496,7 @@ testutils = ["gitpython (>3)"]
 name = "pyparsing"
 version = "3.0.9"
 description = "pyparsing module - Classes and methods to define and execute parsing grammars"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6.8"
 
@@ -500,7 +515,7 @@ python-versions = "*"
 name = "pytest"
 version = "7.1.3"
 description = "pytest: simple powerful testing with Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -539,7 +554,7 @@ testing = ["tox", "mypy (==0.910)"]
 name = "pytest-forked"
 version = "1.4.0"
 description = "run tests in isolated forked subprocesses"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -563,7 +578,7 @@ pytest = ">=5,<8"
 name = "pytest-watch"
 version = "4.2.0"
 description = "Local continuous test runner with pytest and watchdog."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -577,7 +592,7 @@ watchdog = ">=0.6.0"
 name = "pytest-xdist"
 version = "2.5.0"
 description = "pytest xdist plugin for distributed testing and loop-on-failing modes"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -637,7 +652,7 @@ python-versions = ">=3.6"
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -653,7 +668,7 @@ python-versions = ">=3.7"
 name = "tomlkit"
 version = "0.11.4"
 description = "Style preserving TOML library"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6,<4.0"
 
@@ -682,7 +697,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 name = "watchdog"
 version = "2.1.9"
 description = "Filesystem events monitoring"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -693,7 +708,7 @@ watchmedo = ["PyYAML (>=3.10)"]
 name = "wrapt"
 version = "1.14.1"
 description = "Module for decorators, wrappers and monkey patching."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
@@ -708,7 +723,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "8b71bd67ab6919910dc80b6893af1e43a04ec336c44f8dff036cb4515124aae4"
+content-hash = "d8fb10d1fca11610f6fd44c765dfbf4de0b92920b48a9a0512b25257871d67c0"
 
 [metadata.files]
 allpairspy = []
@@ -730,6 +745,7 @@ empty-files = []
 execnet = []
 expects = []
 flake8 = []
+flake8-pyproject = []
 glob2 = []
 idna = []
 iniconfig = []

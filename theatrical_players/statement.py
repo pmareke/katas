@@ -10,13 +10,14 @@ class Statement:
         self.lines: List[str] = []
 
     def process(self, invoice: Dict, plays: Dict) -> str:
-        self._generate_lines(invoice["customer"], invoice["performances"],
-                             plays)
-        return self._generate_report()
+        customer = invoice["customer"]
+        performances = invoice["performances"]
+        lines = self._generate_lines(customer, performances, plays)
+        return self._generate_report(lines)
 
     def _generate_lines(self, customer: str, performances: Dict,
-                        plays: Dict) -> None:
-        self.lines.append(f'Statement for {customer}')
+                        plays: Dict) -> List[str]:
+        lines = [f'Statement for {customer}']
         for performace in performances:
             play = plays[performace['playID']]
 
@@ -27,7 +28,8 @@ class Statement:
             self.total_amount += amount
 
             name = play["name"]
-            self._generate_line(name, amount, audience)
+            lines.append(self._generate_line(name, amount, audience))
+        return lines
 
     def _calculate_amount(self, play: Dict, performace: Dict) -> int:
         play_type = play["type"]
@@ -47,14 +49,14 @@ class Statement:
         return amount + 10000 + 500 * (audience -
                                        20) if audience > 20 else amount
 
-    def _generate_line(self, name: str, amount: int, audience: int) -> None:
+    def _generate_line(self, name: str, amount: int, audience: int) -> str:
         amount_in_dollars = self._format_as_dollars(amount)
-        self.lines.append(f' {name}: {amount_in_dollars} ({audience} seats)')
+        return f' {name}: {amount_in_dollars} ({audience} seats)'
 
-    def _generate_report(self) -> str:
+    def _generate_report(self, lines: List[str]) -> str:
         dollars = self._format_as_dollars(self.total_amount)
         return "\n".join([
-            *self.lines, f'Amount owed is {dollars}',
+            *lines, f'Amount owed is {dollars}',
             f'You earned {self.volume_credits} credits'
         ])
 

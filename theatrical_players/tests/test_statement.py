@@ -4,7 +4,7 @@ import pytest
 from approvaltests import verify
 from approvaltests.utils import get_adjacent_file
 
-from theatrical_players.statement import statement
+from theatrical_players.statement import Statement
 
 class TestStatement:
     def test_example_statement(self) -> None:
@@ -12,7 +12,9 @@ class TestStatement:
             invoice = json.loads(f.read())
         with open(get_adjacent_file("plays.json")) as f:
             plays = json.loads(f.read())
-        verify(statement(invoice, plays))
+
+        statement = Statement(invoice, plays)
+        verify(statement.process())
 
 
     def test_statement_with_new_play_types(self) -> None:
@@ -21,5 +23,6 @@ class TestStatement:
         with open(get_adjacent_file("new_plays.json")) as f:
             plays = json.loads(f.read())
         with pytest.raises(ValueError) as exception_info:
-            statement(invoice, plays)
+            statement = Statement(invoice, plays)
+            statement.process()
         assert "unknown type" in str(exception_info.value)

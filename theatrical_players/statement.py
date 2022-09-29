@@ -23,16 +23,15 @@ class Statement:
             audience = performace["audience"]
             self.volume_credits += max(audience - 30, 0)
 
-            amount = self._calculate_amount(play, performace)
+            play_type = play["type"]
+            amount = self._calculate_amount(play_type, audience)
             self.total_amount += amount
 
             name = play["name"]
             lines.append(self._generate_line(name, amount, audience))
         return lines
 
-    def _calculate_amount(self, play: Dict, performace: Dict) -> int:
-        play_type = play["type"]
-        audience = performace["audience"]
+    def _calculate_amount(self, play_type: str, audience: int) -> int:
         if play_type == "tragedy":
             return self._calculate_tragedy_amount(audience)
         if play_type == "comedy":
@@ -54,10 +53,11 @@ class Statement:
 
     def _generate_report(self, customer: str, lines: List[str]) -> str:
         dollars = self._format_as_dollars(self.total_amount)
-        return "\n".join([
+        lines = [
             f'Statement for {customer}', *lines, f'Amount owed is {dollars}',
             f'You earned {self.volume_credits} credits'
-        ])
+        ]
+        return "\n".join(lines)
 
     @staticmethod
     def _format_as_dollars(amount: float) -> str:

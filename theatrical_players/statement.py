@@ -12,12 +12,11 @@ class Statement:
     def process(self, invoice: Dict, plays: Dict) -> str:
         customer = invoice["customer"]
         performances = invoice["performances"]
-        lines = self._generate_lines(customer, performances, plays)
-        return self._generate_report(lines)
+        lines = self._generate_lines(performances, plays)
+        return self._generate_report(customer, lines)
 
-    def _generate_lines(self, customer: str, performances: Dict,
-                        plays: Dict) -> List[str]:
-        lines = [f'Statement for {customer}']
+    def _generate_lines(self, performances: Dict, plays: Dict) -> List[str]:
+        lines: List[str] = []
         for performace in performances:
             play = plays[performace['playID']]
 
@@ -53,10 +52,10 @@ class Statement:
         amount_in_dollars = self._format_as_dollars(amount)
         return f' {name}: {amount_in_dollars} ({audience} seats)'
 
-    def _generate_report(self, lines: List[str]) -> str:
+    def _generate_report(self, customer: str, lines: List[str]) -> str:
         dollars = self._format_as_dollars(self.total_amount)
         return "\n".join([
-            *lines, f'Amount owed is {dollars}',
+            f'Statement for {customer}', *lines, f'Amount owed is {dollars}',
             f'You earned {self.volume_credits} credits'
         ])
 

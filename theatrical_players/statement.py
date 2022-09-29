@@ -10,14 +10,13 @@ class Statement:
         self.lines: List[str] = []
 
     def process(self, invoice: Dict, plays: Dict) -> str:
-        self._initialize_report(invoice["customer"])
-        self._generate_lines(invoice["performances"], plays)
+        self._generate_lines(invoice["customer"], invoice["performances"],
+                             plays)
         return self._generate_report()
 
-    def _initialize_report(self, customer: str) -> None:
+    def _generate_lines(self, customer: str, performances: Dict,
+                        plays: Dict) -> None:
         self.lines.append(f'Statement for {customer}')
-
-    def _generate_lines(self, performances: Dict, plays: Dict) -> None:
         for performace in performances:
             play = plays[performace['playID']]
 
@@ -28,7 +27,7 @@ class Statement:
             self.total_amount += amount
 
             name = play["name"]
-            self._statement_line(name, amount, audience)
+            self._generate_line(name, amount, audience)
 
     def _calculate_amount(self, play: Dict, performace: Dict) -> int:
         play_type = play["type"]
@@ -48,10 +47,9 @@ class Statement:
         return amount + 10000 + 500 * (audience -
                                        20) if audience > 20 else amount
 
-    def _statement_line(self, name: str, amount: int, audience: int) -> None:
+    def _generate_line(self, name: str, amount: int, audience: int) -> None:
         amount_in_dollars = self._format_as_dollars(amount)
-        line = f' {name}: {amount_in_dollars} ({audience} seats)'
-        self.lines.append(line)
+        self.lines.append(f' {name}: {amount_in_dollars} ({audience} seats)')
 
     def _generate_report(self) -> str:
         dollars = self._format_as_dollars(self.total_amount)

@@ -1,11 +1,11 @@
 class Credit:
 
     def __init__(self, value: int = 0) -> None:
-        self.quantity = value
+        self._value = value
 
     def add(self, credit: "Credit") -> None:
-        self.quantity += credit.quantity
+        self._value += credit.value
 
     @property
     def value(self) -> int:
-        return self.quantity
+        return self._value

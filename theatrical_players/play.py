@@ -31,10 +31,9 @@ class TragedyPlay(Play):
 
     def calculate(self) -> None:
         self.credit = Credit()
-        if self.audience > 30:
-            self.amount = Amount(int(40000 + 1000 * (self.audience - 30)))
-        else:
-            self.amount = Amount(0)
+        self.amount = Amount(
+            int(40000 + 1000 *
+                (self.audience - 30))) if self.audience > 30 else Amount()
 
 
 class ComedyPlay(Play):
@@ -43,7 +42,7 @@ class ComedyPlay(Play):
         self.amount = Amount(30000 + (300 * self.audience))
         self.credit = Credit(math.floor(self.audience / 5))
         if self.audience > 20:
-            self.amount += Amount(10000 + 500 * (self.audience - 20))
+            self.amount.add(Amount(10000 + 500 * (self.audience - 20)))
 
 
 class PlayBuilder:

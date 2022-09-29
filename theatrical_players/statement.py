@@ -6,7 +6,7 @@ from theatrical_players.report import Report
 
 class Statement:
 
-    def __init__(self, report: Report = Report()) -> None:
+    def __init__(self, report: Report) -> None:
         self.report = report
 
     def process(self, invoice: Dict, plays: Dict) -> str:

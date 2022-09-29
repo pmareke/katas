@@ -1,4 +1,4 @@
-from typing import Dict, Tuple
+from typing import Dict, List
 import math
 
 
@@ -7,47 +7,50 @@ class Statement:
     def __init__(self, invoice: Dict, plays: Dict) -> None:
         self.invoice = invoice
         self.plays = plays
+        self.lines: List[str] = [f'Statement for {self.invoice["customer"]}']
+        self.total_amount = 0
+        self.volume_credits = 0
 
     def process(self) -> str:
-        total_amount = 0
-        volume_credits = 0
-        lines = [f'Statement for {self.invoice["customer"]}']
         for performace in self.invoice['performances']:
             play = self.plays[performace['playID']]
-            volume_credits, this_amount = self._play(play, performace,
-                                                     volume_credits)
+            amount = self._play(play, performace)
 
-            volume_credits += max(performace['audience'] - 30, 0)
-            total_amount += this_amount
+            self.volume_credits += max(performace['audience'] - 30, 0)
+            self.total_amount += amount
 
-            lines.append(
-                self._statement_line_per_play(play, this_amount, performace))
+            self._statement_line_per_play(play, amount, performace)
 
-        lines.append(f'Amount owed is {self._format_as_dollars(total_amount)}')
-        lines.append(f'You earned {volume_credits} credits')
-        return "\n".join(lines)
+        return self._report()
 
-    def _play(self, play: Dict, performace: Dict,
-              volume_credits: int) -> Tuple[int, int]:
+    def _play(self, play: Dict, performace: Dict) -> int:
         if play['type'] == "tragedy":
             this_amount = 40000
             if performace['audience'] > 30:
                 this_amount += 1000 * (performace['audience'] - 30)
         elif play['type'] == "comedy":
             this_amount = 30000 + (300 * performace['audience'])
-            volume_credits += math.floor(performace['audience'] / 5)
+            self.volume_credits += math.floor(performace['audience'] / 5)
             if performace['audience'] > 20:
                 this_amount += 10000 + 500 * (performace['audience'] - 20)
         else:
             raise ValueError(f'unknown type: {play["type"]}')
-        return volume_credits, this_amount
+        return this_amount
 
     def _statement_line_per_play(self, play: Dict, amount: int,
-                                 performace: Dict) -> str:
+                                 performace: Dict) -> None:
         name = play["name"]
         amount_in_dollars = self._format_as_dollars(amount)
         seats = performace["audience"]
-        return f' {name}: {amount_in_dollars} ({seats} seats)'
+        line = f' {name}: {amount_in_dollars} ({seats} seats)'
+        self.lines.append(line)
+
+    def _report(self) -> str:
+        dollars = self._format_as_dollars(self.total_amount)
+        return "\n".join([
+            *self.lines, f'Amount owed is {dollars}',
+            f'You earned {self.volume_credits} credits'
+        ])
 
     @staticmethod
     def _format_as_dollars(amount: float) -> str:

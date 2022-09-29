@@ -1,33 +1,23 @@
 from typing import Dict, List
 
-from theatrical_players.play import PlayBuilder
-from theatrical_players.amount import Amount
-from theatrical_players.credit import Credit
+from theatrical_players.play import PlayBuilder, Play
 from theatrical_players.report import Report
 
 
 class Statement:
 
-    def __init__(self) -> None:
-        self.total_amount = Amount()
-        self.volume_credits = Credit()
+    def __init__(self, report: Report = Report()) -> None:
+        self.report = report
 
     def process(self, invoice: Dict, plays: Dict) -> str:
-        lines: List[str] = []
+        calculated_plays: List[Play] = []
         for performace in invoice["performances"]:
             audience = performace["audience"]
-            play = plays[performace['playID']]
+            play_id = plays[performace["playID"]]
 
-            new_credit = Credit(max(audience - 30, 0))
-            self.volume_credits.add(new_credit)
+            play_build = PlayBuilder.build(play_id, audience)
+            play_build.calculate()
 
-            play_build = PlayBuilder.build(play)
-            amount, volume_credits = play_build.calculate(audience)
-            self.total_amount.add(amount)
-            self.volume_credits.add(volume_credits)
+            calculated_plays.append(play_build)
 
-            line = f' {play["name"]}: {amount.format} ({audience} seats)'
-            lines.append(line)
-
-        report = Report(invoice["customer"], lines)
-        return report.generate(self.total_amount, self.volume_credits)
+        return self.report.generate(invoice["customer"], calculated_plays)

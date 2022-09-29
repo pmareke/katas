@@ -1,47 +1,61 @@
 import math
-from typing import Tuple, Dict
+from typing import Dict
 from abc import ABC, abstractmethod
+from enum import Enum
 from dataclasses import dataclass
 from theatrical_players.amount import Amount
 from theatrical_players.credit import Credit
 
 
+class PlayTypes(Enum):
+    TRAGEDY = "tragedy"
+    COMEDY = "comedy"
+
+
 @dataclass  # type: ignore
 class Play(ABC):
     name: str
+    audience: int
+    amount: Amount = Amount()
+    credit: Credit = Credit()
 
     @abstractmethod
-    def calculate(self, audience: int) -> Tuple[Amount, Credit]:
+    def calculate(self) -> None:
         raise NotImplementedError()
+
+    def __str__(self) -> str:
+        return f' {self.name}: {self.amount.format} ({self.audience} seats)'
 
 
 class TragedyPlay(Play):
 
-    def calculate(self, audience: int) -> Tuple[Amount, Credit]:
-        credit = Credit()
-        if audience > 30:
-            return Amount(int(40000 + 1000 * (audience - 30))), credit
-        return Amount(0), credit
+    def calculate(self) -> None:
+        self.credit = Credit()
+        if self.audience > 30:
+            self.amount = Amount(int(40000 + 1000 * (self.audience - 30)))
+        else:
+            self.amount = Amount(0)
 
 
 class ComedyPlay(Play):
 
-    def calculate(self, audience: int) -> Tuple[Amount, Credit]:
-        amount = Amount(30000 + (300 * audience))
-        credit = Credit(math.floor(audience / 5))
-        if audience > 20:
-            return amount + Amount(10000 + 500 * (audience - 20)), credit
-        return amount, credit
+    def calculate(self) -> None:
+        self.amount = Amount(30000 + (300 * self.audience))
+        self.credit = Credit(math.floor(self.audience / 5))
+        if self.audience > 20:
+            self.amount += Amount(10000 + 500 * (self.audience - 20))
 
 
 class PlayBuilder:
 
     @staticmethod
-    def build(play: Dict) -> Play:
+    def build(play: Dict, audience: int) -> Play:
         play_type = play["type"]
         name = play["name"]
-        if play_type == "tragedy":
-            return TragedyPlay(name)
-        if play_type == "comedy":
-            return ComedyPlay(name)
-        raise ValueError(f'unknown type: {play_type}')
+        try:
+            return {
+                PlayTypes.TRAGEDY: TragedyPlay(name, audience),
+                PlayTypes.COMEDY: ComedyPlay(name, audience)
+            }[PlayTypes(play_type)]
+        except ValueError as exception:
+            raise ValueError(f'unknown type: {play_type}') from exception

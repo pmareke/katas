@@ -6,7 +6,9 @@ from approvaltests.utils import get_adjacent_file
 
 from theatrical_players.statement import Statement
 
+
 class TestStatement:
+
     def test_example_statement(self) -> None:
         with open(get_adjacent_file("invoice.json")) as f:
             invoice = json.loads(f.read())
@@ -15,7 +17,6 @@ class TestStatement:
 
         statement = Statement()
         verify(statement.process(invoice, plays))
-
 
     def test_statement_with_new_play_types(self) -> None:
         with open(get_adjacent_file("invoice_new_plays.json")) as f:

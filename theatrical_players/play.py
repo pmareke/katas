@@ -23,7 +23,7 @@ class Play(ABC):
     def calculate(self) -> None:
         raise NotImplementedError()
 
-    def __str__(self) -> str:
+    def format(self) -> str:
         return f' {self.name}: {self.amount.format} ({self.audience} seats)'
 
 

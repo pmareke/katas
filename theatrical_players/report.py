@@ -14,11 +14,11 @@ class Report:
         lines: List[str] = []
 
         for play in plays:
+            lines.append(play.format())
+
             credit.add(play.credit)
-            max_credit = Credit(max(play.audience - 30, 0))
-            credit.add(max_credit)
+            credit.add(Credit(max(play.audience - 30, 0)))
             amount.add(play.amount)
-            lines.append(str(play))
 
         return "\n".join([
             f'Statement for {customer}', *lines,

@@ -11,17 +11,10 @@ class Statement:
     def __init__(self) -> None:
         self.total_amount = Amount()
         self.volume_credits = Credit()
-        self.lines: List[str] = []
 
     def process(self, invoice: Dict, plays: Dict) -> str:
-        lines = self._generate_lines(invoice["performances"], plays)
-
-        report = Report(invoice["customer"], lines)
-        return report.generate(self.total_amount, self.volume_credits)
-
-    def _generate_lines(self, performances: Dict, plays: Dict) -> List[str]:
         lines: List[str] = []
-        for performace in performances:
+        for performace in invoice["performances"]:
             audience = performace["audience"]
             play = plays[performace['playID']]
 
@@ -35,4 +28,6 @@ class Statement:
 
             line = f' {play["name"]}: {amount.format} ({audience} seats)'
             lines.append(line)
-        return lines
+
+        report = Report(invoice["customer"], lines)
+        return report.generate(self.total_amount, self.volume_credits)

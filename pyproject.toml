@@ -17,17 +17,18 @@ Flake8-pyproject = "^1.1.0"
 doublex = { git = "https://github.com/davidvilla/python-doublex", rev = "0ccbe65c8574169d8b723c1ef29bcbe3f2e98c20" }
 doublex-expects = "^0.7.1"
 expects = "^0.9.0"
-mamba = "^0.11.2"
 pylint = "^2.15.2"
 pytest = "^7.1.3"
+pytest-approvaltests = "^0.2.4"
 pytest-xdist = "^2.5.0"
 pytest-watch = "^4.2.0"
 pytest-testmon = "^1.3"
 pytest-bdd = "^6.0.1"
 approvaltests = "^5.6.1"
+mamba = "^0.11.2"
 
 [tool.flake8]
-ignore= ["E501", "E124","E203", "W291", "W503", "W504"]
+ignore= ["E501", "E124","E203", "W291", "W503", "W504", "E302", "E303"]
 
 [tool.yapf]
 based_on_style = "google"

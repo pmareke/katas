@@ -26,6 +26,7 @@ Repository with solutions to several katas:
 - [X] [Bank](https://www.codurance.com/katalyst/bank)
 - [X] [Coffee Machine](https://simcap.github.io/coffeemachine/)
 - [ ] [Elephant Carpaccio](https://codingdojo.org/kata/elephant-carpaccio/)
+- [ ] [Theatrical Players](https://github.com/emilybache/Theatrical-Players-Refactoring-Kata)
 
 ## Hard
 - [X] [Permutations](https://www.codewars.com/kata/5254ca2719453dcc0b00027d)

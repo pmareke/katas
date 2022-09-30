@@ -7,11 +7,6 @@ from theatrical_players.amount import Amount
 from theatrical_players.credit import Credit
 
 
-class PlayTypes(Enum):
-    TRAGEDY = "tragedy"
-    COMEDY = "comedy"
-
-
 @dataclass  # type: ignore
 class Play(ABC):
     name: str
@@ -43,6 +38,11 @@ class ComedyPlay(Play):
         self.credit = Credit(math.floor(self.audience / 5))
         if self.audience > 20:
             self.amount.add(Amount(10000 + 500 * (self.audience - 20)))
+
+
+class PlayTypes(Enum):
+    TRAGEDY = "tragedy"
+    COMEDY = "comedy"
 
 
 class PlayBuilder:

@@ -50,11 +50,12 @@ class PlayBuilder:
     @staticmethod
     def build(play: Dict, audience: int) -> Play:
         play_type = play["type"]
-        name = play["name"]
+        play_name = play["name"]
         try:
-            return {
-                PlayTypes.TRAGEDY: TragedyPlay(name, audience),
-                PlayTypes.COMEDY: ComedyPlay(name, audience)
-            }[PlayTypes(play_type)]
+            build_map: Dict[PlayTypes, Play] = {
+                PlayTypes.TRAGEDY: TragedyPlay(play_name, audience),
+                PlayTypes.COMEDY: ComedyPlay(play_name, audience)
+            }
+            return build_map[PlayTypes(play_type)]
         except ValueError as exception:
             raise ValueError(f'unknown type: {play_type}') from exception

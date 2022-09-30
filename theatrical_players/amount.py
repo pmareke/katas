@@ -1,7 +1,9 @@
-class Amount:
+from dataclasses import dataclass
 
-    def __init__(self, value: int = 0) -> None:
-        self.value = value
+
+@dataclass
+class Amount:
+    value: int = 0
 
     def __add__(self, another: "Amount") -> "Amount":
         return Amount(self.value + another.value)

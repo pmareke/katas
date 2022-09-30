@@ -16,8 +16,7 @@ class Report:
         for play in plays:
             lines.append(play.format())
 
-            credit.add(play.credit)
-            credit.add(Credit(max(play.audience - 30, 0)))
+            credit.add(Credit(play.credit.value + max(play.audience - 30, 0)))
             amount.add(play.amount)
 
         return "\n".join([

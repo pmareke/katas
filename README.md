@@ -1,4 +1,4 @@
-# Katas
+# Katas ![status](https://github.com/pmareke/katas/actions/workflows/python-app.yml/badge.svg)
 
 Repository with solutions to several katas:
 

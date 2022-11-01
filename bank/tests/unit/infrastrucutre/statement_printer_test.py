@@ -1,7 +1,6 @@
 from doublex import Mimic, Mock
 from doublex_expects import have_been_satisfied
 from expects import expect
-from typing import List
 
 from bank.src.domain.transaction import Transaction, TransactionType
 from bank.src.domain.amount import Amount
@@ -23,7 +22,7 @@ class TestStatementPrinter:
         with Mimic(Mock, Console) as console:
             console.print_line("date || credit || debit || balance")
         statement_printer = StatementPrinter(console)
-        transactions: List[Transaction] = []
+        transactions: list[Transaction] = []
 
         statement_printer.print(transactions)
 

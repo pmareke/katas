@@ -1,4 +1,3 @@
-from typing import List
 import pytest
 
 from expects import expect, equal
@@ -23,7 +22,7 @@ from potter.potter import Potter
 class TestPotter:
 
     def test_calculates_the_total_price(self, expected_price: int,
-                                        items: List[int]) -> None:
+                                        items: list[int]) -> None:
         potter = Potter(items)
 
         total_price = potter.calculate_total_price()

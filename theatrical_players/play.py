@@ -1,5 +1,4 @@
 import math
-from typing import Dict
 from abc import ABC, abstractmethod
 from enum import Enum
 from dataclasses import dataclass
@@ -48,11 +47,11 @@ class PlayTypes(Enum):
 class PlayBuilder:
 
     @staticmethod
-    def build(play: Dict, audience: int) -> Play:
+    def build(play: dict, audience: int) -> Play:
         play_type = play["type"]
         play_name = play["name"]
         try:
-            build_map: Dict[PlayTypes, Play] = {
+            build_map: dict[PlayTypes, Play] = {
                 PlayTypes.TRAGEDY: TragedyPlay(play_name, audience),
                 PlayTypes.COMEDY: ComedyPlay(play_name, audience)
             }

@@ -1,5 +1,3 @@
-from typing import List
-
 from expects import equal, expect
 import pytest
 
@@ -31,6 +29,6 @@ from range_extraction import RangeExtraction
 )
 class TestRangeExtraction:
 
-    def test_extracts_a_range(self, input_list: List[int], output: str) -> None:
+    def test_extracts_a_range(self, input_list: list[int], output: str) -> None:
         range_extraction = RangeExtraction(input_list)
         expect(range_extraction.process()).to(equal(output))

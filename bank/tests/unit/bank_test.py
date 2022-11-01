@@ -1,5 +1,3 @@
-from typing import List
-
 from doublex import Mimic, Spy
 from doublex_expects import have_been_called_with
 from expects import expect
@@ -52,7 +50,7 @@ class TestBank:
                     ),
                 ]
             )
-        transactions: List[Transaction
+        transactions: list[Transaction
                           ] = transaction_repository.all_transactions()
         statement_printer = Mimic(Spy, StatementPrinter)
         account = Account(transaction_repository, statement_printer)

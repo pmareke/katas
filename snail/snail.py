@@ -1,11 +1,8 @@
-from typing import List
-
-
 class Snail:
 
     @staticmethod
-    def process(input_list: List[List[int]]) -> List[int]:
-        snail: List[int] = [input_list[0][0]]
+    def process(input_list: list[list[int]]) -> list[int]:
+        snail: list[int] = [input_list[0][0]]
         width = len(input_list)
         right, down = True, True
         x_coordinate, y_coordinate = 0, 0

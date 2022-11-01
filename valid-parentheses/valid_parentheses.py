@@ -1,11 +1,8 @@
-from typing import List
-
-
 class ValidParentheses:
 
     @staticmethod
     def is_valid(input_message: str) -> bool:
-        stack: List[str] = []
+        stack: list[str] = []
 
         for parenthesis in input_message:
             if parenthesis == "(":

@@ -1,15 +1,12 @@
-from typing import List
-
-
 class Permutations:
 
-    def process(self, word: str) -> List[str]:
+    def process(self, word: str) -> list[str]:
         if len(word) == 0:
             return []
         if len(word) == 1:
             return [word]
 
-        permutations: List[str] = []
+        permutations: list[str] = []
         for index, letter in enumerate(word):
             first = letter
             tail = word[:index] + word[index + 1:]

@@ -1,5 +1,3 @@
-from typing import List
-
 from expects import contain, expect
 import pytest
 
@@ -17,7 +15,7 @@ from permutations.permutations import Permutations
 class TestPermutastions:
 
     def test_permutates_a_word(self, input_string: str,
-                               output: List[str]) -> None:
+                               output: list[str]) -> None:
         permutations = Permutations()
         perms = permutations.process(input_string)
         for entry in output:

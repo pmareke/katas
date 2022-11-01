@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from typing import List
 
 from bank.src.domain.amount import Amount
 from bank.src.domain.transaction import Transaction
@@ -16,5 +15,5 @@ class TransactionRepository(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def all_transactions(self) -> List[Transaction]:
+    def all_transactions(self) -> list[Transaction]:
         raise NotImplementedError

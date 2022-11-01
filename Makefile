@@ -33,6 +33,7 @@ check-style:
 .PHONY: reformat
 reformat:  ## Format python code
 	poetry run yapf --parallel --recursive --in-place **/*.py
+	poetry run pyupgrade --py310-plus **/*.py
 
 .PHONY: test
 test: ## Run all available tests

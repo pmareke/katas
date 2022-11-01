@@ -1,4 +1,3 @@
-from typing import Dict
 from coffee_machine.src.domain.order import Order
 from coffee_machine.src.domain.drink import (
     Drink,
@@ -57,7 +56,7 @@ class CoffeeMachineCommandHandler:
         self.notifier = notifier
         self.checker = checker
         self.money = Money(0)
-        self.items_sell_by_type: Dict[Drink, int] = {}
+        self.items_sell_by_type: dict[Drink, int] = {}
 
     def add_money(self, money: Money) -> None:
         self.money = money

@@ -1,5 +1,3 @@
-from typing import List
-
 from expects import equal, expect
 import pytest
 
@@ -17,6 +15,6 @@ from sum_of_pairs import SumPairs
 )
 class TestSumPairs:
 
-    def test_calculates_sum_of_pairs(self, input_list: List[int], target: int,
-                                     result: List[int]) -> None:
+    def test_calculates_sum_of_pairs(self, input_list: list[int], target: int,
+                                     result: list[int]) -> None:
         expect(SumPairs.process(input_list, target)).to(equal(result))

@@ -1,5 +1,3 @@
-from typing import List
-
 from bank.src.domain.amount import Amount
 from bank.src.domain.transaction import Transaction, TransactionType
 from bank.src.domain.transaction_repository import TransactionRepository
@@ -10,7 +8,7 @@ class InMemoryTransactionRepository(TransactionRepository):
 
     def __init__(self, clock: Clock) -> None:
         self.clock = clock
-        self.transactions: List[Transaction] = []
+        self.transactions: list[Transaction] = []
 
     def add_deposit(self, deposit: Amount) -> None:
         self.transactions.append(
@@ -21,5 +19,5 @@ class InMemoryTransactionRepository(TransactionRepository):
             Transaction(TransactionType.WITHDRAW, self.clock.today(),
                         withdraw))
 
-    def all_transactions(self) -> List[Transaction]:
+    def all_transactions(self) -> list[Transaction]:
         return self.transactions

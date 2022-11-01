@@ -1,5 +1,3 @@
-from typing import Dict, List
-
 from theatrical_players.play import PlayBuilder, Play
 from theatrical_players.report import Report
 
@@ -9,8 +7,8 @@ class Statement:
     def __init__(self, report: Report) -> None:
         self.report = report
 
-    def process(self, invoice: Dict, plays: Dict) -> str:
-        calculated_plays: List[Play] = []
+    def process(self, invoice: dict, plays: dict) -> str:
+        calculated_plays: list[Play] = []
         for performace in invoice["performances"]:
             audience = performace["audience"]
             play_id = plays[performace["playID"]]

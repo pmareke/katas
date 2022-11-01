@@ -1,5 +1,3 @@
-from typing import List
-
 from theatrical_players.amount import Amount
 from theatrical_players.credit import Credit
 from theatrical_players.play import Play
@@ -8,10 +6,10 @@ from theatrical_players.play import Play
 class Report:
 
     @staticmethod
-    def generate(customer: str, plays: List[Play]) -> str:
+    def generate(customer: str, plays: list[Play]) -> str:
         credit = Credit()
         amount = Amount()
-        lines: List[str] = []
+        lines: list[str] = []
 
         for play in plays:
             lines.append(play.format())

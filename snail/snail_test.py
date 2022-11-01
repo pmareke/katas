@@ -1,5 +1,3 @@
-from typing import List
-
 from expects import equal, expect
 import pytest
 
@@ -21,6 +19,6 @@ from snail.snail import Snail
 )
 class TestSnail:
 
-    def test_snails_an_array(self, input_list: List[List[int]],
-                             output: List[int]) -> None:
+    def test_snails_an_array(self, input_list: list[list[int]],
+                             output: list[int]) -> None:
         expect(Snail.process(input_list)).to(equal(output))

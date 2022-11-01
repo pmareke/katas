@@ -1,5 +1,4 @@
 import re
-from typing import Dict
 
 
 class TextProcessing:
@@ -7,7 +6,7 @@ class TextProcessing:
     @staticmethod
     def process(input_text: str) -> str:
         result = ["Those are the top 10 words used:", ""]
-        seen: Dict = {}
+        seen: dict = {}
 
         number_of_words = 0
         lines = input_text.split("\n")

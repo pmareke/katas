@@ -25,10 +25,12 @@ class TestGame:
     def test_a_dead_cell_with_exactly_three_live_neighbours_will_come_to_life(
         self
     ) -> None:
+        dead_cell = DeadCell()
+        live_cell = AliveCell()
         cells: List[List[Cell]] = [
-            [DeadCell(), AliveCell(), DeadCell()],
-            [DeadCell(), DeadCell(), AliveCell()],
-            [DeadCell(), AliveCell(), DeadCell()]
+            [dead_cell, live_cell, dead_cell],
+            [dead_cell, dead_cell, live_cell],
+            [dead_cell, live_cell, dead_cell],
         ]
         board = Board(cells)
         game = GameFactory.make(board)
@@ -38,10 +40,12 @@ class TestGame:
         expect(type(game.board.cells[1][1])).to(be(AliveCell))
 
     def test_a_live_cell_with_fewer_than_two_live_neighbours_dies(self) -> None:
+        dead_cell = DeadCell()
+        live_cell = AliveCell()
         cells: List[List[Cell]] = [
-            [DeadCell(), DeadCell(), DeadCell()],
-            [DeadCell(), AliveCell(), DeadCell()],
-            [DeadCell(), DeadCell(), DeadCell()]
+            [dead_cell, dead_cell, dead_cell],
+            [dead_cell, live_cell, dead_cell],
+            [dead_cell, dead_cell, dead_cell],
         ]
         board = Board(cells)
         game = GameFactory.make(board)
@@ -53,10 +57,11 @@ class TestGame:
     def test_a_live_cell_with_more_than_three_live_neighbours_dies(
         self
     ) -> None:
+        live_cell = AliveCell()
         cells: List[List[Cell]] = [
-            [AliveCell(), AliveCell(), AliveCell()],
-            [AliveCell(), AliveCell(), AliveCell()],
-            [AliveCell(), AliveCell(), AliveCell()]
+            [live_cell, live_cell, live_cell],
+            [live_cell, live_cell, live_cell],
+            [live_cell, live_cell, live_cell],
         ]
         board = Board(cells)
         game = GameFactory.make(board)
@@ -68,10 +73,12 @@ class TestGame:
     def test_a_live_cell_with_two_or_three_live_neighbours_lives_unchanged(
         self
     ) -> None:
+        dead_cell = DeadCell()
+        live_cell = AliveCell()
         cells: List[List[Cell]] = [
-            [DeadCell(), DeadCell(), AliveCell()],
-            [DeadCell(), AliveCell(), AliveCell()],
-            [DeadCell(), DeadCell(), AliveCell()]
+            [dead_cell, dead_cell, live_cell],
+            [dead_cell, live_cell, live_cell],
+            [dead_cell, dead_cell, live_cell],
         ]
         board = Board(cells)
         game = GameFactory.make(board)

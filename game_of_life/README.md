@@ -15,4 +15,4 @@ When calculating the next generation of the grid, follow these rules:
 * Any live cell with two or three live neighbours lives, unchanged, to the next generation.
 * Any dead cell with exactly three live neighbours will come to life.
 
-The code should allow for the board/world to be created with a valid initial state, or a randomly generated state.
+The code should allow for the board/world to be created with a randomly generated state.

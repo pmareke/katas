@@ -6,11 +6,11 @@ class Cell:
     alive: bool
 
 
-class AliveCell:
+class AliveCell(Cell):
     def __init__(self) -> None:
-        self.cell = Cell(True)
+        super().__init__(True)
 
 
-class DeadCell:
+class DeadCell(Cell):
     def __init__(self) -> None:
-        self.cell = Cell(False)
+        super().__init__(False)

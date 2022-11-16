@@ -7,6 +7,9 @@ from game_of_life.src.board import Board
 class Game:
     board: Board
 
+    def next(self) -> None:
+        self.board.update()
+
 
 class GameFactory:
     @staticmethod

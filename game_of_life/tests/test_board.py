@@ -18,3 +18,12 @@ class TestBoard:
 
         expect(board.cells).to(have_length(1))
         expect(board.cells[0]).to(have_length(1))
+
+    def test_updates_a_board(self) -> None:
+        cells: List[List[Cell]] = [[DeadCell()]]
+        board = Board(cells)
+
+        board.update()
+
+        expect(board.cells).to(have_length(1))
+        expect(board.cells[0]).to(have_length(1))

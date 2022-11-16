@@ -7,3 +7,4 @@ class TestBoard:
         board = BoardFactory.make(rows=3, columns=4)
 
         expect(board.cells).to(have_length(3))
+        expect(board.cells[0]).to(have_length(4))

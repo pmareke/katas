@@ -9,6 +9,19 @@ from game_of_life.src.cell import AliveCell, Cell, DeadCell
 class Board:
     cells: List[List[Cell]]
 
+    def __str__(self) -> str:
+        str_cells: List[str] = []
+        for row in self.cells:
+            str_cells.append(
+                " ".join(["*" if column.alive else "X" for column in row])
+            )
+        lines = [
+            "- " * len(self.cells[0]),
+            "\n".join(str_cells),
+            "- " * len(self.cells[0]),
+        ]
+        return "\n".join(lines)
+
     def update(self) -> None:
         new_cells: List[List[Cell]] = []
         for row_index, _ in enumerate(self.cells):

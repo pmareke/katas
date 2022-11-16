@@ -56,5 +56,9 @@ ohce: ## Run ohce kata
 coffee-machine: ## Run coffee machine
 	PYTHONPATH=. poetry run python coffee_machine/main.py
 
+.PHONY: game-of-life
+game-of-life: ## Run Game of Life
+	PYTHONPATH=. poetry run python game_of_life/game_of_live.py
+
 .PHONY: pre-commit
 pre-commit: check-format check-typing check-style test

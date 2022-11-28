@@ -14,6 +14,7 @@ Repository with solutions to several katas:
 - [X] [Employee Report](https://codingdojo.org/kata/Employee-Report/)
 - [X] [Ohce](https://garajeando.blogspot.com/2016/05/the-ohce-kata-short-and-simple-exercise.html)
 - [X] [Guest the random number](https://www.codurance.com/katalyst/random-number-kata)
+- [ ] [Fantasy Battle Refactoring](https://github.com/Neppord/FantasyBattle-Refactoring-Kata)
 
 ## Medium
 - [X] [Gilded Rose](https://github.com/NotMyself/GildedRose)

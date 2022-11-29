@@ -28,7 +28,8 @@ Repository with solutions to several katas:
 - [X] [Coffee Machine](https://simcap.github.io/coffeemachine/)
 - [ ] [Elephant Carpaccio](https://codingdojo.org/kata/elephant-carpaccio/)
 - [X] [Theatrical Players](https://github.com/emilybache/Theatrical-Players-Refactoring-Kata)
-- [ ] [Game of Life](https://codingdojo.org/kata/GameOfLife/)
+- [X] [Game of Life](https://codingdojo.org/kata/GameOfLife/)
+- [ ] [Corporate Hotel Booking](https://github.com/sandromancuso/corporate-hotel-booking-kata)
 
 ## Hard
 - [X] [Permutations](https://www.codewars.com/kata/5254ca2719453dcc0b00027d)

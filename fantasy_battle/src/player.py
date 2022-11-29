@@ -1,9 +1,9 @@
-from Damage import Damage
-from Equipment import Equipment
-from Inventory import Inventory
-from Item import Item
-from Stats import Stats
-from Target import Target, SimpleEnemy
+from fantasy_battle.src.damage import Damage
+from fantasy_battle.src.equipment import Equipment
+from fantasy_battle.src.inventory import Inventory
+from fantasy_battle.src.item import Item
+from fantasy_battle.src.stats import Stats
+from fantasy_battle.src.target import SimpleEnemy, Target
 
 
 class Player(Target):
@@ -19,7 +19,7 @@ class Player(Target):
         soak = self.__get_soak(other, total_damage)
         return Damage(max(0, total_damage - soak))
 
-    def __get_base_damage(self):
+    def __get_base_damage(self) -> float:
         inventory: Inventory = self.inventory
         equipment: Equipment = inventory.equipment
         left_hand: Item = equipment.left_hand
@@ -27,7 +27,7 @@ class Player(Target):
         head: Item = equipment.head
         feat: Item = equipment.feet
         chest: Item = equipment.chest
-        return (
+        return float(
             left_hand.base_damage +
             right_hand.base_damage +
             head.base_damage +
@@ -35,7 +35,7 @@ class Player(Target):
             chest.base_damage
         )
 
-    def __get_damage_modifier(self):
+    def __get_damage_modifier(self) -> float:
         equipment: Equipment = self.inventory.equipment
         left_hand: Item = equipment.left_hand
         right_hand: Item = equipment.right_hand
@@ -44,7 +44,7 @@ class Player(Target):
         chest: Item = equipment.chest
         stats: Stats = self.stats
         strength_modifier: float = stats.strength * 0.1
-        return (
+        return float(
             strength_modifier +
             left_hand.damage_modifier +
             right_hand.damage_modifier +
@@ -54,11 +54,10 @@ class Player(Target):
         )
 
     @staticmethod
-    def __get_soak(other: Target, total_damage: int):
+    def __get_soak(other: Target, total_damage: int) -> int:
         soak: int = 0
         if isinstance(other, Player):
             # TODO: Not implemented yet
-            #   Add friendly fire
             soak = total_damage
         elif isinstance(other, SimpleEnemy):
             simple_enemy: SimpleEnemy = other

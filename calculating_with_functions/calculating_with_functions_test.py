@@ -3,7 +3,7 @@ from collections.abc import Callable
 from expects import equal, expect
 import pytest
 
-from calculating_with_functions import (
+from calculating_with_functions.calculating_with_functions import (
     divided_by,
     eight,
     five,

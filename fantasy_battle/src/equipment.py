@@ -1,4 +1,4 @@
-from Item import Item
+from fantasy_battle.src.item import Item
 
 
 class Equipment:

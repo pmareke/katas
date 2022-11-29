@@ -1,7 +1,7 @@
 from typing import List
 
-from Armor import Armor
-from Buff import Buff
+from fantasy_battle.src.armor import Armor
+from fantasy_battle.src.buff import Buff
 
 
 class Target:

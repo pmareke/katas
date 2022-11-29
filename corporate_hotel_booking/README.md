@@ -16,16 +16,10 @@ The four services are described below. The `<?>` indicates you can use whatever 
 Used by the hotel manager to define the types and number of rooms of each type the hotel has. It 
 also can return hotel information given a hotel ID. 
 
-```java
-    public class HotelService {
-    
-        // Collaborators(?)
-    
-        void setRoomType(<?> hotelId, <?> roomType, int quantity);
-        
-        <?> findHotelBy(<?> hotelId); 
-    
-    }
+```python
+class HotelService(ABC):
+  setRoomType(hotelId: <?>, roomType: <?>, quantity: int): None
+  findHotelBy(<?> hotelId): <?>
 ```
 
 **Rules**
@@ -40,16 +34,11 @@ The `findHotelBy(<?> hotelId)` should return all the information about number of
 
 Enables company admins to add and delete employees. 
 
-```java
-    public class CompanyService {
-                
-        // Collaborators(?)
-    
-        void addEmployee(<?> companyId, <?> employeeId);
-        
-        void deleteEmployee(<?> employeeId);
-    
-    }
+
+```python
+class CompanyService(ABC):
+  addEmployee(companyId: <?>, employeeId: <?>): None
+  deleteEmployee(employeeId: <?>): None
 ```  
 
 **Rules**
@@ -68,19 +57,12 @@ to be booked. Or it may allow standard and junior suite rooms.
 * Employee Booking Policy: Indicates which type of rooms a specific employee can book. E.g. One employee might only be 
 allowed to book a standard room while another employee may be allowed to book standard, junior suite and master suite. 
 
-```java
-    public class BookingPolicyService {
-    
-        // Collaborators(?)
-    
-        void setCompanyPolicy(<?> companyId, <?> roomTypes);
-        
-        void setEmployeePolicy(<?> employeeId, <?> roomTypes);
-        
-        boolean isBookingAllowed(<?> employeeId, <?> roomType);
-    
-    }
-``` 
+```python
+class BookingPolicyService(ABC):
+  setCompanyPolicy(companyId: <?>, roomTypes: <?>): None
+  setEmployeePolicy(employeeId: <?>, roomTypes: <?>): None
+  isBookingAllowed(employeeId: <?>, roomType: <?>): bool
+```
 
 **Business Rules**
 
@@ -99,14 +81,10 @@ one. No duplicate company or employee policies are allowed.
 
 Allows employees to book rooms at hotels. 
 
-```java
-    public class BookingService {
-    
-        // Collaborators (?)
-        
-        <?> book(<?> employeeId, <?> hotelId, <?> roomType, Date checkIn, Date checkOut);
-    
-    }
+
+```python
+class BookingService(ABC):
+  book(employeeId: <?>, hotelId: <?>, roomType: <?>, Date checkIn, Date checkOut): <?>
 ```
 
 **Rules**

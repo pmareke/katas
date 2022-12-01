@@ -34,6 +34,10 @@ ignore= ["E501", "E124","E203", "W291", "W503", "W504", "E302", "E303"]
 [tool.yapf]
 based_on_style = "google"
 
+[tool.pyright]
+venvPath="/home/pmareke/.cache/pypoetry/virtualenvs"
+venv="aoc-7x1CD7iW-py3.10"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

@@ -17,7 +17,7 @@ Repository with solutions to several katas:
 - [ ] [Fantasy Battle Refactoring](https://github.com/Neppord/FantasyBattle-Refactoring-Kata)
 
 ## Medium
-- [X] [Gilded Rose](https://github.com/NotMyself/GildedRose)
+- [X] [Gilded Rose](https://github.com/emilybache/GildedRose-Refactoring-Kata)
 - [ ] [Potter](https://codingdojo.org/kata/Potter/)
 - [X] [Range extraction](https://www.codewars.com/kata/51ba717bb08c1cd60f00002f)
 - [X] [Sum of Pairs](https://www.codewars.com/kata/54d81488b981293527000c8f)

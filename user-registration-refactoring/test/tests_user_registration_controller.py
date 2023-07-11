@@ -7,8 +7,9 @@ from src.framework.views import UserController
 
 class UserRegistrationControllerTestCase(TestCase):
     def setUp(self) -> None:
+        self.user_repository = UserFrameworkRepository()
         self.factory = RequestFactory()
-        self.view = UserController.as_view()
+        self.view = UserController.as_view(user_repository=self.user_repository)
 
     def test_should_success_when_everything_is_valid(self) -> None:
         request = self.factory.post('/users', {'name': 'Codium', 'email': 'info@codium.team', 'password': 'myPass_123123'})
@@ -61,11 +62,11 @@ class UserRegistrationControllerTestCase(TestCase):
         request = self.factory.post('/users', {'name': 'Codium', 'email': 'info@codium.team', 'password': 'myPass_123123'})
         self.view(request)
 
-        user = UserFrameworkRepository.get_instance().find_by_email('info@codium.team')
+        user = self.user_repository.find_by_email('info@codium.team')
         self.assertIsNotNone(user)
 
     def test_should_fail_when_email_is_used(self) -> None:
-        UserFrameworkRepository.get_instance().save(User(1, 'Codium', 'info@codium.team'))
+        self.user_repository.save(User(1, 'Codium', 'info@codium.team'))
 
         request = self.factory.post('/users', {'name': 'Codium', 'email': 'info@codium.team', 'password': 'myPass_123123'})
         response = self.view(request)

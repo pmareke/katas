@@ -38,6 +38,7 @@ reformat:  ## Format python code
 .PHONY: test
 test: ## Run all available tests
 	PYTHONPATH=. poetry run pytest -n auto
+	PYTHONPATH=. poetry run python user-registration-refactoring/manage.py test user-registration-refactoring/test
 	PYTHONPATH=. poetry run mamba .
 
 .PHONY: watch

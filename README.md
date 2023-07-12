@@ -39,7 +39,7 @@ Repository with solutions to several katas:
 - [X] [Tiered pricing](https://github.com/CodelyTV/refactoring-code-smells/tree/master/exercises/tiered_pricing)
 
 ## Codium
-- [ ] [User Registration](https://github.com/CodiumTeam/legacy-training-python/tree/master/user-registration-refactoring-kata)
+- [X] [User Registration](https://github.com/CodiumTeam/legacy-training-python/tree/master/user-registration-refactoring-kata)
 
 ## How to run the tests:
 

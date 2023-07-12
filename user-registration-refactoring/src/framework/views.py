@@ -2,12 +2,14 @@ from django.http import JsonResponse, HttpResponseBadRequest, HttpRequest, HttpR
 from django.views import View
 
 from src.domain.exceptions import EmailAlreadyInUseException, InvalidPasswordException
-from src.infrastructure.user_framework_repository import UserFrameworkRepository
+from src.infrastructure.smtp_email_sender import SmtpEmailSender
+from src.infrastructure.user_framework_repository import InMemoryUserRepository
 from src.use_cases.register_user import RegisterUser
 
 class UserController(View):
-    user_repository = UserFrameworkRepository()
-    register_user = RegisterUser(user_repository)
+    user_repository = InMemoryUserRepository()
+    email_sender = SmtpEmailSender()
+    register_user = RegisterUser(user_repository, email_sender)
 
     def __init__(self, register_user: RegisterUser) -> None:
         self.register_user = register_user

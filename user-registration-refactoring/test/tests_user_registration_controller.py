@@ -3,14 +3,15 @@ import json
 
 from django.test import RequestFactory, TestCase
 from src.domain.user import User
-from src.infrastructure.user_framework_repository import UserFrameworkRepository
+from src.infrastructure.user_framework_repository import InMemoryUserRepository
 from src.framework.views import UserController
 from src.use_cases.register_user import RegisterUser
+from doublex import Stub
 
 class UserRegistrationControllerTestCase(TestCase):
     def setUp(self) -> None:
-        self.user_repository = UserFrameworkRepository()
-        register_user = RegisterUser(self.user_repository)
+        self.user_repository = InMemoryUserRepository()
+        register_user = RegisterUser(self.user_repository, Stub())
         self.factory = RequestFactory()
         self.view = UserController.as_view(register_user=register_user)
 

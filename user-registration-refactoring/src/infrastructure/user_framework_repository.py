@@ -1,10 +1,10 @@
+from src.domain.user_repository import UserRepository
 from src.domain.user import User
 
 
-class UserFrameworkRepository:
+class InMemoryUserRepository(UserRepository):
     def __init__(self) -> None:
         self.users: dict[str, User] = {}
-        self.repository: "UserFrameworkRepository" | None = None
 
     def save(self, user: User) -> None:
         self.users[user.email] = user

@@ -1,15 +1,18 @@
 import json
 
+
 from django.test import RequestFactory, TestCase
 from src.domain.user import User
 from src.infrastructure.user_framework_repository import UserFrameworkRepository
 from src.framework.views import UserController
+from src.use_cases.register_user import RegisterUser
 
 class UserRegistrationControllerTestCase(TestCase):
     def setUp(self) -> None:
         self.user_repository = UserFrameworkRepository()
+        register_user = RegisterUser(self.user_repository)
         self.factory = RequestFactory()
-        self.view = UserController.as_view(user_repository=self.user_repository)
+        self.view = UserController.as_view(register_user=register_user)
 
     def test_should_success_when_everything_is_valid(self) -> None:
         request = self.factory.post('/users', {'name': 'Codium', 'email': 'info@codium.team', 'password': 'myPass_123123'})

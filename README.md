@@ -40,7 +40,7 @@ Repository with solutions to several katas:
 
 ## Codium
 - [X] [User Registration](https://github.com/CodiumTeam/legacy-training-python/tree/master/user-registration-refactoring-kata)
-- [ ] [Print Date](https://github.com/CodiumTeam/legacy-training-python/tree/master/print-date-original-kata)
+- [X] [Print Date](https://github.com/CodiumTeam/legacy-training-python/tree/master/print-date-original-kata)
 
 ## How to run the tests:
 

@@ -34,6 +34,7 @@ Repository with solutions to several katas:
 ## Hard
 - [X] [Permutations](https://www.codewars.com/kata/5254ca2719453dcc0b00027d)
 - [X] [Calculating with Functions](https://www.codewars.com/kata/525f3eda17c7cd9f9e000b39)
+- [ ] [RPG Combat](https://github.com/ardalis/kata-catalog/blob/main/katas/RPG%20Combat.md)
 
 ## Codely
 - [X] [Tiered pricing](https://github.com/CodelyTV/refactoring-code-smells/tree/master/exercises/tiered_pricing)
